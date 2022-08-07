@@ -21,5 +21,7 @@ O sistema da farmácia é destinado aos farmacêuticos e, basicamente, cadastrar
  * **REQ3** - O sistema deve permitir o gerenciamento (Create, Recover, Update e Delete - CRUD) de clientes e produtos e produtos e algumas dessas ações podem ser realizadas por funcionários comuns, entretanto, para realizar criação de produtos, alteração e exclusão dos mesmo o usuário deve ser um administrador.
  
  * **REQ4** - O sistema deve permitir o gerenciamento (CRUD) de funcionários da empresa e essa ação somente poderá ser executada por usuários administradores. Usuários administradores também podem executar todas as funcionalidades que um funcionário comum pode executar.
+ 
+ * **REQ5** - Ao realizar uma venda, o sistema deve salvá-la em um histórico de vendas associado ao cliente.
 
 
