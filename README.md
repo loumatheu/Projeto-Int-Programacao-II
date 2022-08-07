@@ -14,10 +14,6 @@ O sistema da farmácia é destinado aos farmacêuticos e, basicamente, cadastrar
 
 
 ## Requisitos do projeto
-Liste de forma numerada e com identificadores únicos os seus requisitos de projeto. 
-A descrição de cada requisito deve ser breve, porém informativa. 
-Exemplo de requisitos para um sistema de automação comercial (A INFORMAÇÃO ABAIXO É SOMENTE UM EXEMPLO E DEVE SER ALTERADA):
-
  * **REQ1** - O sistema deve controlar o acesso através de login e senha. Os usuários do sistema serão do tipo administrador e funcionário.
 
  * **REQ2** - O sistema deve permitir a venda de produtos previamente cadastrados e salvá-los como em um histórico de vendas por cliente. Cada venda de produto deve ser associada a um cliente único.
@@ -26,4 +22,4 @@ Exemplo de requisitos para um sistema de automação comercial (A INFORMAÇÃO A
  
  * **REQ4** - O sistema deve permitir o gerenciamento (CRUD) de funcionários da empresa e essa ação somente poderá ser executada por usuários administradores. Usuários administradores também podem executar todas as funcionalidades que um funcionário comum pode executar.
 
-ATENÇÃO - A sua lista de requisitos não deve ultrapassar mais de 30 itens.
+
