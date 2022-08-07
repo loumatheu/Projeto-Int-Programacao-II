@@ -10,7 +10,7 @@ Sistema - Farmácia
 
 
 ## Descrição geral do projeto 
-O sistema da farmácia é destinado aos farmacêuticos e, basicamente, cadastraria os produtos, clientes e médicos parceios. Além disso, quando o cliente fosse atendido o sistema seria capaz de buscar o médico para identificar se ele realmente existe. Ademais, o sistema exibiria detalhes do paciente, ou seja, diria se ele possui alguma enfermidade e que impossibilita ele de utilizar alguma medicação. E, também, possuiria um login para usuário (funcionário comum) e administrador, o qual é responsável por adicionar e remover funcionários, além de ter acesso total aos produtos e clientes podendo, também, modificá-los e excluílos. Enquanto isso, os funcionários podem cadastrar os clientes e visualizar os produtos e informações extras sobre os clientes.
+O programa deve ser capaz de permitir o gerenciamento de funcionários, clientes, produtos e vendas em uma farmácia, permitindo que sejam registrados e excluídos funcionários por administradores (checados por login e senha), enquanto produtos, clientes e vendas podem ser gerenciados por qualquer funcionário.
 
 
 ## Requisitos do projeto
