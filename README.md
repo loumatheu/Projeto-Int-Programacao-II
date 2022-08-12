@@ -14,7 +14,7 @@ O programa deve ser capaz de permitir o gerenciamento de funcionários, clientes
 
 
 ## Requisitos do projeto
- * **REQ1** - O sistema deve controlar o acesso através de login e senha. Os usuários do sistema serão do tipo administrador e estudante.
+ * **REQ1** - O sistema deve controlar o acesso através de login e senha. Os usuários do sistema serão do tipo administrador, funcionário e estudante.
 
  * **REQ2** - O sistema deve permitir a venda das fichas para o almoço e jantar no RU, e cada venda estará associada a um único estudante.
  
@@ -24,7 +24,7 @@ O programa deve ser capaz de permitir o gerenciamento de funcionários, clientes
 
  * **REQ5** - O sistema deve permitir o gerenciamento (Create, Recover, Update e Delete - CRUD) de fichas de almoço/jantar, e essas ações podem ser realizadas por um administrador.
  
- * **REQ6** - Ao adentrar o restaurante, antes do discente pegar a bandeija com o seu prato um QR code deve ser lido pelo app. 
+ * **REQ6** - Ao adentrar o restaurante, antes do discente pegar a bandeja com o seu prato um QR code deve ser lido pelo app. 
  
  * **REQ7** - O sistema deve mostrar qual o prato da semana e quantas fichas o discente ainda tem disponível para o almoço e jantar.
   
