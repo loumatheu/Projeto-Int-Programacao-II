@@ -10,7 +10,7 @@ RU
 
 
 ## Descrição geral do projeto 
-O programa deve ser capaz de permitir o gerenciamento de funcionários, clientes, produtos e vendas em uma farmácia, permitindo que sejam registrados e excluídos funcionários por administradores (checados por login e senha), enquanto produtos, clientes e vendas podem ser gerenciados por qualquer funcionário.
+O programa deve ser capaz de permitir o gerenciamento de funcionários, clientes, produtos e vendas do RU, permitindo que sejam registrados e excluídos funcionários por administradores (checados por login e senha), enquanto produtos, clientes e vendas podem ser gerenciados por qualquer funcionário.
 
 
 ## Requisitos do projeto
