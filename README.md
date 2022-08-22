@@ -1,3 +1,4 @@
+![IMG-20220822-WA0006](https://user-images.githubusercontent.com/110630396/185920215-3279ef1f-f5c4-4366-a26c-19a7da9532dd.jpg)
 # Projeto RU v.1.2
 RU
 
