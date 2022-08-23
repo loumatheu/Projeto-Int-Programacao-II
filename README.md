@@ -1,4 +1,5 @@
-![IMG-20220822-WA0006](https://user-images.githubusercontent.com/110630396/185920215-3279ef1f-f5c4-4366-a26c-19a7da9532dd.jpg)
+![diagrama UML](https://user-images.githubusercontent.com/82189594/186231033-c3a72d43-3b58-48e3-8f01-f6f4327e4c7e.jpeg)
+
 # Projeto RU v.1.2
 RU
 
