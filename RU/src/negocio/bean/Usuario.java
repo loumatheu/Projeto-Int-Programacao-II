@@ -1,3 +1,5 @@
+package negocio.bean;
+
 import java.time.LocalDate;
 
 public abstract class Usuario {
@@ -67,7 +69,8 @@ public abstract class Usuario {
 
     @Override
     public String toString() {
-        return String.format("Nome: %s\n CPF: %s\nData de nascimento: %s\nE-mail: %s\nCódigo: %s", nome, cpf, dataDeNascimento, email, codigo);
+        return String.format("Nome: %s\n CPF: %s\nData de nascimento: %s\nE-mail: %s\nCódigo: %s", nome, cpf,
+                dataDeNascimento, email, codigo);
     }
 
 }
