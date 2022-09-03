@@ -1,3 +1,3 @@
-public class TipoRefeicao {
-    
+public enum TipoRefeicao {
+    ALMOCO, JANTAR;
 }
