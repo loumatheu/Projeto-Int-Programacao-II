@@ -1,6 +1,7 @@
 package negocio.bean;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Funcionario extends Usuario {
 
@@ -13,8 +14,14 @@ public class Funcionario extends Usuario {
         this.salario = salario;
         this.dataAdmin = dataAdmin;
     }
+    
 
-    public double getSalario() {
+    public Funcionario(String codigo, String nome, String cpf, LocalDate dataDeNascimento, String email, String senha) {
+		super(codigo, nome, cpf, dataDeNascimento, email, senha);
+	}
+
+
+	public double getSalario() {
         return salario;
     }
 
@@ -37,5 +44,14 @@ public class Funcionario extends Usuario {
                 super.getNome(), super.getCpf(), super.getDataDeNascimento(), super.getEmail(), super.getCodigo(),
                 salario);
     }
+
+
+	
+
+	@Override
+	public boolean equals(Object obj) {
+		return super.equals(obj);
+	}
+    
 
 }

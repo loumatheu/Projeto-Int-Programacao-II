@@ -1,6 +1,7 @@
 package negocio.bean;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Estudante extends Usuario {
 
@@ -11,8 +12,14 @@ public class Estudante extends Usuario {
         super(codigo, nome, cpf, dataDeNascimento, email, senha);
         this.matricula = matricula;
     }
+    
 
-    public String getMatricula() {
+    public Estudante(String codigo, String nome, String cpf, LocalDate dataDeNascimento, String email, String senha) {
+		super(codigo, nome, cpf, dataDeNascimento, email, senha);
+	}
+
+
+	public String getMatricula() {
         return matricula;
     }
 
@@ -27,5 +34,15 @@ public class Estudante extends Usuario {
                 super.getNome(),
                 super.getCpf(), super.getDataDeNascimento(), super.getEmail(), super.getCodigo(), matricula);
     }
+
+
+	
+
+
+	@Override
+	public boolean equals(Object obj) {
+		return super.equals(obj);
+	}
+    
 
 }

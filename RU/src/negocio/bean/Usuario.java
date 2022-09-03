@@ -1,6 +1,7 @@
 package negocio.bean;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public abstract class Usuario {
     private String codigo;
@@ -18,8 +19,14 @@ public abstract class Usuario {
         this.email = email;
         this.senha = senha;
     }
+    
 
-    public String getCodigo() {
+    public Usuario() {
+		super();
+	}
+
+
+	public String getCodigo() {
         return codigo;
     }
 
@@ -72,5 +79,25 @@ public abstract class Usuario {
         return String.format("Nome: %s\n CPF: %s\nData de nascimento: %s\nE-mail: %s\nCódigo: %s", nome, cpf,
                 dataDeNascimento, email, codigo);
     }
+
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(cpf);
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Usuario other = (Usuario) obj;
+		return Objects.equals(cpf, other.cpf);
+	}
+    
 
 }
