@@ -13,12 +13,14 @@ public class Estudante extends Usuario {
     }
     
 
-    public Estudante(String codigo, String nome, String cpf, LocalDate dataDeNascimento, String email, String senha) {
-	super(codigo, nome, cpf, dataDeNascimento, email, senha);
-    }
+
+    public Estudante() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 
-    public String getMatricula() {
+	public String getMatricula() {
         return matricula;
     }
 
@@ -41,7 +43,7 @@ public class Estudante extends Usuario {
         if(obj != null){
             if(obj instanceof Estudante){
                 Estudante estudante = ((Estudante) obj);
-                if(this.getCodigo().equals(estudante.getCodigo) || this.getCpf().equals(estudante.getCpf()) || this.getMatricula().equals(estudante.getMatricula())){
+                if(this.getCodigo().equals(estudante.getCodigo()) || this.getCpf().equals(estudante.getCpf()) || this.getMatricula().equals(estudante.getMatricula())){
                     resultado = true;
                 } 
             }
