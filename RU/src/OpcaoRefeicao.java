@@ -6,12 +6,9 @@ public class OpcaoRefeicao {
     private String sobremesa;
     private TipoRefeicao tipo;
     
-    
-    
 	public OpcaoRefeicao() {
 		super();
 	}
-
 
 	public OpcaoRefeicao(String opcao1, String opcao2, String opcaoVegana, String acompanhamentos, String sobremesa,
 			TipoRefeicao tipo) {
@@ -23,7 +20,6 @@ public class OpcaoRefeicao {
 		this.sobremesa = sobremesa;
 		this.tipo = tipo;
 	}
-	
 	
 	public String getOpcao1() {
 		return opcao1;
@@ -68,7 +64,6 @@ public class OpcaoRefeicao {
 		return "OpcaoRefeicao [opcao1=" + opcao1 + ", opcao2=" + opcao2 + ", opcaoVegana=" + opcaoVegana
 				+ ", acompanhamentos=" + acompanhamentos + ", sobremesa=" + sobremesa + ", tipo=" + tipo + "]";
 	}
-    
-    
+      
     
 }

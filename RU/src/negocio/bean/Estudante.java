@@ -1,7 +1,6 @@
 package negocio.bean;
 
 import java.time.LocalDate;
-import java.util.Objects;
 
 public class Estudante extends Usuario {
 
@@ -34,10 +33,6 @@ public class Estudante extends Usuario {
                 super.getNome(),
                 super.getCpf(), super.getDataDeNascimento(), super.getEmail(), super.getCodigo(), matricula);
     }
-
-
-	
-
 
 	@Override
 	public boolean equals(Object obj) {

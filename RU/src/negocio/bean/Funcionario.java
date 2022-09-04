@@ -1,7 +1,6 @@
 package negocio.bean;
 
 import java.time.LocalDate;
-import java.util.Objects;
 
 public class Funcionario extends Usuario {
 
@@ -15,7 +14,6 @@ public class Funcionario extends Usuario {
         this.dataAdmin = dataAdmin;
     }
     
-
     public Funcionario(String codigo, String nome, String cpf, LocalDate dataDeNascimento, String email, String senha) {
 		super(codigo, nome, cpf, dataDeNascimento, email, senha);
 	}
@@ -44,8 +42,6 @@ public class Funcionario extends Usuario {
                 super.getNome(), super.getCpf(), super.getDataDeNascimento(), super.getEmail(), super.getCodigo(),
                 salario);
     }
-
-
 	
 
 	@Override
