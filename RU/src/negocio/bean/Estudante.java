@@ -41,7 +41,7 @@ public class Estudante extends Usuario {
         if(obj != null){
             if(obj instanceof Estudante){
                 Estudante estudante = ((Estudante) obj);
-                if(this.getCodigo().equals(estudante.getCodigo) || this.getCpf().equals(estudante.getCpf()) || this.getMatricula().equals(estudante.getMatricula())){
+                if(this.getCodigo().equals(estudante.getCodigo()) || this.getCpf().equals(estudante.getCpf()) || this.getMatricula().equals(estudante.getMatricula())){
                     resultado = true;
                 } 
             }
