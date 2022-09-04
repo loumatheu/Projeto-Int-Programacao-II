@@ -7,18 +7,18 @@ public class Estudante extends Usuario {
     private String matricula;
 
     public Estudante(String codigo, String nome, String cpf, LocalDate dataDeNascimento, String email, String senha,
-            String matricula) {
+    String matricula) {
         super(codigo, nome, cpf, dataDeNascimento, email, senha);
         this.matricula = matricula;
     }
     
 
     public Estudante(String codigo, String nome, String cpf, LocalDate dataDeNascimento, String email, String senha) {
-		super(codigo, nome, cpf, dataDeNascimento, email, senha);
-	}
+	super(codigo, nome, cpf, dataDeNascimento, email, senha);
+    }
 
 
-	public String getMatricula() {
+    public String getMatricula() {
         return matricula;
     }
 
@@ -34,10 +34,20 @@ public class Estudante extends Usuario {
                 super.getCpf(), super.getDataDeNascimento(), super.getEmail(), super.getCodigo(), matricula);
     }
 
-	@Override
-	public boolean equals(Object obj) {
-		return super.equals(obj);
-	}
-    
+    @Override
+    public boolean equals(Object obj) {
+        boolean resultado = false;
+        
+        if(obj != null){
+            if(obj instanceof Estudante){
+                Estudante estudante = ((Estudante) obj);
+                if(this.getCodigo().equals(estudante.getCodigo) || this.getCpf().equals(estudante.getCpf()) || this.getMatricula().equals(estudante.getMatricula())){
+                    resultado = true;
+                } 
+            }
+        }
+        
+        return resultado;
+    }
 
 }

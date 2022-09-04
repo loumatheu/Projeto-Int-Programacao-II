@@ -22,11 +22,11 @@ public abstract class Usuario {
     
 
     public Usuario() {
-		super();
-	}
+	super();
+    }
 
 
-	public String getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
 
@@ -77,27 +77,16 @@ public abstract class Usuario {
     @Override
     public String toString() {
         return String.format("Nome: %s\n CPF: %s\nData de nascimento: %s\nE-mail: %s\nCódigo: %s", nome, cpf,
-                dataDeNascimento, email, codigo);
+        dataDeNascimento, email, codigo);
     }
 
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(cpf);
-	}
+    @Override
+    public int hashCode() {
+	return Objects.hash(cpf);
+    }
 
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Usuario other = (Usuario) obj;
-		return Objects.equals(cpf, other.cpf);
-	}
-    
+    @Override
+    public abstract boolean equals(Object obj);
 
 }

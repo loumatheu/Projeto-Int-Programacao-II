@@ -8,18 +8,18 @@ public class Funcionario extends Usuario {
     private LocalDate dataAdmin;
 
     public Funcionario(String codigo, String nome, String cpf, LocalDate dataDeNascimento, String email, String senha,
-            Double salario, LocalDate dataAdmin) {
+    Double salario, LocalDate dataAdmin) {
         super(codigo, nome, cpf, dataDeNascimento, email, senha);
         this.salario = salario;
         this.dataAdmin = dataAdmin;
     }
     
     public Funcionario(String codigo, String nome, String cpf, LocalDate dataDeNascimento, String email, String senha) {
-		super(codigo, nome, cpf, dataDeNascimento, email, senha);
-	}
+	super(codigo, nome, cpf, dataDeNascimento, email, senha);
+    }
 
 
-	public double getSalario() {
+    public double getSalario() {
         return salario;
     }
 
@@ -37,17 +37,26 @@ public class Funcionario extends Usuario {
 
     @Override
     public String toString() {
-        return String.format(
-                "Funcionário: %s\nCPF: %s\nData de nascimento: %s\nE-mail: %s\nCódigo: %s\nSalário: R$%.2f\n DataAdmin a ser settado",
-                super.getNome(), super.getCpf(), super.getDataDeNascimento(), super.getEmail(), super.getCodigo(),
-                salario);
+        return String.format("Funcionário: %s\nCPF: %s\nData de nascimento: %s\nE-mail: %s\nCódigo: %s\nSalário: R$%.2f\n DataAdmin a ser settado", 
+        super.getNome(), super.getCpf(), super.getDataDeNascimento(), super.getEmail(), super.getCodigo(),salario);
     }
 	
 
-	@Override
-	public boolean equals(Object obj) {
-		return super.equals(obj);
-	}
+    @Override
+    public boolean equals(Object obj) {
+        boolean resultado = false;
+        
+        if(obj != null){
+            if(obj instanceof Funcionario){
+                Funcionario funcionario = ((Funcionario) obj);
+                if(this.getCodigo().equals(funcionario.getCodigo()) || this.getCpf().equals(funcionario.getCpf())){
+                    resultado = true;
+                } 
+            }
+        }
+        
+        return resultado;
+    }
     
 
 }
