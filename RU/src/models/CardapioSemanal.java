@@ -1,10 +1,8 @@
-package negocio.bean;
+package models;
 
 import java.time.LocalDate;
 import java.util.Map;
 import java.util.Objects;
-
-import OpcaoRefeicao;
 
 public class CardapioSemanal {
 	

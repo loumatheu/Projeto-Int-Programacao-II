@@ -1,4 +1,4 @@
-package negocio.bean;
+package models;
 
 import java.time.LocalDate;
 import java.util.Objects;
@@ -19,7 +19,7 @@ public abstract class Usuario {
         this.email = email;
         this.senha = senha;
     }
-    
+
 
     public Usuario() {
 	super();

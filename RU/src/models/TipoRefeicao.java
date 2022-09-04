@@ -1,4 +1,4 @@
-package negocio.bean;
+package models;
 
 public enum TipoRefeicao {
     ALMOCO, JANTAR;
