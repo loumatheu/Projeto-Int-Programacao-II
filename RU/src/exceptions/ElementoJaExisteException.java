@@ -2,16 +2,16 @@ package exceptions;
 
 public class ElementoJaExisteException extends Exception {
 
-    private static final long serialVersionUID = 4868332235826988515L;
-
-    private Object elemento;
-
+	private static final long serialVersionUID = 4868332235826988515L;
+	
+	private Object elemento;
+    
     public ElementoJaExisteException(Object obj) {
-        super("Objeto ja esta cadastrado no repositorio e nao pode ser "
+        super(obj.getClass().getSimpleName()+" j� est� cadastrado no reposit�rio e n�o pode ser "
                 + "adicionado novamente");
-        this.elemento = obj;
+        this.elemento = obj;        
     }
-
+    
     public Object getElemento() {
         return elemento;
     }
@@ -19,5 +19,5 @@ public class ElementoJaExisteException extends Exception {
     public void setElemento(Object elemento) {
         this.elemento = elemento;
     }
-
+    
 }
