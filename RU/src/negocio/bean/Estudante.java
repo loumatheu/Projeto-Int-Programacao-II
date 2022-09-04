@@ -13,12 +13,14 @@ public class Estudante extends Usuario {
     }
     
 
-    public Estudante(String codigo, String nome, String cpf, LocalDate dataDeNascimento, String email, String senha) {
-	super(codigo, nome, cpf, dataDeNascimento, email, senha);
-    }
+
+    public Estudante() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 
-    public String getMatricula() {
+	public String getMatricula() {
         return matricula;
     }
 

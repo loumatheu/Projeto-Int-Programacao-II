@@ -14,12 +14,16 @@ public class Funcionario extends Usuario {
         this.dataAdmin = dataAdmin;
     }
     
-    public Funcionario(String codigo, String nome, String cpf, LocalDate dataDeNascimento, String email, String senha) {
-	super(codigo, nome, cpf, dataDeNascimento, email, senha);
-    }
+    
+
+    public Funcionario() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 
-    public double getSalario() {
+
+	public double getSalario() {
         return salario;
     }
 

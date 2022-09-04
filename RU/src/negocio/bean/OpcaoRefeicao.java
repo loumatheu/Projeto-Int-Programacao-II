@@ -1,3 +1,5 @@
+package negocio.bean;
+
 public class OpcaoRefeicao {
     private String opcao1;
     private String opcao2;
