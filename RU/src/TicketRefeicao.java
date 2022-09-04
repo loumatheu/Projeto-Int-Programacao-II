@@ -1,7 +1,7 @@
+import negocio.bean.Estudante;
+
 import java.time.LocalDate;
 import java.util.Objects;
-
-import negocio.bean.Estudante;
 
 public class TicketRefeicao {
 	private LocalDate dataVenda;
