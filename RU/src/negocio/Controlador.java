@@ -12,36 +12,54 @@ import exceptions.ElementoNaoExisteException;
 
 public class Controlador {
 
-	private IRepositorioGenerico<Usuario> repositorioUsuarios;
-	
-	
-	private static Controlador instance;
+	// Dispensa construtor
+	private RepositorioGenerico<Usuario> repositorioUsuarios = new RepositorioGenerico<>();
 
-	private Controlador() {
-		this.repositorioUsuarios= new RepositorioGenerico<>();
+	private RepositorioGenerico<TicketRefeicao> repositorioTicketRefeicao = new RepositorioGenerico<>();
+
+	// Getters & Setters, pode ser util em algum momento do codigo ou até mesmo pra debuggar
+	public RepositorioGenerico<Usuario> getRepositorioUsuarios() {
+		return repositorioUsuarios;
 	}
-	
-	//M todo p blico para construir um Controlador
-    public static Controlador getInstance() {
-        if (instance == null) {
-            instance = new Controlador();
-        }
-        return instance;
-    }
-  //M TODOS PARA ACESSAR CRUD DO repositorioUsuarios
-  	public void inserirUsuario(Usuario obj) throws ElementoJaExisteException {
-  		repositorioUsuarios.inserir(obj);
-  	}
 
-  	public List<Usuario> listarUsuarios() {
-  		return repositorioUsuarios.listar();
-  	}
+	public void setRepositorioUsuarios(RepositorioGenerico<Usuario> repositorioUsuarios) {
+		this.repositorioUsuarios = repositorioUsuarios;
+	}
 
-  	public void removerUsuario(Usuario obj) throws ElementoNaoExisteException {
-  		repositorioUsuarios.remover(obj);
-  	}
+	public RepositorioGenerico<TicketRefeicao> getRepositorioTicketRefeicao() {
+		return repositorioTicketRefeicao;
+	}
 
-  	public void atualizarUsuario(Usuario newObj) throws ElementoNaoExisteException {
-  		repositorioUsuarios.atualizar(newObj);
-  	}
+	//Métodos delegate
+	public void setRepositorioTicketRefeicao(RepositorioGenerico<TicketRefeicao> repositorioTicketRefeicao) {
+		this.repositorioTicketRefeicao = repositorioTicketRefeicao;
+	}
+
+	public List<TicketRefeicao> listar() {
+		return repositorioTicketRefeicao.listar();
+	}
+
+	public void inserir(Usuario novoObj) throws ElementoJaExisteException {
+		repositorioUsuarios.inserir(novoObj);
+	}
+
+	public void remover(Usuario obj) throws ElementoNaoExisteException {
+		repositorioUsuarios.remover(obj);
+	}
+
+	public void atualizar(Usuario newObj) throws ElementoNaoExisteException {
+		repositorioUsuarios.atualizar(newObj);
+	}
+
+	public void inserir(TicketRefeicao novoObj) throws ElementoJaExisteException {
+		repositorioTicketRefeicao.inserir(novoObj);
+	}
+
+	public void remover(TicketRefeicao obj) throws ElementoNaoExisteException {
+		repositorioTicketRefeicao.remover(obj);
+	}
+
+	public void atualizar(TicketRefeicao newObj) throws ElementoNaoExisteException {
+		repositorioTicketRefeicao.atualizar(newObj);
+	}
 }
