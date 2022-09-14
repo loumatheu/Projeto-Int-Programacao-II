@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="126.0" layoutY="155.0" text="Tickets p/ almoço: " />
+      <Label fx:id="labelQtdAlmoco" layoutX="228.0" layoutY="155.0" prefHeight="17.0" prefWidth="36.0" />
+      <Button layoutX="136.0" layoutY="209.0" mnemonicParsing="false" onAction="#botaoComprarAlmoco" text="Comprar p/ almoço" />
+      <Label layoutX="361.0" layoutY="155.0" text="Tickets p/ jantar: " />
+      <Label fx:id="labelQtdJanta" layoutX="452.0" layoutY="155.0" prefHeight="17.0" prefWidth="36.0" />
+      <Button layoutX="361.0" layoutY="209.0" mnemonicParsing="false" onAction="#botaoComprarJanta" text="Comprar p/ jantar" />
+      <Button layoutX="276.0" layoutY="301.0" mnemonicParsing="false" onAction="#botaoVoltarEstudante" text="Voltar" />
+   </children>
+</AnchorPane>
