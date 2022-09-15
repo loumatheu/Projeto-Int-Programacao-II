@@ -30,21 +30,21 @@ public class TelaLoginController {
     @FXML
     private PasswordField senhaPasswordField;
 
-    public void trocaPraAluno(ActionEvent event) throws IOException {
+    /*public void trocaPraAluno(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("TelaAluno.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-    }
+    }*/
 
-    public void trocaPraFuncionario(ActionEvent event) throws IOException {
+    /*public void trocaPraFuncionario(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("TelaFuncionario.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        scene = new Scene(root); //copiar esse código dentro do evento pra trocar tela, só mudar o .fxml
         stage.setScene(scene);
         stage.show();
-    }
+    }*/
 
     @FXML
     protected void botaoLoginApertar(ActionEvent event) throws IOException {
