@@ -1,5 +1,7 @@
 package negocio;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import models.*;
@@ -144,5 +146,45 @@ public class Controlador {
     public List<TicketRefeicao> listarTicketRefeicao() {
         return repositorioTicketRefeicao.listar();
     }
+    
+    // Recebe uma instancia de usuario e 
+    //retorna uma lista com os tickes de almço que ele possui.
+    public List<TicketRefeicao> listarTicketAlmocoUsuario(Usuario usuario){
+    	List<TicketRefeicao> ticketsDoUsuario = new ArrayList<>(); 
+		
+    	for(int i=0;i<repositorioTicketRefeicao.listar().size();i++) {
+    		TicketRefeicao u = repositorioTicketRefeicao.listar().get(i);
+    		
+			if(usuario.equals(u.getComprador())) {
+				TipoRefeicao tipo=TipoRefeicao.valueOf("ALMOCO");
+				
+				if(u.getTipo().equals(tipo))
+				ticketsDoUsuario.add(u);
+			}
+    	}
+    	
+		return ticketsDoUsuario;
+    	
+    } 
+    
+    public List<TicketRefeicao> listarTicketJantarUsuario(Usuario usuario){
+    	List<TicketRefeicao> ticketsDoUsuario = new ArrayList<>(); 
+		
+    	for(int i=0;i<repositorioTicketRefeicao.listar().size();i++) {
+    		TicketRefeicao u = repositorioTicketRefeicao.listar().get(i);
+    		
+			if(usuario.equals(u.getComprador())) {
+				TipoRefeicao tipo=TipoRefeicao.valueOf("JANTAR");
+				
+				if(u.getTipo().equals(tipo))
+				ticketsDoUsuario.add(u);
+			}
+    	}
+    	
+		return ticketsDoUsuario;
+    	
+    } 
+   
+
 
 }
