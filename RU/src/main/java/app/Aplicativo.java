@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import models.Estudante;
 import models.Funcionario;
+import models.TicketRefeicao;
+import models.TipoRefeicao;
 import negocio.Controlador;
 
 import java.io.IOException;
@@ -30,13 +32,18 @@ public class Aplicativo extends Application {
         } catch (ElementoJaExisteException e) {
             System.out.println("Teste");
         }
-
+        Funcionario f = new Funcionario("1233123","ana maria","12345678911",
+                LocalDate.now(),"email@hotmail.com","senha",1500.99,LocalDate.now());
         try {
-            Controlador.getInstance().inserirFuncionario(new Funcionario("1233123","ana maria","12345678911",
-                    LocalDate.now(),"email@hotmail.com","senha",1500.99,LocalDate.now()));
+            Controlador.getInstance().inserirFuncionario(f);
         } catch (ElementoJaExisteException e) {
             System.out.println("Teste");
         }
+        /*try {
+            Controlador.getInstance().getRepositorioTicketRefeicao().inserir(new TicketRefeicao(LocalDate.now(),LocalDate.now(), "12837163",3.50,f, TipoRefeicao.ALMOCO));
+        } catch (ElementoJaExisteException e) {
+            System.out.println("Teste");
+        }*/
         launch();
     }
 }

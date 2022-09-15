@@ -9,16 +9,19 @@ public class TicketRefeicao {
 	private String codigo;
 	private double valor;
 	
-	private Estudante comprador;
+	private Usuario comprador;
 	private TipoRefeicao tipo;
 	
-	public TicketRefeicao(LocalDate dataVenda, LocalDate dataConsumo, String codigo, double valor) {
+	
+	public TicketRefeicao(LocalDate dataVenda, LocalDate dataConsumo, String codigo, double valor, Usuario comprador,
+			TipoRefeicao tipo) {
 		super();
 		this.dataVenda = dataVenda;
 		this.dataConsumo = dataConsumo;
 		this.codigo = codigo;
 		this.valor = valor;
-		
+		this.comprador = comprador;
+		this.tipo = tipo;
 	}
 	public TicketRefeicao() {
 		super();
@@ -47,7 +50,7 @@ public class TicketRefeicao {
 	public void setValor(double valor) {
 		this.valor = valor;
 	}
-	public Estudante getComprador() {
+	public Usuario getComprador() {
 		return comprador;
 	}
 	public void setComprador(Estudante comprador) {

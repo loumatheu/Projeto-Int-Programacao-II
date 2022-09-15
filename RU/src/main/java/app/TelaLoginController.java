@@ -69,6 +69,7 @@ public class TelaLoginController {
                 stage.setTitle("Tela inicial");
             }
         }
+<<<<<<< HEAD
         if(Controlador.getInstance().getUsuario() == null){
             for(Usuario usuario:Controlador.getInstance().listarFuncionarios()){
                 if(usuario.getCpf().equals(CPFTextField.getText()) &&
@@ -81,6 +82,17 @@ public class TelaLoginController {
                     stage.show();
                     stage.setTitle("Tela inicial");
                 }
+=======
+        for(Usuario usuario:Controlador.getInstance().listarFuncionarios()){
+            if(usuario.getCpf().equals(CPFTextField.getText()) &&
+                    usuario.getSenha().equals(senhaPasswordField.getText())){
+                Controlador.getInstance().setUsuario(usuario);
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("TelaFuncionario.fxml")));
+                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+>>>>>>> 35c80eb0bdd5654da00a45799aa92417bd9f4b26
             }
         }
         if(Controlador.getInstance().getUsuario() == null){

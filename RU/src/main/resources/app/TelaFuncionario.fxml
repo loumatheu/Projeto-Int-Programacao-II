@@ -17,12 +17,6 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <TableView fx:id="tabelaTickets" layoutX="36.0" layoutY="200.0" prefHeight="51.0" prefWidth="151.0">
-         <columns>
-            <TableColumn fx:id="colunaAlmoco" prefWidth="75.0" text="Almoço" />
-            <TableColumn fx:id="colunaJantar" prefWidth="75.0" text="Jantar" />
-         </columns>
-      </TableView>
       <Button layoutX="389.0" layoutY="89.0" mnemonicParsing="false" onAction="#botaoVerCardapioApertar" prefHeight="25.0" prefWidth="151.0" text="Ver cardápio da semana" />
       <Button layoutX="389.0" layoutY="146.0" mnemonicParsing="false" onAction="#botaoComprarApertar" prefHeight="25.0" prefWidth="151.0" text="Comprar tickets" />
       <Button layoutX="275.0" layoutY="329.0" mnemonicParsing="false" onAction="#botaoSair" text="Sair" />
@@ -33,5 +27,15 @@
       </Label>
       <Button layoutX="389.0" layoutY="200.0" mnemonicParsing="false" onAction="#botaoCdEstudantesApertar" prefHeight="25.0" prefWidth="151.0" text="Cadastrar estudantes" />
       <Button layoutX="389.0" layoutY="251.0" mnemonicParsing="false" onAction="#botaoCdFuncionariosApertar" prefHeight="25.0" prefWidth="151.0" text="Cadastrar funcionários" />
+      <Label fx:id="labelQtdAlmoco" layoutX="35.0" layoutY="190.0" text="Almoço: ">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelQtdJantar" layoutX="46.0" layoutY="215.0" text="Jantar: ">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
