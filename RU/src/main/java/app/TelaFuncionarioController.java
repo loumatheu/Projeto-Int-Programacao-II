@@ -66,6 +66,7 @@ public class TelaFuncionarioController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        stage.setTitle("Cadastro de Estudantes");
     }
 
     @FXML
@@ -75,5 +76,6 @@ public class TelaFuncionarioController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        stage.setTitle("Cadastro de Funcionários");
     }
 }
