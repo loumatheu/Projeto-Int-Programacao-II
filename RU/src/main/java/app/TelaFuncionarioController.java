@@ -58,5 +58,11 @@ public class TelaFuncionarioController {
     }
 
     @FXML
-    protected void botaoCdFuncionariosApertar(){}
+    protected void botaoCdFuncionariosApertar(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("TelaCDFuncionario.fxml")));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 }

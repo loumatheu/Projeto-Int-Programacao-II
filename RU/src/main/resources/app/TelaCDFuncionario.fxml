@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.TelaCDFuncionarioController">
+    <children>
+        <Label layoutX="91.0" layoutY="94.0" text="Nome: " />
+        <Label alignment="CENTER_RIGHT" layoutX="85.0" layoutY="128.0" text="Código: " />
+        <Label alignment="CENTER_RIGHT" layoutX="91.0" layoutY="161.0" prefHeight="17.0" prefWidth="39.0" text="CPF: " />
+        <Label layoutX="20.0" layoutY="192.0" text="Data de nascimento: " />
+        <Label layoutX="97.0" layoutY="224.0" text="Email: " />
+        <Label layoutX="95.0" layoutY="290.0" text="Senha: " />
+        <Label alignment="CENTER_RIGHT" layoutX="64.0" layoutY="257.0" prefHeight="17.0" prefWidth="69.0" text="Salário: " />
+        <TextField fx:id="nomeTextField" layoutX="132.0" layoutY="90.0" prefHeight="25.0" prefWidth="245.0" />
+        <TextField fx:id="codigoTextField" layoutX="132.0" layoutY="124.0" />
+        <TextField fx:id="CPFTextField" layoutX="132.0" layoutY="157.0" />
+        <DatePicker fx:id="dataNascimentoPicker" layoutX="132.0" layoutY="188.0" prefHeight="25.0" prefWidth="149.0" />
+        <TextField fx:id="emailTextField" layoutX="132.0" layoutY="220.0" />
+        <TextField fx:id="salarioTextField" layoutX="132.0" layoutY="253.0" />
+        <TextField fx:id="senhaTextField" layoutX="132.0" layoutY="286.0" />
+        <Label alignment="CENTER" layoutX="197.0" layoutY="28.0" text="Cadastrar Funcionario">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
+        <Button layoutX="357.0" layoutY="344.0" mnemonicParsing="false" onAction="#botaoCriarEstudante" text="Criar" />
+        <Button layoutX="183.0" layoutY="344.0" mnemonicParsing="false" onAction="#botaoVoltar" text="Voltar" />
+        <Label fx:id="labelAviso" alignment="CENTER" layoutX="38.0" layoutY="378.0" prefHeight="17.0" prefWidth="539.0" />
+      <DatePicker fx:id="dataContratacaoPicker" layoutX="133.0" layoutY="319.0" prefHeight="25.0" prefWidth="149.0" />
+      <Label layoutX="20.0" layoutY="323.0" text="Data de contratação: " />
+    </children>
+</AnchorPane>
