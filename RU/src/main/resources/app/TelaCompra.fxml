@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.TelaCompraController">
    <children>
       <Pane layoutX="4.0" layoutY="72.0" prefHeight="293.0" prefWidth="600.0" styleClass="root" stylesheets="@../../java/CssStyle/fundoazul.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
@@ -49,5 +49,10 @@
             <Image url="@RUlogo.png" />
          </image>
       </ImageView>
+      <Label fx:id="labelNomeAluno" layoutX="364.0" layoutY="10.0" prefHeight="35.0" prefWidth="210.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
