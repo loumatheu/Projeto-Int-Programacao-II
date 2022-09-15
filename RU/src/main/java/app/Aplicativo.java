@@ -20,7 +20,7 @@ public class Aplicativo extends Application {
         stage.setTitle("Login RU");
         stage.setScene(scene);
         stage.show();
-}
+    }
 
     public static void main(String[] args) {
         Controlador controladorteste = Controlador.getInstance();

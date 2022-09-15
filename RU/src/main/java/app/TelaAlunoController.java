@@ -29,6 +29,7 @@ public class TelaAlunoController {
         labelBemvindo.setText(labelBemvindo.getText() + Controlador.getInstance().getUsuario().getNome());
     }
 
+
     @FXML
     protected void botaoComprarApertar(ActionEvent event) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("TelaCompra.fxml")));
@@ -36,6 +37,7 @@ public class TelaAlunoController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        stage.setTitle("Compra de Tickets");
     }
 
     @FXML
