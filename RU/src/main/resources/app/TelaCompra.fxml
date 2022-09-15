@@ -54,5 +54,6 @@
             <Image url="@RUlogo.png" />
          </image>
       </ImageView>
+      <Button layoutX="4.0" layoutY="4.0" mnemonicParsing="false" onAction="#botaoVoltar" opacity="0.0" prefHeight="47.0" prefWidth="48.0" />
    </children>
 </AnchorPane>
