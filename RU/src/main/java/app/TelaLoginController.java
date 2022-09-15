@@ -48,8 +48,15 @@ public class TelaLoginController {
     }*/
 
     @FXML
+    protected void initialize(){
+        if(Controlador.getInstance().getUsuario() != null){
+        CPFTextField.setText(Controlador.getInstance().getUsuario().getCpf());
+        senhaPasswordField.setText(Controlador.getInstance().getUsuario().getSenha());
+        }
+    }
+
+    @FXML
     protected void botaoLoginApertar(ActionEvent event) throws IOException {
-        Usuario user;
         for(Usuario usuario:Controlador.getInstance().listarEstudantes()){
             if(usuario.getCpf().equals(CPFTextField.getText()) &&
                     usuario.getSenha().equals(senhaPasswordField.getText())){
