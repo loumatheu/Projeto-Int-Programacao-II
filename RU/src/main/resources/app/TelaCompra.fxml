@@ -1,18 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="126.0" layoutY="155.0" text="Tickets p/ almoço: " />
+      <Pane layoutX="4.0" layoutY="72.0" prefHeight="293.0" prefWidth="600.0" styleClass="root" stylesheets="@../../java/CssStyle/fundoazul.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <ImageView fitHeight="154.0" fitWidth="163.0" layoutX="369.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@macarrão.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="419.0" layoutY="209.0" text="Jantar" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Button layoutX="371.0" layoutY="248.0" mnemonicParsing="false" onAction="#botaoComprarJanta" prefHeight="25.0" prefWidth="150.0" text="Comprar" />
+            <Button layoutX="91.0" layoutY="248.0" mnemonicParsing="false" onAction="#botaoComprarJanta" prefHeight="25.0" prefWidth="150.0" text="Comprar" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="93.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@almoço.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="125.0" layoutY="209.0" text="Almoço" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="195.0" layoutY="11.0" text="Opções disponíveis:" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
       <Label fx:id="labelQtdAlmoco" layoutX="228.0" layoutY="155.0" prefHeight="17.0" prefWidth="36.0" />
-      <Button layoutX="136.0" layoutY="209.0" mnemonicParsing="false" onAction="#botaoComprarAlmoco" text="Comprar p/ almoço" />
-      <Label layoutX="361.0" layoutY="155.0" text="Tickets p/ jantar: " />
       <Label fx:id="labelQtdJanta" layoutX="452.0" layoutY="155.0" prefHeight="17.0" prefWidth="36.0" />
-      <Button layoutX="361.0" layoutY="209.0" mnemonicParsing="false" onAction="#botaoComprarJanta" text="Comprar p/ jantar" />
-      <Button layoutX="276.0" layoutY="301.0" mnemonicParsing="false" onAction="#botaoVoltarEstudante" text="Voltar" />
+      <Button layoutX="276.0" layoutY="370.0" mnemonicParsing="false" onAction="#botaoVoltarEstudante" text="Voltar" />
+      <ImageView fitHeight="52.0" fitWidth="48.0" layoutX="4.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="548.0" AnchorPane.topAnchor="4.0">
+         <image>
+            <Image url="@RUlogo.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

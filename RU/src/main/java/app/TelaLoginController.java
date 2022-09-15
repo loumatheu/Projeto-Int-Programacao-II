@@ -14,6 +14,7 @@ import models.Usuario;
 import negocio.Controlador;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class TelaLoginController {
 
@@ -53,7 +54,7 @@ public class TelaLoginController {
             if(usuario.getCpf().equals(CPFTextField.getText()) &&
                     usuario.getSenha().equals(senhaPasswordField.getText())){
                 Controlador.getInstance().setUsuario(usuario);
-                root = FXMLLoader.load(getClass().getResource("TelaAluno.fxml"));
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("TelaAluno.fxml")));
                 stage = (Stage)((Node)event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
                 stage.setScene(scene);
@@ -65,7 +66,7 @@ public class TelaLoginController {
                 if(usuario.getCpf().equals(CPFTextField.getText()) &&
                         usuario.getSenha().equals(senhaPasswordField.getText())){
                     Controlador.getInstance().setUsuario(usuario);
-                    root = FXMLLoader.load(getClass().getResource("TelaFuncionario.fxml"));
+                    root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("TelaFuncionario.fxml")));
                     stage = (Stage)((Node)event.getSource()).getScene().getWindow();
                     scene = new Scene(root);
                     stage.setScene(scene);
