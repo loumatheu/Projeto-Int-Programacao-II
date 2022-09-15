@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import models.Funcionario;
 import negocio.Controlador;
 
 import java.io.IOException;
@@ -42,6 +43,7 @@ public class TelaFuncionarioController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        stage.setTitle("Compra de tickets");
     }
 
     @FXML
@@ -51,6 +53,7 @@ public class TelaFuncionarioController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        stage.setTitle("Login");
     }
 
     @FXML
