@@ -21,6 +21,7 @@ public class Aplicativo extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Login RU");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
 }
 

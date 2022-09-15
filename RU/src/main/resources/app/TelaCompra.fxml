@@ -15,37 +15,38 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.TelaCompraController">
    <children>
-      <Pane layoutX="4.0" layoutY="72.0" prefHeight="293.0" prefWidth="600.0" styleClass="root" stylesheets="@../../java/CssStyle/fundoazul.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-         <children>
-            <ImageView fitHeight="154.0" fitWidth="163.0" layoutX="369.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@macarrão.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="419.0" layoutY="209.0" text="Jantar" textFill="WHITE">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-            <Button layoutX="371.0" layoutY="248.0" mnemonicParsing="false" onAction="#botaoComprarJanta" prefHeight="25.0" prefWidth="150.0" text="Comprar" />
-            <Button layoutX="91.0" layoutY="248.0" mnemonicParsing="false" onAction="#botaoComprarAlmoco" prefHeight="25.0" prefWidth="150.0" text="Comprar" />
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="93.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@almoço.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="125.0" layoutY="209.0" text="Almoço" textFill="WHITE">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-            <Label layoutX="195.0" layoutY="11.0" text="Opções disponíveis:" textFill="WHITE">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
+      <ImageView fitHeight="299.0" fitWidth="606.0" layoutX="-3.0" layoutY="60.0" pickOnBounds="true">
+         <image>
+            <Image url="@fundo.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="91.0" layoutY="318.0" mnemonicParsing="false" onAction="#botaoComprarAlmoco" prefHeight="25.0" prefWidth="150.0" text="Comprar" />
+      <Button layoutX="371.0" layoutY="318.0" mnemonicParsing="false" onAction="#botaoComprarJanta" prefHeight="25.0" prefWidth="150.0" text="Comprar" />
+      <Label layoutX="125.0" layoutY="279.0" text="Almoço" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="195.0" layoutY="81.0" text="Opções disponíveis:" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="93.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@almoço.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="154.0" fitWidth="163.0" layoutX="369.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@macarrão.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="419.0" layoutY="279.0" text="Jantar" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
       <Label fx:id="labelQtdAlmoco" layoutX="228.0" layoutY="155.0" prefHeight="17.0" prefWidth="36.0" />
       <Label fx:id="labelQtdJanta" layoutX="452.0" layoutY="155.0" prefHeight="17.0" prefWidth="36.0" />
       <Button layoutX="276.0" layoutY="370.0" mnemonicParsing="false" onAction="#botaoVoltar" text="Voltar" />
