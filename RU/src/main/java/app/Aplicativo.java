@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import models.Estudante;
+import models.Funcionario;
 import negocio.Controlador;
 
 import java.io.IOException;
@@ -26,6 +27,13 @@ public class Aplicativo extends Application {
         try {
             Controlador.getInstance().inserirEstudante(new Estudante("1233123","jose silva","12345678900",
                     LocalDate.now(),"email@hotmail.com","senha","1273299786"));
+        } catch (ElementoJaExisteException e) {
+            System.out.println("Teste");
+        }
+
+        try {
+            Controlador.getInstance().inserirFuncionario(new Funcionario("1233123","ana maria","12345678911",
+                    LocalDate.now(),"email@hotmail.com","senha",1500.99,LocalDate.now()));
         } catch (ElementoJaExisteException e) {
             System.out.println("Teste");
         }
