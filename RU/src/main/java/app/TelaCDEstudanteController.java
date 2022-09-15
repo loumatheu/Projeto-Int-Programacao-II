@@ -55,15 +55,19 @@ public class TelaCDEstudanteController {
     }
 
     @FXML
-    protected void botaoCriarEstudante() throws ElementoJaExisteException {
+    protected void botaoCriarEstudante(){
         if(!(senhaTextField.getText().equals("")) && !(nomeTextField.getText().equals("")) &&  // se não há algum
                 !(emailTextField.getText().equals("")) && !(CPFTextField.getText().equals("")) &&  // campo em branco
                 !(matriculaTextField.getText().equals("")) && !(codigoTextField.getText().equals("")) &&
                 !(dataNascimentoPicker.getValue().equals(LocalDate.now()))){
-            Controlador.getInstance().inserirEstudante(new Estudante(codigoTextField.getText(),
-                    nomeTextField.getText(), CPFTextField.getText(), dataNascimentoPicker.getValue(),
-                    emailTextField.getText(), senhaTextField.getText(), matriculaTextField.getText()));
-            labelAviso.setText("Estudante cadastrado com sucesso!");
+            try {
+                Controlador.getInstance().inserirEstudante(new Estudante(codigoTextField.getText(),
+                        nomeTextField.getText(), CPFTextField.getText(), dataNascimentoPicker.getValue(),
+                        emailTextField.getText(), senhaTextField.getText(), matriculaTextField.getText()));
+                labelAviso.setText("Estudante cadastrado com sucesso!");
+            } catch (ElementoJaExisteException e) {
+                labelAviso.setText("Estudante já cadastrado.");
+            }
         } else {
             labelAviso.setText("Informações inválidas. Confira o que foi inserido e tente novamente.");
         }

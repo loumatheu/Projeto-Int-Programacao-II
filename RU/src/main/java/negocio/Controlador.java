@@ -159,7 +159,7 @@ public class Controlador {
 				TipoRefeicao tipo=TipoRefeicao.valueOf("ALMOCO");
 				
 				if(u.getTipo().equals(tipo))
-				ticketsDoUsuario.add(u);
+				    ticketsDoUsuario.add(u);
 			}
     	}
     	
@@ -177,7 +177,7 @@ public class Controlador {
 				TipoRefeicao tipo=TipoRefeicao.valueOf("JANTAR");
 				
 				if(u.getTipo().equals(tipo))
-				ticketsDoUsuario.add(u);
+				    ticketsDoUsuario.add(u);
 			}
     	}
     	

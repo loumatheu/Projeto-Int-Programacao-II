@@ -1,5 +1,6 @@
 package app;
 
+import exceptions.ElementoJaExisteException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,10 +11,14 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import models.Estudante;
 import models.Funcionario;
+import models.TicketRefeicao;
+import models.TipoRefeicao;
 import negocio.Controlador;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.Objects;
+import java.util.Random;
 
 public class TelaCompraController {
 
@@ -21,11 +26,17 @@ public class TelaCompraController {
     private Scene scene;
     private Parent root;
 
-    @FXML
-    protected void botaoComprarAlmoco(){}
+    Random random = new Random();
 
     @FXML
-    protected void botaoComprarJanta(){}
+    protected void botaoComprarAlmoco() throws ElementoJaExisteException {
+        Controlador.getInstance().getRepositorioTicketRefeicao().inserir(new TicketRefeicao(LocalDate.now(), LocalDate.now().plusDays(30),String.valueOf(random.nextInt(100000)),3.5,Controlador.getInstance().getUsuario(), TipoRefeicao.ALMOCO));
+    }
+
+    @FXML
+    protected void botaoComprarJanta() throws ElementoJaExisteException {
+        Controlador.getInstance().getRepositorioTicketRefeicao().inserir(new TicketRefeicao(LocalDate.now(), LocalDate.now().plusDays(30),String.valueOf(random.nextInt(100000)),3.0,Controlador.getInstance().getUsuario(), TipoRefeicao.JANTAR));
+    }
 
     @FXML
     protected void botaoVoltar(ActionEvent event) throws IOException {
