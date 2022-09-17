@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.TelaCardapioController">
+   <children>
+      <Pane layoutX="-1.0" layoutY="48.0" prefHeight="352.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <ImageView fitHeight="346.0" fitWidth="600.0" layoutY="6.0" pickOnBounds="true">
+               <image>
+                  <Image url="@fundo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <GridPane gridLinesVisible="true" layoutX="11.0" layoutY="58.0" prefHeight="339.0" prefWidth="580.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="93.0" text="Segunda-feira" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="TOP" prefHeight="17.0" prefWidth="100.0" text="Terça-feira" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="2">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="Quarta-feira" textFill="WHITE" GridPane.columnIndex="3">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="Quinta-feira" textFill="WHITE" GridPane.columnIndex="4">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="100.0" text="Sexta-feira" textFill="WHITE" GridPane.columnIndex="5">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="79.0" text="Items" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label prefHeight="17.0" prefWidth="96.0" text="  Prato princial 1" textFill="WHITE" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label prefHeight="17.0" prefWidth="93.0" text="  Prato principal 2" textFill="WHITE" GridPane.rowIndex="2">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label prefHeight="17.0" prefWidth="93.0" text="  Fast Grill" textFill="WHITE" GridPane.rowIndex="3">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label prefHeight="17.0" prefWidth="93.0" text="  Vegetariano" textFill="WHITE" GridPane.rowIndex="4">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label prefHeight="17.0" prefWidth="79.0" text="  Suco" textFill="WHITE" GridPane.rowIndex="5">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="92.0" text="Frango ao forno" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="79.0" text="Almôndegas" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="94.0" text="Festival de massas" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="79.0" text="Torta de legumes" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="79.0" text="Limão" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label alignment="CENTER" prefHeight="43.0" prefWidth="91.0" text="Frango grelhado" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="79.0" text="Suíno" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="96.0" text="Escondidinho" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="97.0" text="Quiche de cebola" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="79.0" text="Cajá" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="97.0" text="Frango à milanesa" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="Guisado" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="100.0" text="Yakisoba" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="101.0" text="Quiche de legumes" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="96.0" text="Tangerina" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="97.0" text="Carne de sol" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="Bife com legumes" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="Guisado" textFill="WHITE" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="103.0" text="Almôndegas" textFill="WHITE" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="79.0" text="Crepe" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="Moqueca veggie" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="95.0" text="Uva" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="101.0" text="Virado Paulista" textFill="WHITE" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="103.0" text="Panqueca" textFill="WHITE" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="98.0" text="Goiaba" textFill="WHITE" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+            <Label prefHeight="17.0" prefWidth="79.0" text="  Sobremesa" textFill="WHITE" GridPane.rowIndex="6">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="97.0" text="Laranja" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="96.0" text="Pudim" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="Chocolate" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="98.0" text="Melão" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="98.0" text="Bolo" textFill="WHITE" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+         </children>
+      </GridPane>
+      <Label layoutX="181.0" layoutY="10.0" prefHeight="35.0" prefWidth="255.0" text="CARDÁPIO SEMANAL ">
+         <font>
+            <Font name="Century Gothic" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="43.0" fitWidth="46.0" layoutX="11.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@RUlogo.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="12.0" layoutY="5.0" mnemonicParsing="false" onAction="#botaoHome" opacity="0.0" prefHeight="43.0" prefWidth="43.0" />
+   </children>
+</AnchorPane>

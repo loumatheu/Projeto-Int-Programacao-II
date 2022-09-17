@@ -1,5 +1,6 @@
 package app;
 
+import com.almasb.fxgl.entity.action.Action;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -66,7 +67,14 @@ public class TelaAlunoController {
     }
 
     @FXML
-    protected void botaoVerCardapioApertar(){}
+    protected void botaoVerCardapioApertar(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("TelaCardapio.fxml")));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        stage.setTitle("Cardápio Semanal");
+    }
 
 
 }
