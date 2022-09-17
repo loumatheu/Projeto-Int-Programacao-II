@@ -66,6 +66,7 @@ public class TelaLoginController {
                 scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
+                stage.setTitle("Tela inicial");
             }
         }
         for(Usuario usuario:Controlador.getInstance().listarFuncionarios()){
@@ -77,6 +78,7 @@ public class TelaLoginController {
                 scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
+                stage.setTitle("Tela inicial");
             }
         }
         if(Controlador.getInstance().getUsuario() == null){

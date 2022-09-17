@@ -59,16 +59,20 @@ public class TelaCDFuncionarioController {
     }
 
     @FXML
-    protected void botaoCriarEstudante() throws ElementoJaExisteException {
+    protected void botaoCriarEstudante(){
         if(!(senhaTextField.getText().equals("")) && !(nomeTextField.getText().equals("")) &&  // se não há algum
                 !(emailTextField.getText().equals("")) && !(CPFTextField.getText().equals("")) &&  // campo em branco
                 !(salarioTextField.getText().equals("")) && !(codigoTextField.getText().equals("")) &&
                 !(dataNascimentoPicker.getValue().equals(LocalDate.now()))){
-            Controlador.getInstance().inserirFuncionario(new Funcionario(codigoTextField.getText(),
-                    nomeTextField.getText(), CPFTextField.getText(), dataNascimentoPicker.getValue(),
-                    emailTextField.getText(), senhaTextField.getText(), Double.parseDouble(salarioTextField.getText()),
-                    dataContratacaoPicker.getValue()));
-            labelAviso.setText("Funcionário cadastrado com sucesso!");
+            try {
+                Controlador.getInstance().inserirFuncionario(new Funcionario(codigoTextField.getText(),
+                        nomeTextField.getText(), CPFTextField.getText(), dataNascimentoPicker.getValue(),
+                        emailTextField.getText(), senhaTextField.getText(), Double.parseDouble(salarioTextField.getText()),
+                        dataContratacaoPicker.getValue()));
+                labelAviso.setText("Funcionário cadastrado com sucesso!");
+            } catch (ElementoJaExisteException e) {
+                labelAviso.setText("Funcionário já cadastrado.");
+            }
         } else {
             labelAviso.setText("Informações inválidas. Confira o que foi inserido e tente novamente.");
         }
@@ -81,5 +85,6 @@ public class TelaCDFuncionarioController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        stage.setTitle("Tela inicial");
     }
 }
