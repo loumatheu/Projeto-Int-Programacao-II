@@ -1,7 +1,3 @@
-![Diagrama Projeto RU](https://user-images.githubusercontent.com/82189594/188212118-bbbed3d6-f165-4488-944d-3cc51467bdeb.jpg)
-![Modelo navegacional](https://user-images.githubusercontent.com/82189594/190873385-cd343b5b-b278-4b3f-9ff7-179d22d88e5f.jpg)
-
-
 # Projeto RU v.1.2
 RU
 
@@ -35,3 +31,8 @@ O programa deve ser capaz de permitir o gerenciamento de funcionários, clientes
  * **REQ8** - O sistema deve permitir gerar relatório de vendas: por refeição e por data. Sendo assim, haverá a possibilidade de quantas refeições foram vendidas em uma certa data.
 
 
+
+
+![Diagrama Projeto RU](https://user-images.githubusercontent.com/82189594/188212118-bbbed3d6-f165-4488-944d-3cc51467bdeb.jpg)
+
+![Modelo navegacional](https://user-images.githubusercontent.com/82189594/190873385-cd343b5b-b278-4b3f-9ff7-179d22d88e5f.jpg)
