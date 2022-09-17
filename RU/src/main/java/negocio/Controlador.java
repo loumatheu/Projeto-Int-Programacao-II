@@ -1,7 +1,10 @@
 package negocio;
 
 import java.time.LocalDate;
+<<<<<<< HEAD
 import java.time.LocalDateTime;
+=======
+>>>>>>> 7807aafd42fdf9a61d58f075bb40341a3fceefb0
 import java.util.ArrayList;
 import java.util.List;
 
@@ -185,6 +188,11 @@ public class Controlador {
 		return ticketsDoUsuario;
     	
     } 
+<<<<<<< HEAD
   
+=======
+   
+
+>>>>>>> 7807aafd42fdf9a61d58f075bb40341a3fceefb0
 
 }
