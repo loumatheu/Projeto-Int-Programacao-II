@@ -14,7 +14,7 @@ O programa deve ser capaz de permitir o gerenciamento de funcionários, clientes
 
 
 ## Requisitos do projeto
- * **REQ1** - O sistema deve controlar o acesso através de login e senha. Os usuários do sistema serão do tipo administrador, funcionário e estudante.
+ * **REQ1** - O sistema deve controlar o acesso através de login e senha. Os usuários do sistema serão do tipo funcionário e estudante.
 
  * **REQ2** - O sistema deve permitir a venda das fichas para o almoço e jantar no RU, e cada venda estará associada a um único estudante.
  
