@@ -85,4 +85,14 @@ public class TelaFuncionarioController {
         stage.show();
         stage.setTitle("Cadastro de Funcionários");
     }
+    
+    @FXML
+    protected void botaoCdCardapio(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("TelaCDCardapio.fxml")));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        stage.setTitle("Cadastro do Cardapio");
+    }
 }
