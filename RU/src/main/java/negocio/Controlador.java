@@ -147,6 +147,9 @@ public class Controlador {
     public List<TicketRefeicao> listarTicketRefeicao() {
         return repositorioTicketRefeicao.listar();
     }
+    public void inserirTicket(TicketRefeicao obj) throws ElementoJaExisteException {
+    	repositorioTicketRefeicao.inserir(obj);
+    }
     
     // Recebe uma instancia de usuario e 
     //retorna uma lista com os tickes de almço que ele possui.
