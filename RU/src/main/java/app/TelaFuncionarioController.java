@@ -57,7 +57,14 @@ public class TelaFuncionarioController {
     }
 
     @FXML
-    protected void botaoVerCardapioApertar(){}
+    protected void botaoVerCardapioApertar(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("TelaCardapio.fxml")));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        stage.setTitle("Cardápio Semanal");
+    }
 
     @FXML
     protected void botaoCdEstudantesApertar(ActionEvent event) throws IOException {
