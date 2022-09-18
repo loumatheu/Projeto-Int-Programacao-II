@@ -16,6 +16,7 @@ public class Controlador {
     private IRepositorioGenerico<Estudante> repositorioEstudante;
     private IRepositorioGenerico<Funcionario> repositorioFuncionario;
     private IRepositorioGenerico<TicketRefeicao> repositorioTicketRefeicao;
+    private IRepositorioGenerico<CardapioSemanal> repositorioCardapioSemanal ;
     private static Controlador instance;
 
     private Usuario usuario;
@@ -24,6 +25,7 @@ public class Controlador {
         this.repositorioEstudante = new RepositorioGenerico<>();
         this.repositorioFuncionario = new RepositorioGenerico<>();
         this.repositorioTicketRefeicao = new RepositorioGenerico<>();
+        this.repositorioCardapioSemanal = new RepositorioGenerico<>();
     }
 
     public static Controlador getInstance() {
@@ -103,6 +105,14 @@ public class Controlador {
     public void setRepositorioTicketRefeicao(IRepositorioGenerico<TicketRefeicao> repositorioTicketRefeicao) {
         this.repositorioTicketRefeicao = repositorioTicketRefeicao;
     }
+    
+    public IRepositorioGenerico<CardapioSemanal> getRepositorioCardapioSemanal() {
+        return repositorioCardapioSemanal;
+    }
+    
+    public void setRepositorioCardaioSemanal(IRepositorioGenerico<CardapioSemanal> repositorioCardapioSemanal) {
+        this.repositorioCardapioSemanal = repositorioCardapioSemanal;
+    }
 
     public Usuario getUsuario() {
         return usuario;
@@ -147,9 +157,27 @@ public class Controlador {
     public List<TicketRefeicao> listarTicketRefeicao() {
         return repositorioTicketRefeicao.listar();
     }
+    
     public void inserirTicket(TicketRefeicao obj) throws ElementoJaExisteException {
     	repositorioTicketRefeicao.inserir(obj);
     }
+    
+    public List<CardapioSemanal> listarCardapioSemanal(){
+        return repositorioCardapioSemanal.listar();
+    }
+    
+    public void inserirCardapioSemanal(CardapioSemanal obj) throws ElementoJaExisteException{
+        repositorioCardapioSemanal.inserir(obj);
+    }
+    
+    public void removerCardapioSemanal(CardapioSemanal obj) throws ElementoNaoExisteException{
+        repositorioCardapioSemanal.remover(obj);
+    }
+    
+    public void atualizarCardapioSemanal(CardapioSemanal obj) throws ElementoNaoExisteException{
+        repositorioCardapioSemanal.atualizar(obj);
+    }
+    
     
     // Recebe uma instancia de usuario e 
     //retorna uma lista com os tickes de almço que ele possui.
@@ -188,5 +216,6 @@ public class Controlador {
 		return ticketsDoUsuario;
     	
     }
+    
 
 }
