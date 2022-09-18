@@ -1,15 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.TelaAlunoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.TelaAlunoController">
    <children>
-      <Label fx:id="labelBemvindo" alignment="TOP_LEFT" layoutX="36.0" layoutY="70.0" prefHeight="63.0" prefWidth="265.0" text="Bem vind@, ">
+      <Pane layoutY="66.0" prefHeight="293.0" prefWidth="600.0" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="72.0">
+         <children>
+            <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="460.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@botão%20comprar%20ticket.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="460.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Botão%20ver%20cardápio.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Label fx:id="labelQtdJantar" layoutX="42.0" layoutY="31.0" text="Jantar: " AnchorPane.bottomAnchor="170.0" AnchorPane.leftAnchor="36.0">
          <font>
-            <Font size="16.0" />
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button mnemonicParsing="false" onAction="#botaoComprarApertar" prefHeight="25.0" prefWidth="151.0" text="Comprar mais tickets" AnchorPane.bottomAnchor="180.0" AnchorPane.rightAnchor="14.0" />
+      <Button layoutX="435.0" layoutY="362.0" mnemonicParsing="false" onAction="#botaoVerCardapioApertar" prefHeight="25.0" prefWidth="151.0" text="Ver cardápio da semana" AnchorPane.bottomAnchor="45.0" AnchorPane.rightAnchor="14.0" />
+      <Label fx:id="labelBemvindo" alignment="TOP_LEFT" layoutX="14.0" layoutY="83.0" prefHeight="49.0" prefWidth="265.0" text="Bem vind@, ">
+         <font>
+            <Font size="14.0" />
          </font>
       </Label>
       <Label layoutX="36.0" layoutY="146.0" text="Seus tickets:">
@@ -17,23 +41,21 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Button layoutX="389.0" layoutY="146.0" mnemonicParsing="false" onAction="#botaoVerCardapioApertar" prefHeight="25.0" prefWidth="151.0" text="Ver cardápio da semana" />
-      <Button layoutX="389.0" layoutY="239.0" mnemonicParsing="false" onAction="#botaoComprarApertar" prefHeight="25.0" prefWidth="151.0" text="Comprar mais tickets" />
-      <Button layoutX="275.0" layoutY="329.0" mnemonicParsing="false" onAction="#botaoSair" text="Sair" />
-      <Label layoutX="258.0" layoutY="25.0" text="Estudante">
+      <Button layoutX="282.0" layoutY="374.0" mnemonicParsing="false" onAction="#botaoSair" text="Sair" />
+      <Label layoutX="248.0" layoutY="14.0" text="ESTUDANTE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="labelQtdAlmoco" layoutX="36.0" layoutY="192.0" text="Almoço: ">
+      <Label fx:id="labelQtdAlmoco" layoutX="36.0" layoutY="192.0" text="Almoço: " AnchorPane.bottomAnchor="188.0" AnchorPane.leftAnchor="36.0">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="labelQtdJantar" layoutX="47.0" layoutY="212.0" text="Jantar: ">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
+      <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="14.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="548.0" AnchorPane.topAnchor="4.0">
+         <image>
+            <Image url="@RUlogo.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
