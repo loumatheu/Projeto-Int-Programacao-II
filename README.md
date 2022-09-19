@@ -30,9 +30,6 @@ O programa deve ser capaz de permitir o gerenciamento de funcionários, clientes
   
  * **REQ8** - O sistema deve permitir gerar relatório de vendas: por refeição e por data. Sendo assim, haverá a possibilidade de quantas refeições foram vendidas em uma certa data.
 
+![Modelo navegacional](https://user-images.githubusercontent.com/82189594/190940843-a5520a85-a377-428e-b04b-b17a0d144116.jpg)
 
-
-
-![Diagrama Projeto RU](https://user-images.githubusercontent.com/82189594/188212118-bbbed3d6-f165-4488-944d-3cc51467bdeb.jpg)
-
-![Modelo navegacional](https://user-images.githubusercontent.com/82189594/190873385-cd343b5b-b278-4b3f-9ff7-179d22d88e5f.jpg)
+![Diagrama Projeto RU](https://user-images.githubusercontent.com/82189594/190940841-f8a1e5d8-a4d1-4b1b-9478-c981e4f3dc87.jpg)
