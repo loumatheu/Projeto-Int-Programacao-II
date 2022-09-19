@@ -30,8 +30,8 @@ O programa deve ser capaz de permitir o gerenciamento de funcionários, clientes
   
  * **REQ8** - O sistema deve permitir gerar relatório de vendas: por refeição e por data. Sendo assim, haverá a possibilidade de quantas refeições foram vendidas em uma certa data.
 
-# Modelo Navegacional
+## Modelo Navegacional
 ![Modelo navegacional](https://user-images.githubusercontent.com/82189594/190940843-a5520a85-a377-428e-b04b-b17a0d144116.jpg)
 
-# Diagrama de Classes UML
+## Diagrama de Classes UML
 ![Diagrama Projeto RU](https://user-images.githubusercontent.com/82189594/190940841-f8a1e5d8-a4d1-4b1b-9478-c981e4f3dc87.jpg)
