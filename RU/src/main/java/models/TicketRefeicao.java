@@ -11,10 +11,17 @@ public class TicketRefeicao {
 	
 	private Usuario comprador;
 	private TipoRefeicao tipo;
-	
-	
+
+	public TicketRefeicao(LocalDate dataVenda, String codigo, double valor, Usuario comprador, TipoRefeicao tipo) {
+		this.dataVenda = dataVenda;
+		this.codigo = codigo;
+		this.valor = valor;
+		this.comprador = comprador;
+		this.tipo = tipo;
+	}
+
 	public TicketRefeicao(LocalDate dataVenda, LocalDate dataConsumo, String codigo, double valor, Usuario comprador,
-			TipoRefeicao tipo) {
+						  TipoRefeicao tipo) {
 		super();
 		this.dataVenda = dataVenda;
 		this.dataConsumo = dataConsumo;
