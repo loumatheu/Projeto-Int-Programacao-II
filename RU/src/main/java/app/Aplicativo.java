@@ -24,7 +24,7 @@ public class Aplicativo extends Application {
         stage.setResizable(false);
         stage.show();
     }
-
+    //ajudando Nycolle
     public static void main(String[] args) {
         Controlador controladorteste = Controlador.getInstance();
         try {
