@@ -2,6 +2,7 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -12,9 +13,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="435.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.TelaCDCardapio">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.TelaCDCardapio">
    <children>
-      <GridPane gridLinesVisible="true" layoutX="9.0" layoutY="55.0" prefHeight="339.0" prefWidth="580.0">
+      <GridPane gridLinesVisible="true" layoutX="9.0" layoutY="110.0" prefHeight="339.0" prefWidth="580.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints fx:id="tabelaCadastroCardapio" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -138,7 +139,11 @@
             <Image url="@RUlogo.png" />
          </image>
       </ImageView>
-      <Button layoutX="201.0" layoutY="394.0" mnemonicParsing="false" onAction="#botaoVoltar" text="Voltar" />
-      <Button layoutX="331.0" layoutY="394.0" mnemonicParsing="false" onAction="#botaoCadastroCardapio" text="Button" />
+      <Button layoutX="202.0" layoutY="460.0" mnemonicParsing="false" onAction="#botaoVoltar" text="Voltar" />
+      <Button layoutX="330.0" layoutY="460.0" mnemonicParsing="false" onAction="#botaoCadastroCardapio" text="Cadastrar" />
+      <DatePicker fx:id="datafinalCardapio" layoutX="390.0" layoutY="80.0" />
+      <Label layoutX="143.0" layoutY="55.0" prefHeight="18.0" prefWidth="96.0" text="Data inicial" />
+      <Label layoutX="407.0" layoutY="55.0" prefHeight="18.0" prefWidth="96.0" text="Data final" />
+      <DatePicker fx:id="dataInicioCardapio" layoutX="123.0" layoutY="80.0" />
    </children>
 </AnchorPane>

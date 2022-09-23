@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import exceptions.DataInvalidaException;
 import exceptions.ElementoJaExisteException;
 import exceptions.ParametroVazioException;
 import javafx.event.ActionEvent;
@@ -15,6 +16,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import models.CardapioSemanal;
@@ -125,9 +127,15 @@ public class TelaCDCardapio {
     private TextField sobremesaSextaTextField;
     
     @FXML
+    private DatePicker datafinalCardapio;
+    
+    @FXML
+    private DatePicker dataInicioCardapio;
+    
+    @FXML
     protected void initialize(){
-       principal1SegundaTextField.setText(""); 
-       //sobremesaSegundaTextField.setText("");
+    	dataInicioCardapio.setValue(LocalDate.now());
+       datafinalCardapio.setValue(LocalDate.now());
     }
     
         
@@ -136,6 +144,7 @@ public class TelaCDCardapio {
     	
     
     		try {
+    			datafinalCardapio.setValue(dataInicioCardapio.getValue().plusDays(4));
     			Map<DiasDaSemana,OpcaoRefeicao> mapa=new HashMap<>();
     			mapa.put(DiasDaSemana.SEGUNDA,Controlador.getInstance().inserirOpcoesDeAlmoco(principal1SegundaTextField.getText(),
 						principal2SegundaTextField.getText(),vegetarianoSegundaTextField.getText(),fastSegundaTextField.getText(),
@@ -157,8 +166,7 @@ public class TelaCDCardapio {
 						principal2SextaTextField.getText(),vegetarianoSextaTextField.getText(),fastSextaTextField.getText(),
 						sucoSextaTextField.getText(),sobremesaSextaTextField.getText(),DiasDaSemana.SEXTA) );
     			
-        		Controlador.getInstance().inserirCardapioSemanal(new CardapioSemanal(LocalDate.now(),
-        				LocalDate.now().plusDays(7),mapa));
+        		Controlador.getInstance().inserirCardapioSemanal(new CardapioSemanal(dataInicioCardapio.getValue(),mapa));
         		
         		Alert info = new Alert(Alert.AlertType.INFORMATION);
                 info.setTitle("Cardapio cadastrado");
@@ -176,6 +184,11 @@ public class TelaCDCardapio {
     			Alert info = new Alert(Alert.AlertType.WARNING);
                 info.setTitle("Campo vazio!");
                 info.setContentText(e.getMessage());
+                info.show();
+			} catch (DataInvalidaException e) {
+				Alert info = new Alert(Alert.AlertType.WARNING);
+                info.setTitle("Data invalida!");
+                info.setContentText("A data inicial do cardapio deve ser uma segunda-feira");
                 info.show();
 			}
     	

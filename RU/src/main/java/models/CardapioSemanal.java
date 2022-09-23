@@ -1,8 +1,11 @@
 package models;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.Map;
 import java.util.Objects;
+
+import exceptions.DataInvalidaException;
 
 public class CardapioSemanal {
 	
@@ -16,10 +19,14 @@ public class CardapioSemanal {
 	}
 
 
-	public CardapioSemanal(LocalDate dataInicial, LocalDate dataFinal, Map<DiasDaSemana, OpcaoRefeicao> cardapio) {
+	public CardapioSemanal(LocalDate dataInicial, Map<DiasDaSemana, OpcaoRefeicao> cardapio) throws DataInvalidaException {
 		super();
+		if(dataInicial.getDayOfWeek().equals(DayOfWeek.MONDAY))
 		this.dataInicial = dataInicial;
-		this.dataFinal = dataFinal;
+		else {
+			throw new DataInvalidaException(dataInicial);
+		}
+		this.dataFinal =dataInicial.plusDays(4);
 		this.cardapio = cardapio;
 	}
 

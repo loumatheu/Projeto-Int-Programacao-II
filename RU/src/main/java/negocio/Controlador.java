@@ -2,17 +2,17 @@ package negocio;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-<<<<<<< HEAD
+
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-=======
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
->>>>>>> f33376fa0c883e2e933db682525c5a2cc9acfaf0
+
 
 import exceptions.DataInvalidaException;
 import exceptions.PeriodoInvalidoException;
@@ -274,7 +274,6 @@ public class Controlador {
 		return ticketsDoUsuario;
     	
     }
-<<<<<<< HEAD
     public OpcaoRefeicao inserirOpcoesDeAlmoco(String opcao1,
     		String opcao2,String vegetariano, String fastGrill, String suco, String sobremesa, DiasDaSemana dia) throws ParametroVazioException {
     	OpcaoRefeicao refeicoes=null;
@@ -423,6 +422,6 @@ public class Controlador {
         }
         return count;
     }
->>>>>>> f33376fa0c883e2e933db682525c5a2cc9acfaf0
+
 
 }
