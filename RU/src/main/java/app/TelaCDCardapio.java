@@ -160,20 +160,20 @@ public class TelaCDCardapio {
         		Controlador.getInstance().inserirCardapioSemanal(new CardapioSemanal(LocalDate.now(),
         				LocalDate.now().plusDays(7),mapa));
         		
-        		Alert info = new Alert(Alert.AlertType.CONFIRMATION);
+        		Alert info = new Alert(Alert.AlertType.INFORMATION);
                 info.setTitle("Cardapio cadastrado");
                 info.setContentText("O cardapio foi cadastrado com sucesso");
                 info.show();
         		
         	}catch (ElementoJaExisteException e) {
-        		Alert info = new Alert(Alert.AlertType.ERROR);
+        		Alert info = new Alert(Alert.AlertType.WARNING);
                 info.setTitle("Cardapio já cadastrado");
                 info.setContentText("O cardapio já existe");
                 info.show();
         			
     		} catch (ParametroVazioException e) {
 				// TODO Auto-generated catch block
-    			Alert info = new Alert(Alert.AlertType.ERROR);
+    			Alert info = new Alert(Alert.AlertType.WARNING);
                 info.setTitle("Campo vazio!");
                 info.setContentText(e.getMessage());
                 info.show();

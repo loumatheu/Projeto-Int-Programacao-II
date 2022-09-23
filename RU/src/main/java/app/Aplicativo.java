@@ -28,7 +28,7 @@ public class Aplicativo extends Application {
     public static void main(String[] args) {
         Controlador controladorteste = Controlador.getInstance();
         try {
-            Controlador.getInstance().inserirEstudante(new Estudante("1233123","jose silva","12345678900",
+            Controlador.getInstance().inserirEstudante(new Estudante("1233123","José Silva","12345678900",
                     LocalDate.now(),"email@hotmail.com","senha","1273299786"));
         } catch (ElementoJaExisteException e) {
             System.out.println("Teste");

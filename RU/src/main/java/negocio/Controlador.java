@@ -1,13 +1,21 @@
 package negocio;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+=======
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Stream;
+>>>>>>> f33376fa0c883e2e933db682525c5a2cc9acfaf0
 
+import exceptions.DataInvalidaException;
+import exceptions.PeriodoInvalidoException;
 import models.*;
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
@@ -119,7 +127,7 @@ public class Controlador {
         return repositorioCardapioSemanal;
     }
     
-    public void setRepositorioCardaioSemanal(IRepositorioGenerico<CardapioSemanal> repositorioCardapioSemanal) {
+    public void setRepositorioCardapioSemanal(IRepositorioGenerico<CardapioSemanal> repositorioCardapioSemanal) {
         this.repositorioCardapioSemanal = repositorioCardapioSemanal;
     }
 
@@ -266,6 +274,7 @@ public class Controlador {
 		return ticketsDoUsuario;
     	
     }
+<<<<<<< HEAD
     public OpcaoRefeicao inserirOpcoesDeAlmoco(String opcao1,
     		String opcao2,String vegetariano, String fastGrill, String suco, String sobremesa, DiasDaSemana dia) throws ParametroVazioException {
     	OpcaoRefeicao refeicoes=null;
@@ -296,5 +305,124 @@ public class Controlador {
     	return refeicoes;
     }
     
+
+
+    public Map<LocalDate,Integer> relatorioVendasAlmoco(LocalDate inicio, LocalDate fim) throws DataInvalidaException, PeriodoInvalidoException{
+        //List<VendasPorDia> relatorio=new ArrayList<>();
+        Map<LocalDate,Integer> count=new HashMap<>();
+        //Map<LocalDate,Integer> relatorio=new HashMap<>();
+        //int count=0;
+        if(!inicio.isAfter(LocalDate.now()) && !fim.isAfter(LocalDate.now()) && !inicio.isAfter(fim)){
+            for (TicketRefeicao venda:this.repositorioTicketRefeicao.listar()) {
+                if(!venda.getDataVenda().isBefore(inicio) && !venda.getDataVenda().isAfter(fim)){
+                    //count++;
+                    if(count.containsKey(venda.getDataVenda()) && venda.getTipo().name().equals("ALMOCO")) {
+                        count.replace(venda.getDataVenda(), count.get(venda.getDataVenda()) + 1);
+                    }
+                    else if(!count.containsKey(venda.getDataVenda()) && venda.getTipo().name().equals("ALMOCO")){
+                        count.put(venda.getDataVenda(),1);
+                        //relatorio.put(venda.getDataVenda(),count.get(venda.getDataVenda()).toString());
+                    }
+                }
+            }
+        }
+        else {
+            if (inicio.isAfter(LocalDate.now())) {
+                throw new DataInvalidaException(inicio);
+            }
+            if (fim.isAfter(LocalDate.now())) {
+                throw new DataInvalidaException(fim);
+            }
+            if (inicio.isAfter(fim)) {
+                throw new PeriodoInvalidoException(inicio,fim);
+            }
+        }
+        return count;
+    }
+
+    public Map<LocalDate,Integer> relatorioVendasJantar(LocalDate inicio, LocalDate fim) throws DataInvalidaException, PeriodoInvalidoException{
+        Map<LocalDate,Integer> count=new HashMap<>();
+        if(!inicio.isAfter(LocalDate.now()) && !fim.isAfter(LocalDate.now()) && !inicio.isAfter(fim)){
+            for (TicketRefeicao venda:this.repositorioTicketRefeicao.listar()) {
+                if(!venda.getDataVenda().isBefore(inicio) && !venda.getDataVenda().isAfter(fim)){
+                    if(count.containsKey(venda.getDataVenda()) && venda.getTipo().name().equals("JANTAR")) {
+                        count.replace(venda.getDataVenda(), count.get(venda.getDataVenda()) + 1);
+                    }
+                    else if(!count.containsKey(venda.getDataVenda()) && venda.getTipo().name().equals("JANTAR")){
+                        count.put(venda.getDataVenda(),1);
+                    }
+                }
+            }
+        }
+        else {
+            if (inicio.isAfter(LocalDate.now())) {
+                throw new DataInvalidaException(inicio);
+            }
+            if (fim.isAfter(LocalDate.now())) {
+                throw new DataInvalidaException(fim);
+            }
+            if (inicio.isAfter(fim)) {
+                throw new PeriodoInvalidoException(inicio,fim);
+            }
+        }
+        return count;
+    }
+    public Map<LocalDate,Integer> relatorioConsumoAlmoco(LocalDate inicio, LocalDate fim) throws DataInvalidaException, PeriodoInvalidoException{
+        Map<LocalDate,Integer> count=new HashMap<>();
+        if(!inicio.isAfter(LocalDate.now()) && !fim.isAfter(LocalDate.now()) && !inicio.isAfter(fim)){
+            List<TicketRefeicao> listaConsumos=this.repositorioTicketRefeicao.listar().stream().filter(t->t.getDataConsumo()!=null).toList();
+            for (TicketRefeicao consumo:listaConsumos) {
+                if(!consumo.getDataConsumo().isBefore(inicio) && !consumo.getDataConsumo().isAfter(fim)){
+                    if(count.containsKey(consumo.getDataConsumo()) && consumo.getTipo().name().equals("ALMOCO")) {
+                        count.replace(consumo.getDataConsumo(), count.get(consumo.getDataConsumo()) + 1);
+                    }
+                    else if(!count.containsKey(consumo.getDataConsumo()) && consumo.getTipo().name().equals("ALMOCO")){
+                        count.put(consumo.getDataConsumo(),1);
+                    }
+                }
+            }
+        }
+        else {
+            if (inicio.isAfter(LocalDate.now())) {
+                throw new DataInvalidaException(inicio);
+            }
+            if (fim.isAfter(LocalDate.now())) {
+                throw new DataInvalidaException(fim);
+            }
+            if (inicio.isAfter(fim)) {
+                throw new PeriodoInvalidoException(inicio,fim);
+            }
+        }
+        return count;
+    }
+    public Map<LocalDate,Integer> relatorioConsumoJantar(LocalDate inicio, LocalDate fim) throws DataInvalidaException, PeriodoInvalidoException{
+        Map<LocalDate,Integer> count=new HashMap<>();
+        if(!inicio.isAfter(LocalDate.now()) && !fim.isAfter(LocalDate.now()) && !inicio.isAfter(fim)){
+            List<TicketRefeicao> listaConsumos=this.repositorioTicketRefeicao.listar().stream().filter(t->t.getDataConsumo()!=null).toList();
+            for (TicketRefeicao consumo:listaConsumos) {
+                if(!consumo.getDataConsumo().isBefore(inicio) && !consumo.getDataConsumo().isAfter(fim)){
+                    if(count.containsKey(consumo.getDataConsumo()) && consumo.getTipo().name().equals("JANTAR")) {
+                        count.replace(consumo.getDataConsumo(), count.get(consumo.getDataConsumo()) + 1);
+                    }
+                    else if(!count.containsKey(consumo.getDataConsumo()) && consumo.getTipo().name().equals("JANTAR")){
+                        count.put(consumo.getDataConsumo(),1);
+                    }
+                }
+            }
+        }
+        else {
+            if (inicio.isAfter(LocalDate.now())) {
+                throw new DataInvalidaException(inicio);
+            }
+            if (fim.isAfter(LocalDate.now())) {
+                throw new DataInvalidaException(fim);
+            }
+            if (inicio.isAfter(fim)) {
+                throw new PeriodoInvalidoException(inicio,fim);
+            }
+        }
+        return count;
+    }
+>>>>>>> f33376fa0c883e2e933db682525c5a2cc9acfaf0
 
 }

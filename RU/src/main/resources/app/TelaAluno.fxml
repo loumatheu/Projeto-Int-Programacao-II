@@ -12,16 +12,23 @@
    <children>
       <Pane layoutY="66.0" prefHeight="293.0" prefWidth="600.0" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="72.0">
          <children>
-            <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="460.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="460.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@botão%20comprar%20ticket.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="460.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="460.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Botão%20ver%20cardápio.png" />
                </image>
             </ImageView>
+            <ImageView fitHeight="201.0" fitWidth="151.0" layoutX="233.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@consumir%20tickets.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="238.0" layoutY="267.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="125.0" text="Consumir ticket" />
+            <Button layoutX="434.0" layoutY="266.0" mnemonicParsing="false" onAction="#botaoVerCardapioApertar" prefHeight="25.0" prefWidth="151.0" text="Ver cardápio da semana" />
          </children>
       </Pane>
       <Label fx:id="labelQtdJantar" layoutX="42.0" layoutY="31.0" text="Jantar: " AnchorPane.bottomAnchor="170.0" AnchorPane.leftAnchor="36.0">
@@ -30,7 +37,6 @@
          </font>
       </Label>
       <Button mnemonicParsing="false" onAction="#botaoComprarApertar" prefHeight="25.0" prefWidth="151.0" text="Comprar mais tickets" AnchorPane.bottomAnchor="180.0" AnchorPane.rightAnchor="14.0" />
-      <Button layoutX="435.0" layoutY="362.0" mnemonicParsing="false" onAction="#botaoVerCardapioApertar" prefHeight="25.0" prefWidth="151.0" text="Ver cardápio da semana" AnchorPane.bottomAnchor="45.0" AnchorPane.rightAnchor="14.0" />
       <Label fx:id="labelBemvindo" alignment="TOP_LEFT" layoutX="14.0" layoutY="83.0" prefHeight="49.0" prefWidth="265.0" text="Bem vind@, ">
          <font>
             <Font size="14.0" />
