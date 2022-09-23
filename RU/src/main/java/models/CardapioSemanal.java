@@ -8,7 +8,7 @@ public class CardapioSemanal {
 	
 	private LocalDate dataInicial;
 	private LocalDate dataFinal;
-	private Map<TipoRefeicao, OpcaoRefeicao> cardapio;
+	private Map<DiasDaSemana, OpcaoRefeicao> cardapio;
 	
 	
 	public CardapioSemanal() {
@@ -16,7 +16,7 @@ public class CardapioSemanal {
 	}
 
 
-	public CardapioSemanal(LocalDate dataInicial, LocalDate dataFinal, Map<TipoRefeicao, OpcaoRefeicao> cardapio) {
+	public CardapioSemanal(LocalDate dataInicial, LocalDate dataFinal, Map<DiasDaSemana, OpcaoRefeicao> cardapio) {
 		super();
 		this.dataInicial = dataInicial;
 		this.dataFinal = dataFinal;
@@ -44,12 +44,12 @@ public class CardapioSemanal {
 	}
 
 
-	public Map<TipoRefeicao, OpcaoRefeicao> getCardapio() {
+	public Map<DiasDaSemana, OpcaoRefeicao> getCardapio() {
 		return cardapio;
 	}
 
 
-	public void setCardapio(Map<TipoRefeicao, OpcaoRefeicao> cardapio) {
+	public void setCardapio(Map<DiasDaSemana, OpcaoRefeicao> cardapio) {
 		this.cardapio = cardapio;
 	}
 

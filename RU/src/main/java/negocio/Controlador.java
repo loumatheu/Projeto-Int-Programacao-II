@@ -3,20 +3,27 @@ package negocio;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import models.*;
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
 import exceptions.ElementoJaExisteException;
 import exceptions.ElementoNaoExisteException;
+import exceptions.ParametroVazioException;
 
 public class Controlador {
 
     private IRepositorioGenerico<Estudante> repositorioEstudante;
     private IRepositorioGenerico<Funcionario> repositorioFuncionario;
     private IRepositorioGenerico<TicketRefeicao> repositorioTicketRefeicao;
-    private IRepositorioGenerico<CardapioSemanal> repositorioCardapioSemanal ;
+    private IRepositorioGenerico<CardapioSemanal> repositorioCardapioSemanal;
+    private IRepositorioGenerico<TipoRefeicao> repositorioTipoRefeicao;
+    private IRepositorioGenerico<OpcaoRefeicao> repositorioOpcaoRefeicao;
+    
     private static Controlador instance;
 
     private Usuario usuario;
@@ -26,6 +33,8 @@ public class Controlador {
         this.repositorioFuncionario = new RepositorioGenerico<>();
         this.repositorioTicketRefeicao = new RepositorioGenerico<>();
         this.repositorioCardapioSemanal = new RepositorioGenerico<>();
+        this.repositorioTipoRefeicao = new RepositorioGenerico<>();
+        this.repositorioOpcaoRefeicao = new RepositorioGenerico<>();
     }
 
     public static Controlador getInstance() {
@@ -114,6 +123,22 @@ public class Controlador {
         this.repositorioCardapioSemanal = repositorioCardapioSemanal;
     }
 
+    public IRepositorioGenerico<TipoRefeicao> getRepositorioTipotRefeicao() {
+        return repositorioTipoRefeicao;
+    }
+    
+    public void setRepositorioTipoRefeicao(IRepositorioGenerico<TipoRefeicao> repositorioTipoRefeicao) {
+        this.repositorioTipoRefeicao = repositorioTipoRefeicao;
+    }
+    
+    public IRepositorioGenerico<OpcaoRefeicao> getRepositorioOpcaotRefeicao() {
+        return repositorioOpcaoRefeicao;
+    }
+    
+    public void setRepositorioOpcaoRefeicao(IRepositorioGenerico<OpcaoRefeicao> repositorioOpcaoRefeicao) {
+        this.repositorioOpcaoRefeicao = repositorioOpcaoRefeicao;
+    }
+    
     public Usuario getUsuario() {
         return usuario;
     }
@@ -178,6 +203,31 @@ public class Controlador {
         repositorioCardapioSemanal.atualizar(obj);
     }
     
+    public List<TipoRefeicao> listarTipoRefeicao(){
+        return repositorioTipoRefeicao.listar();
+    }
+    
+ 
+    
+    
+    public List<OpcaoRefeicao> listarOpcaoRefeicao(){
+        return repositorioOpcaoRefeicao.listar();
+    }
+    
+    public void inserirOpcaoRefeicao(OpcaoRefeicao obj) throws ElementoJaExisteException{
+        repositorioOpcaoRefeicao.inserir(obj);
+    }
+    
+    public void removerOpcaoRefeicao(OpcaoRefeicao obj) throws ElementoNaoExisteException{
+        repositorioOpcaoRefeicao.remover(obj);
+    }
+    
+    public void atualizarOpcaoRefeicao(OpcaoRefeicao obj) throws ElementoNaoExisteException{
+        repositorioOpcaoRefeicao.atualizar(obj);
+    }
+    
+    
+    
     
     // Recebe uma instancia de usuario e 
     //retorna uma lista com os tickes de almço que ele possui.
@@ -215,6 +265,35 @@ public class Controlador {
     	
 		return ticketsDoUsuario;
     	
+    }
+    public OpcaoRefeicao inserirOpcoesDeAlmoco(String opcao1,
+    		String opcao2,String vegetariano, String fastGrill, String suco, String sobremesa, DiasDaSemana dia) throws ParametroVazioException {
+    	OpcaoRefeicao refeicoes=null;
+    	if(!(opcao1.isEmpty()) && !opcao2.isEmpty() && !(vegetariano.isEmpty()) && !suco.isEmpty() && !sobremesa.isEmpty() && !fastGrill.isEmpty() ) {
+    		 refeicoes=new OpcaoRefeicao(opcao1, opcao2, vegetariano, fastGrill, suco, sobremesa,TipoRefeicao.ALMOCO);
+    	}else {
+    		if(opcao1.isEmpty()) {
+    			throw new ParametroVazioException("Prato principal 1 da "+dia.name().toLowerCase());
+    		}
+    		if(opcao2.isEmpty()) {
+    			throw new ParametroVazioException("Prato principal 2 da "+dia.name().toLowerCase());
+    		}
+    		if(vegetariano.isEmpty()) {
+    			throw new ParametroVazioException("Prato vegetariano da "+dia.name().toLowerCase());
+    		}
+    		if(suco.isEmpty()) {
+    			throw new ParametroVazioException("O suco da "+dia.name().toLowerCase());
+    		}
+    		if(fastGrill.isEmpty()) {
+    			throw new ParametroVazioException("O fast grill da "+dia.name().toLowerCase());
+    		}
+    		if(sobremesa.isEmpty()) {
+    			throw new ParametroVazioException("A sobremesa da "+dia.name().toLowerCase());
+    		}
+    			
+    	}
+    	
+    	return refeicoes;
     }
     
 

@@ -4,27 +4,29 @@ public class OpcaoRefeicao {
     private String opcao1;
     private String opcao2;
     private String opcaoVegana;
-    private String acompanhamentos;
+    private String FastGrill;
     private String sobremesa;
+    private String suco;
     private TipoRefeicao tipo;
     
 	public OpcaoRefeicao() {
 		super();
 	}
 
-	public OpcaoRefeicao(String opcao1, String opcao2, String opcaoVegana, String acompanhamentos, String sobremesa,
+	public OpcaoRefeicao(String opcao1, String opcao2, String opcaoVegana, String fastGrilll,String suco, String sobremesa,
 			TipoRefeicao tipo) {
 		super();
 		this.opcao1 = opcao1;
 		this.opcao2 = opcao2;
 		this.opcaoVegana = opcaoVegana;
-		this.acompanhamentos = acompanhamentos;
+		this.FastGrill = fastGrilll;
+		this.suco = suco;
 		this.sobremesa = sobremesa;
 		this.tipo = tipo;
 	}
 	
 	public String getOpcao1() {
-		return opcao1;
+		return this.opcao1;
 	}
 	public void setOpcao1(String opcao1) {
 		this.opcao1 = opcao1;
@@ -41,12 +43,23 @@ public class OpcaoRefeicao {
 	public void setOpcaoVegana(String opcaoVegana) {
 		this.opcaoVegana = opcaoVegana;
 	}
-	public String getAcompanhamentos() {
-		return acompanhamentos;
+	
+	public String getFastGrill() {
+		return FastGrill;
 	}
-	public void setAcompanhamentos(String acompanhamentos) {
-		this.acompanhamentos = acompanhamentos;
+
+	public void setFastGrill(String fastGrill) {
+		FastGrill = fastGrill;
 	}
+
+	public String getSuco() {
+		return suco;
+	}
+
+	public void setSuco(String suco) {
+		this.suco = suco;
+	}
+
 	public String getSobremesa() {
 		return sobremesa;
 	}
@@ -60,12 +73,14 @@ public class OpcaoRefeicao {
 		this.tipo = tipo;
 	}
 
-
 	@Override
 	public String toString() {
 		return "OpcaoRefeicao [opcao1=" + opcao1 + ", opcao2=" + opcao2 + ", opcaoVegana=" + opcaoVegana
-				+ ", acompanhamentos=" + acompanhamentos + ", sobremesa=" + sobremesa + ", tipo=" + tipo + "]";
+				+ ", FastGrill=" + FastGrill + ", sobremesa=" + sobremesa + ", suco=" + suco + ", tipo=" + tipo + "]";
 	}
+
+
+	
       
     
 }

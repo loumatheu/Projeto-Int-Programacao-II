@@ -12,12 +12,12 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="435.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="435.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.TelaCDCardapio">
    <children>
       <GridPane gridLinesVisible="true" layoutX="9.0" layoutY="55.0" prefHeight="339.0" prefWidth="580.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints fx:id="tabelaCadastroCardapio" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="108.0" minWidth="10.0" prefWidth="103.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="92.0" minWidth="10.0" prefWidth="91.0" />
@@ -33,7 +33,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <TextField prefHeight="51.0" prefWidth="98.0" promptText="Principal 1 :" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TextField fx:id="principal1SegundaTextField" prefHeight="51.0" prefWidth="98.0" promptText="Principal 1 :" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></TextField>
@@ -97,35 +97,35 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <TextField prefHeight="51.0" prefWidth="98.0" promptText="Principal 2 :" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField prefHeight="54.0" prefWidth="98.0" promptText="Fast Grill :" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField prefHeight="50.0" prefWidth="98.0" promptText="Vegetariano :" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField prefHeight="55.0" prefWidth="98.0" promptText="Suco :" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField prefHeight="64.0" prefWidth="98.0" promptText="Sobremesa :" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <TextField prefHeight="55.0" prefWidth="98.0" promptText="Sobremesa :" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-            <TextField prefHeight="58.0" prefWidth="98.0" promptText="Suco :" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-            <TextField prefHeight="54.0" prefWidth="98.0" promptText="Vegetariano :" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <TextField prefHeight="61.0" prefWidth="98.0" promptText="Fast Grill :" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <TextField prefHeight="53.0" prefWidth="98.0" promptText="Principal 2 :" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <TextField prefHeight="51.0" prefWidth="98.0" promptText="Principal 1 :" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <TextField prefHeight="58.0" prefWidth="102.0" promptText="Principal 1 :" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <TextField prefHeight="55.0" prefWidth="90.0" promptText="Fast Grill :" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-            <TextField prefHeight="55.0" prefWidth="90.0" promptText="Suco :" GridPane.columnIndex="4" GridPane.rowIndex="5" />
-            <TextField prefHeight="56.0" prefWidth="90.0" promptText="Vegetariano :" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-            <TextField prefHeight="57.0" prefWidth="102.0" promptText="Vegetariano :" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-            <TextField prefHeight="54.0" prefWidth="102.0" promptText="Suco :" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-            <TextField prefHeight="66.0" prefWidth="90.0" promptText="Sobremesa :" GridPane.columnIndex="4" GridPane.rowIndex="6" />
-            <TextField prefHeight="58.0" prefWidth="102.0" promptText="Principal 2 :" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <TextField prefHeight="58.0" prefWidth="102.0" promptText="Fast Grill :" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-            <TextField prefHeight="66.0" prefWidth="102.0" promptText="Sobremesa :" GridPane.columnIndex="3" GridPane.rowIndex="6" />
-            <TextField prefHeight="66.0" prefWidth="90.0" promptText="Principal 1 :" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-            <TextField prefHeight="57.0" prefWidth="90.0" promptText="Principal 2 :" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-            <TextField prefHeight="62.0" prefWidth="98.0" promptText="Principal 1 :" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-            <TextField prefHeight="62.0" prefWidth="98.0" promptText="Principal 2 :" GridPane.columnIndex="5" GridPane.rowIndex="2" />
-            <TextField prefHeight="56.0" prefWidth="98.0" promptText="Fast Grill :" GridPane.columnIndex="5" GridPane.rowIndex="3" />
-            <TextField prefHeight="62.0" prefWidth="98.0" promptText="Vegetariano :" GridPane.columnIndex="5" GridPane.rowIndex="4" />
-            <TextField prefHeight="60.0" prefWidth="98.0" promptText="Suco :" GridPane.columnIndex="5" GridPane.rowIndex="5" />
-            <TextField prefHeight="59.0" prefWidth="98.0" promptText="Sobremesa :" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+            <TextField fx:id="principal2SegundaTextField" prefHeight="51.0" prefWidth="98.0" promptText="Principal 2 :" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="fastSegundaTextField" prefHeight="54.0" prefWidth="98.0" promptText="Fast Grill :" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="vegetarianoSegundaTextField" prefHeight="50.0" prefWidth="98.0" promptText="Vegetariano :" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="sucoSegundaTextField" prefHeight="55.0" prefWidth="98.0" promptText="Suco :" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="sucoTercaTextField" prefHeight="58.0" prefWidth="98.0" promptText="Suco :" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <TextField fx:id="vegetarianoTercaTextField" prefHeight="54.0" prefWidth="98.0" promptText="Vegetariano :" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <TextField fx:id="fastTercaTextField" prefHeight="61.0" prefWidth="98.0" promptText="Fast Grill :" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <TextField fx:id="principal2TercaTextField" prefHeight="53.0" prefWidth="98.0" promptText="Principal 2 :" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField fx:id="principal1TercaTextField" prefHeight="51.0" prefWidth="98.0" promptText="Principal 1 :" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <TextField fx:id="principal1QuartaTextField" prefHeight="58.0" prefWidth="102.0" promptText="Principal 1 :" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <TextField fx:id="fastQuintaTextField" prefHeight="55.0" prefWidth="90.0" promptText="Fast Grill :" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <TextField fx:id="sucoQuintaTextField" prefHeight="55.0" prefWidth="90.0" promptText="Suco :" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+            <TextField fx:id="vegetarianoQuintaTextField" prefHeight="56.0" prefWidth="90.0" promptText="Vegetariano :" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <TextField fx:id="vegetarianoQuartaTextField" prefHeight="57.0" prefWidth="102.0" promptText="Vegetariano :" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <TextField fx:id="sucoQuartaTextField" prefHeight="54.0" prefWidth="102.0" promptText="Suco :" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <TextField fx:id="sobremesaQuintaTextField" prefHeight="66.0" prefWidth="90.0" promptText="Sobremesa :" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+            <TextField fx:id="principal2QuartaTextField" prefHeight="58.0" prefWidth="102.0" promptText="Principal 2 :" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <TextField fx:id="fastQuartaTextField" prefHeight="58.0" prefWidth="102.0" promptText="Fast Grill :" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <TextField fx:id="sobremesaQuartaTextField" prefHeight="66.0" prefWidth="102.0" promptText="Sobremesa :" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+            <TextField fx:id="principal1QuintaTextField" prefHeight="66.0" prefWidth="90.0" promptText="Principal 1 :" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <TextField fx:id="principal2QuintaTextField" prefHeight="57.0" prefWidth="90.0" promptText="Principal 2 :" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <TextField fx:id="principal1SextaTextField" prefHeight="62.0" prefWidth="98.0" promptText="Principal 1 :" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <TextField fx:id="principal2SextaTextField" prefHeight="62.0" prefWidth="98.0" promptText="Principal 2 :" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <TextField fx:id="fastSextaTextField" prefHeight="56.0" prefWidth="98.0" promptText="Fast Grill :" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+            <TextField fx:id="vegetarianoSextaTextField" prefHeight="62.0" prefWidth="98.0" promptText="Vegetariano :" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+            <TextField fx:id="sucoSextaTextField" prefHeight="60.0" prefWidth="98.0" promptText="Suco :" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+            <TextField fx:id="sobremesaSextaTextField" prefHeight="59.0" prefWidth="98.0" promptText="Sobremesa :" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+            <TextField fx:id="sobremesaSegundaTextField" prefHeight="64.0" prefWidth="98.0" promptText="Sobremesa :" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField fx:id="sobremesaTercaTextField" prefHeight="55.0" prefWidth="98.0" promptText="Sobremesa :" GridPane.columnIndex="2" GridPane.rowIndex="6" />
          </children>
       </GridPane>
       <Label layoutX="191.0" layoutY="20.0" prefHeight="35.0" prefWidth="255.0" text="Cardastro Cardárpio ">
@@ -138,6 +138,7 @@
             <Image url="@RUlogo.png" />
          </image>
       </ImageView>
-      <Button layoutX="273.0" layoutY="400.0" mnemonicParsing="false" text="Voltar" />
+      <Button layoutX="201.0" layoutY="394.0" mnemonicParsing="false" onAction="#botaoVoltar" text="Voltar" />
+      <Button layoutX="331.0" layoutY="394.0" mnemonicParsing="false" onAction="#botaoCadastroCardapio" text="Button" />
    </children>
 </AnchorPane>
