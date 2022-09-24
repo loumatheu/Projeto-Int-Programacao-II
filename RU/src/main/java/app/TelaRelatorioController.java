@@ -79,7 +79,7 @@ public class TelaRelatorioController {
     protected void btnRelatorioV(){
         LocalDate inicio=dtInicioV.getValue();
         LocalDate fim=dtFimV.getValue();
-        DateTimeFormatter form= DateTimeFormatter.ofPattern("dd/MM/YYYY");
+        DateTimeFormatter form= DateTimeFormatter.ofPattern("dd/MM/yyyy");
         try{
             LocalDate data=inicio;
             Map<LocalDate,Integer> mapaAlmoco=Controlador.getInstance().relatorioVendasAlmoco(inicio,fim);
@@ -124,7 +124,7 @@ public class TelaRelatorioController {
     protected void btnRelatorioC(){
         LocalDate inicio=dtInicioC.getValue();
         LocalDate fim=dtFimC.getValue();
-        DateTimeFormatter form= DateTimeFormatter.ofPattern("dd/MM/YYYY");
+        DateTimeFormatter form= DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
         try{
             LocalDate data=inicio;
