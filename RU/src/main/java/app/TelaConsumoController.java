@@ -1,15 +1,15 @@
 package app;
 
 import exceptions.ElementoJaExisteException;
+import exceptions.ElementoNaoExisteException;
+import exceptions.NaoPossuiTicketDisponivelException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import models.Estudante;
@@ -23,7 +23,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 import java.util.Random;
 
-public class TelaCompraController {
+public class TelaConsumoController {
 
     private Stage stage;
     private Scene scene;
@@ -43,25 +43,40 @@ public class TelaCompraController {
         labelQtdAlmoco.setText(String.valueOf(Controlador.getInstance().listarTicketAlmocoNaoConsumido(Controlador.getInstance().getUsuario()).size()));
         labelQtdJanta.setText(String.valueOf(Controlador.getInstance().listarTicketJantarNaoConsumido(Controlador.getInstance().getUsuario()).size()));
     }
+
     @FXML
-    protected void botaoComprarAlmoco() {
+    protected void botaoConsumirAlmoco() {
         try {
-            //Controlador.getInstance().getRepositorioTicketRefeicao().inserir(new TicketRefeicao(LocalDate.now(),String.valueOf(random.nextInt(100000)),3.5,Controlador.getInstance().getUsuario(), TipoRefeicao.ALMOCO));
-            Controlador.getInstance().comprarRefeicao(Controlador.getInstance().getUsuario(),TipoRefeicao.ALMOCO);
+            String text=Controlador.getInstance().consumirRefeicao(Controlador.getInstance().getUsuario(),TipoRefeicao.ALMOCO);
             labelQtdAlmoco.setText(String.valueOf(Controlador.getInstance().listarTicketAlmocoNaoConsumido(Controlador.getInstance().getUsuario()).size()));
-        } catch (ElementoJaExisteException e) {
-            Alert info = new Alert(Alert.AlertType.ERROR);
-            info.setTitle("Erro");
-            info.setContentText("Desculpe! Tente novamente!");
+            Alert info = new Alert(Alert.AlertType.INFORMATION);
+            info.setTitle("Ticket");
+            info.setContentText("O código do seu ticket é "+text);
+            info.showAndWait();
+        } catch (NaoPossuiTicketDisponivelException e) {
+            Alert info = new Alert(Alert.AlertType.WARNING);
+            info.setTitle("Aviso");
+            info.setContentText(e.getMessage());
             info.show();
         }
     }
 
+
     @FXML
-    protected void botaoComprarJanta() throws ElementoJaExisteException {
-        //Controlador.getInstance().getRepositorioTicketRefeicao().inserir(new TicketRefeicao(LocalDate.now(),String.valueOf(random.nextInt(100000)),3.0,Controlador.getInstance().getUsuario(), TipoRefeicao.JANTAR));
-        Controlador.getInstance().comprarRefeicao(Controlador.getInstance().getUsuario(),TipoRefeicao.JANTAR);
-        labelQtdJanta.setText(String.valueOf(Controlador.getInstance().listarTicketJantarNaoConsumido(Controlador.getInstance().getUsuario()).size()));
+    protected void botaoConsumirJantar() {
+        try {
+            String text=Controlador.getInstance().consumirRefeicao(Controlador.getInstance().getUsuario(),TipoRefeicao.JANTAR);
+            labelQtdJanta.setText(String.valueOf(Controlador.getInstance().listarTicketJantarNaoConsumido(Controlador.getInstance().getUsuario()).size()));
+            Alert info = new Alert(Alert.AlertType.INFORMATION);
+            info.setTitle("Ticket");
+            info.setContentText("O código do seu ticket é "+text);
+            info.showAndWait();
+        } catch (NaoPossuiTicketDisponivelException e) {
+            Alert info = new Alert(Alert.AlertType.WARNING);
+            info.setTitle("Aviso");
+            info.setContentText(e.getMessage());
+            info.show();
+        }
     }
 
     @FXML

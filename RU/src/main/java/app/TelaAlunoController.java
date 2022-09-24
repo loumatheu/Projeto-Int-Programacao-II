@@ -41,8 +41,8 @@ public class TelaAlunoController {
     @FXML
     protected void initialize(){
         labelBemvindo.setText(labelBemvindo.getText() + Controlador.getInstance().getUsuario().getNome());
-        labelQtdAlmoco.setText(labelQtdAlmoco.getText() + Controlador.getInstance().listarTicketAlmocoUsuario(Controlador.getInstance().getUsuario()).size());
-        labelQtdJantar.setText(labelQtdJantar.getText() + Controlador.getInstance().listarTicketJantarUsuario(Controlador.getInstance().getUsuario()).size());
+        labelQtdAlmoco.setText(labelQtdAlmoco.getText() + Controlador.getInstance().listarTicketAlmocoNaoConsumido(Controlador.getInstance().getUsuario()).size());
+        labelQtdJantar.setText(labelQtdJantar.getText() + Controlador.getInstance().listarTicketJantarNaoConsumido(Controlador.getInstance().getUsuario()).size());
     }
 
 
@@ -74,6 +74,16 @@ public class TelaAlunoController {
         stage.setScene(scene);
         stage.show();
         stage.setTitle("Cardápio Semanal");
+    }
+
+    @FXML
+    protected void botaoConsumirApertar(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("TelaConsumo.fxml")));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        stage.setTitle("Consumo de Tickets");
     }
 
 

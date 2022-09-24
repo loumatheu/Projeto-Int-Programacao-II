@@ -1,12 +1,8 @@
 package negocio;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.util.ArrayList;
-
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -14,14 +10,10 @@ import java.util.Map;
 import java.util.stream.Stream;
 
 
-import exceptions.DataInvalidaException;
-import exceptions.PeriodoInvalidoException;
+import exceptions.*;
 import models.*;
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
-import exceptions.ElementoJaExisteException;
-import exceptions.ElementoNaoExisteException;
-import exceptions.ParametroVazioException;
 
 public class Controlador {
 
@@ -199,8 +191,14 @@ public class Controlador {
         return repositorioCardapioSemanal.listar();
     }
     
-    public void inserirCardapioSemanal(CardapioSemanal obj) throws ElementoJaExisteException{
-        repositorioCardapioSemanal.inserir(obj);
+    public void inserirCardapioSemanal(LocalDate dataInicial,Map<DiasDaSemana,OpcaoRefeicao> cardapio ) throws ElementoJaExisteException, DataInvalidaException {
+        if(dataInicial.getDayOfWeek().equals(DayOfWeek.MONDAY) && !dataInicial.isBefore(LocalDate.now())) {
+            CardapioSemanal novo = new CardapioSemanal(dataInicial, cardapio);
+            repositorioCardapioSemanal.inserir(novo);
+        }
+        else {
+            throw new DataInvalidaException(dataInicial);
+        }
     }
     
     public void removerCardapioSemanal(CardapioSemanal obj) throws ElementoNaoExisteException{
@@ -255,10 +253,24 @@ public class Controlador {
     	
 		return ticketsDoUsuario;
     	
-    } 
-    
+    }
+
+    public List<TicketRefeicao> listarTicketAlmocoNaoConsumido(Usuario usuario){
+        List<TicketRefeicao> ticketsAlmoco=this.listarTicketAlmocoUsuario(usuario);
+        List<TicketRefeicao> ticketsDisponiveis=new ArrayList<>();
+
+        for(TicketRefeicao ticket:ticketsAlmoco){
+            if(ticket.getDataConsumo().equals(LocalDate.of(1,1,1))){
+                ticketsDisponiveis.add(ticket);
+            }
+        }
+
+        return ticketsDisponiveis;
+
+    }
+
     public List<TicketRefeicao> listarTicketJantarUsuario(Usuario usuario){
-    	List<TicketRefeicao> ticketsDoUsuario = new ArrayList<>(); 
+    	List<TicketRefeicao> ticketsDoUsuario = new ArrayList<>();
 		
     	for(int i=0;i<repositorioTicketRefeicao.listar().size();i++) {
     		TicketRefeicao u = repositorioTicketRefeicao.listar().get(i);
@@ -274,6 +286,51 @@ public class Controlador {
 		return ticketsDoUsuario;
     	
     }
+
+    public List<TicketRefeicao> listarTicketJantarNaoConsumido(Usuario usuario){
+        List<TicketRefeicao> ticketsJantar=this.listarTicketJantarUsuario(usuario);
+        List<TicketRefeicao> ticketsDisponiveis=new ArrayList<>();
+
+        for(TicketRefeicao ticket:ticketsJantar){
+            if(ticket.getDataConsumo().equals(LocalDate.of(1,1,1))){
+                ticketsDisponiveis.add(ticket);
+            }
+        }
+
+        return ticketsDisponiveis;
+
+    }
+
+    public String consumirRefeicao(Usuario user, TipoRefeicao tipo) throws NaoPossuiTicketDisponivelException {
+        List<TicketRefeicao> tickets;
+        if(tipo.equals(TipoRefeicao.ALMOCO)){
+            tickets=listarTicketAlmocoNaoConsumido(user);
+        } else{
+            tickets=listarTicketJantarNaoConsumido(user);
+        }
+        String codConsumo;
+        if(tickets.size()!=0){
+            codConsumo=tickets.get(0).getCodigo();
+            tickets.get(0).setDataConsumo(LocalDate.now());
+        }
+        else{
+            if(tipo.equals(TipoRefeicao.ALMOCO))
+                throw new NaoPossuiTicketDisponivelException (TipoRefeicao.ALMOCO);
+            else
+                throw new NaoPossuiTicketDisponivelException (TipoRefeicao.JANTAR);
+        }
+        return codConsumo;
+
+    }
+
+    public void comprarRefeicao (Usuario user, TipoRefeicao tipo) throws ElementoJaExisteException {
+        TicketRefeicao novoTicket=new TicketRefeicao(LocalDate.now(),String.valueOf(new Random().nextInt(100000)),3.5,user,tipo);
+        this.repositorioTicketRefeicao.inserir(novoTicket);
+
+    }
+
+
+
     public OpcaoRefeicao inserirOpcoesDeAlmoco(String opcao1,
     		String opcao2,String vegetariano, String fastGrill, String suco, String sobremesa, DiasDaSemana dia) throws ParametroVazioException {
     	OpcaoRefeicao refeicoes=null;
@@ -307,20 +364,15 @@ public class Controlador {
 
 
     public Map<LocalDate,Integer> relatorioVendasAlmoco(LocalDate inicio, LocalDate fim) throws DataInvalidaException, PeriodoInvalidoException{
-        //List<VendasPorDia> relatorio=new ArrayList<>();
         Map<LocalDate,Integer> count=new HashMap<>();
-        //Map<LocalDate,Integer> relatorio=new HashMap<>();
-        //int count=0;
         if(!inicio.isAfter(LocalDate.now()) && !fim.isAfter(LocalDate.now()) && !inicio.isAfter(fim)){
             for (TicketRefeicao venda:this.repositorioTicketRefeicao.listar()) {
                 if(!venda.getDataVenda().isBefore(inicio) && !venda.getDataVenda().isAfter(fim)){
-                    //count++;
                     if(count.containsKey(venda.getDataVenda()) && venda.getTipo().name().equals("ALMOCO")) {
                         count.replace(venda.getDataVenda(), count.get(venda.getDataVenda()) + 1);
                     }
                     else if(!count.containsKey(venda.getDataVenda()) && venda.getTipo().name().equals("ALMOCO")){
                         count.put(venda.getDataVenda(),1);
-                        //relatorio.put(venda.getDataVenda(),count.get(venda.getDataVenda()).toString());
                     }
                 }
             }

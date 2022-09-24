@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import negocio.Controlador;
 
 import java.io.IOException;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -79,7 +80,6 @@ public class TelaRelatorioController {
         LocalDate inicio=dtInicioV.getValue();
         LocalDate fim=dtFimV.getValue();
         DateTimeFormatter form= DateTimeFormatter.ofPattern("dd/MM/YYYY");
-
         try{
             LocalDate data=inicio;
             Map<LocalDate,Integer> mapaAlmoco=Controlador.getInstance().relatorioVendasAlmoco(inicio,fim);
@@ -107,13 +107,13 @@ public class TelaRelatorioController {
             clnJantarV.setCellValueFactory(cellData ->cellData.getValue().get(0).get(2));
         }
         catch(DataInvalidaException dti){
-            Alert info = new Alert(Alert.AlertType.ERROR);
+            Alert info = new Alert(Alert.AlertType.WARNING);
             info.setTitle("Data Inválida!");
             info.setContentText(dti.getMessage());
             info.show();
         }
         catch(PeriodoInvalidoException pdi){
-            Alert info = new Alert(Alert.AlertType.ERROR);
+            Alert info = new Alert(Alert.AlertType.WARNING);
             info.setTitle("Período Inválido!");
             info.setContentText(pdi.getMessage());
             info.show();

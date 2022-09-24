@@ -1,6 +1,9 @@
 package models;
 
+import javafx.util.converter.LocalDateTimeStringConverter;
+
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.Objects;
 
 public class TicketRefeicao {
@@ -18,6 +21,7 @@ public class TicketRefeicao {
 		this.valor = valor;
 		this.comprador = comprador;
 		this.tipo = tipo;
+		this.dataConsumo=LocalDate.of(1,1,1);
 	}
 
 	public TicketRefeicao(LocalDate dataVenda, LocalDate dataConsumo, String codigo, double valor, Usuario comprador,

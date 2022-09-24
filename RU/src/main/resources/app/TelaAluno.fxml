@@ -27,7 +27,7 @@
                   <Image url="@consumir%20tickets.png" />
                </image>
             </ImageView>
-            <Button layoutX="238.0" layoutY="267.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="125.0" text="Consumir ticket" />
+            <Button layoutX="238.0" layoutY="267.0" mnemonicParsing="false" onAction="#botaoConsumirApertar" prefHeight="25.0" prefWidth="125.0" text="Consumir ticket" />
             <Button layoutX="434.0" layoutY="266.0" mnemonicParsing="false" onAction="#botaoVerCardapioApertar" prefHeight="25.0" prefWidth="151.0" text="Ver cardápio da semana" />
          </children>
       </Pane>

@@ -19,13 +19,9 @@ public class CardapioSemanal {
 	}
 
 
-	public CardapioSemanal(LocalDate dataInicial, Map<DiasDaSemana, OpcaoRefeicao> cardapio) throws DataInvalidaException {
+	public CardapioSemanal(LocalDate dataInicial, Map<DiasDaSemana, OpcaoRefeicao> cardapio) {
 		super();
-		if(dataInicial.getDayOfWeek().equals(DayOfWeek.MONDAY))
 		this.dataInicial = dataInicial;
-		else {
-			throw new DataInvalidaException(dataInicial);
-		}
 		this.dataFinal =dataInicial.plusDays(4);
 		this.cardapio = cardapio;
 	}

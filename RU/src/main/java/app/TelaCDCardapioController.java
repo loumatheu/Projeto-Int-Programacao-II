@@ -1,6 +1,7 @@
 package app;
 
 import java.io.IOException;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
@@ -22,10 +23,9 @@ import javafx.stage.Stage;
 import models.CardapioSemanal;
 import models.DiasDaSemana;
 import models.OpcaoRefeicao;
-import models.TipoRefeicao;
 import negocio.Controlador;
 
-public class TelaCDCardapio {
+public class TelaCDCardapioController {
     	
 	private Stage stage;
     private Scene scene;
@@ -165,8 +165,8 @@ public class TelaCDCardapio {
     			mapa.put(DiasDaSemana.SEXTA,Controlador.getInstance().inserirOpcoesDeAlmoco(principal1SextaTextField.getText(),
 						principal2SextaTextField.getText(),vegetarianoSextaTextField.getText(),fastSextaTextField.getText(),
 						sucoSextaTextField.getText(),sobremesaSextaTextField.getText(),DiasDaSemana.SEXTA) );
-    			
-        		Controlador.getInstance().inserirCardapioSemanal(new CardapioSemanal(dataInicioCardapio.getValue(),mapa));
+
+        		Controlador.getInstance().inserirCardapioSemanal(dataInicioCardapio.getValue(),mapa);
         		
         		Alert info = new Alert(Alert.AlertType.INFORMATION);
                 info.setTitle("Cardapio cadastrado");
@@ -180,16 +180,24 @@ public class TelaCDCardapio {
                 info.show();
         			
     		} catch (ParametroVazioException e) {
-				// TODO Auto-generated catch block
     			Alert info = new Alert(Alert.AlertType.WARNING);
                 info.setTitle("Campo vazio!");
                 info.setContentText(e.getMessage());
                 info.show();
 			} catch (DataInvalidaException e) {
-				Alert info = new Alert(Alert.AlertType.WARNING);
-                info.setTitle("Data invalida!");
-                info.setContentText("A data inicial do cardapio deve ser uma segunda-feira");
-                info.show();
+                if(dataInicioCardapio.getValue().isBefore(LocalDate.now())){
+                    Alert info = new Alert(Alert.AlertType.WARNING);
+                    info.setTitle("Data invalida!");
+                    info.setContentText("Não é possível inserir um cardápio com data anterior a hoje");
+                    info.show();
+
+                } else if (!dataInicioCardapio.getValue().getDayOfWeek().equals(DayOfWeek.MONDAY)) {
+                    Alert info = new Alert(Alert.AlertType.WARNING);
+                    info.setTitle("Data invalida!");
+                    info.setContentText("A data inicial do cardápio deve ser uma segunda-feira");
+                    info.show();
+                }
+
 			}
     	
     	

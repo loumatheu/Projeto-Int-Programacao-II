@@ -32,8 +32,8 @@ public class TelaFuncionarioController {
     @FXML
     protected void initialize(){
         labelBemvindo.setText(labelBemvindo.getText() + Controlador.getInstance().getUsuario().getNome());
-        labelQtdAlmoco.setText(labelQtdAlmoco.getText() + Controlador.getInstance().listarTicketAlmocoUsuario(Controlador.getInstance().getUsuario()).size());
-        labelQtdJantar.setText(labelQtdJantar.getText() + Controlador.getInstance().listarTicketJantarUsuario(Controlador.getInstance().getUsuario()).size());
+        labelQtdAlmoco.setText(labelQtdAlmoco.getText() + Controlador.getInstance().listarTicketAlmocoNaoConsumido(Controlador.getInstance().getUsuario()).size());
+        labelQtdJantar.setText(labelQtdJantar.getText() + Controlador.getInstance().listarTicketJantarNaoConsumido(Controlador.getInstance().getUsuario()).size());
     }
 
     @FXML
