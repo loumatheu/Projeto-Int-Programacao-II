@@ -1,5 +1,5 @@
 package models;
 
 public enum DiasDaSemana {
-    SEGUNDA, TERCA,QUARTA,QUINTA,SEXTA;
+    SEGUNDA, TERCA, QUARTA, QUINTA, SEXTA;
 }

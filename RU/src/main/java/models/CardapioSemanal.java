@@ -67,24 +67,14 @@ public class CardapioSemanal {
 
 
 	@Override
-	public int hashCode() {
-		return Objects.hash(cardapio);
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof CardapioSemanal that)) return false;
+		return getDataInicial().equals(that.getDataInicial()) && getDataFinal().equals(that.getDataFinal()) && getCardapio().equals(that.getCardapio());
 	}
-
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		CardapioSemanal other = (CardapioSemanal) obj;
-		return Objects.equals(cardapio, other.cardapio);
+	public int hashCode() {
+		return Objects.hash(getDataInicial(), getDataFinal(), getCardapio());
 	}
-	
-	
-	
-	
 }

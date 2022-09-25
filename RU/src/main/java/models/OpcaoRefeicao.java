@@ -1,5 +1,7 @@
 package models;
 
+import java.util.Objects;
+
 public class OpcaoRefeicao {
     private String opcao1;
     private String opcao2;
@@ -80,7 +82,21 @@ public class OpcaoRefeicao {
 	}
 
 
-	
-      
-    
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof OpcaoRefeicao that)) return false;
+		return getOpcao1().equals(that.getOpcao1()) &&
+			   getOpcao2().equals(that.getOpcao2()) &&
+				getOpcaoVegana().equals(that.getOpcaoVegana()) &&
+				getFastGrill().equals(that.getFastGrill()) &&
+				getSobremesa().equals(that.getSobremesa()) &&
+				getSuco().equals(that.getSuco()) &&
+				getTipo() == that.getTipo();
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(getOpcao1(), getOpcao2(), getOpcaoVegana(), getFastGrill(), getSobremesa(), getSuco(), getTipo());
+	}
 }
