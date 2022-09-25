@@ -77,10 +77,9 @@
             <Image url="@funcionário.png" />
          </image>
       </ImageView>
-      <Button layoutX="442.0" layoutY="129.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="Procurar estudante" />
-      <Button layoutX="442.0" layoutY="158.0" mnemonicParsing="false" prefHeight="13.0" prefWidth="135.0" text="Editar estudante" />
-      <Button layoutX="442.0" layoutY="187.0" mnemonicParsing="false" prefHeight="13.0" prefWidth="135.0" text="Remover estudante" />
-      <Button layoutX="439.0" layoutY="306.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="Procurar estudante" />
+      <Button layoutX="442.0" layoutY="129.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="Visualizar estudante" />
+      <Button layoutX="442.0" layoutY="159.0" mnemonicParsing="false" prefHeight="13.0" prefWidth="135.0" text="Remover estudante" />
+      <Button layoutX="439.0" layoutY="306.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="Visualizar estudante" />
       <Button layoutX="439.0" layoutY="335.0" mnemonicParsing="false" prefHeight="13.0" prefWidth="135.0" text="Editar estudante" />
       <Button layoutX="439.0" layoutY="364.0" mnemonicParsing="false" prefHeight="13.0" prefWidth="135.0" text="Remover estudante" />
       <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="410.0" layoutY="278.0" pickOnBounds="true" preserveRatio="true">
@@ -113,12 +112,7 @@
             <Image url="@visuazilar.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="25.0" fitWidth="28.0" layoutX="414.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@editar.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="414.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="414.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@remover.png" />
          </image>
