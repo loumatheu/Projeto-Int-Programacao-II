@@ -36,7 +36,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Button mnemonicParsing="false" onAction="#botaoComprarApertar" prefHeight="25.0" prefWidth="151.0" text="Comprar mais tickets" AnchorPane.bottomAnchor="180.0" AnchorPane.rightAnchor="14.0" />
+      <Button mnemonicParsing="false" onAction="#botaoComprarApertar" prefHeight="25.0" prefWidth="151.0" text="Comprar ticket" AnchorPane.bottomAnchor="180.0" AnchorPane.rightAnchor="14.0" />
       <Label fx:id="labelBemvindo" alignment="TOP_LEFT" layoutX="14.0" layoutY="83.0" prefHeight="49.0" prefWidth="265.0" text="Bem vind@, ">
          <font>
             <Font size="14.0" />
