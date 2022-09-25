@@ -39,7 +39,7 @@
          </font>
       </Label>
       <Button layoutX="249.0" layoutY="263.0" mnemonicParsing="false" onAction="#botaoRelatoriosApertar" prefHeight="25.0" prefWidth="71.0" text="Relatórios" />
-      <Button layoutX="68.0" layoutY="303.0" mnemonicParsing="false" onAction="#botaoConsumirApertar" prefHeight="25.0" prefWidth="117.0" text="Consumir tickets" />
+      <Button layoutX="68.0" layoutY="293.0" mnemonicParsing="false" onAction="#botaoConsumirApertar" prefHeight="25.0" prefWidth="117.0" text="Consumir tickets" />
       <Button layoutX="196.0" layoutY="158.0" mnemonicParsing="false" onAction="#botaoCardapiosApertar" prefHeight="25.0" prefWidth="176.0" text="Gerenciamento de Cardápios" />
       <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="257.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -61,7 +61,7 @@
             <Image url="@carrinho.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="36.0" fitWidth="44.0" layoutX="28.0" layoutY="298.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="36.0" fitWidth="44.0" layoutX="28.0" layoutY="288.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@catraca.png" />
          </image>
@@ -115,6 +115,12 @@
       <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="414.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@remover.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="68.0" layoutY="341.0" mnemonicParsing="false" onAction="#botaoHistoricoApertar" prefHeight="25.0" prefWidth="117.0" text="Histórico" />
+      <ImageView fitHeight="36.0" fitWidth="44.0" layoutX="28.0" layoutY="336.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@hystory.png" />
          </image>
       </ImageView>
    </children>

@@ -474,6 +474,118 @@ public class Controlador {
         }
         return count;
     }
+    public Map<LocalDate,Integer> relatorioVendasAlmocoUsuario(LocalDate inicio, LocalDate fim, Usuario user) throws DataInvalidaException, PeriodoInvalidoException{
+        Map<LocalDate,Integer> count=new HashMap<>();
+        if(!inicio.isAfter(LocalDate.now()) && !fim.isAfter(LocalDate.now()) && !inicio.isAfter(fim)){
+            for (TicketRefeicao venda:this.repositorioTicketRefeicao.listar()) {
+                if(venda.getComprador().equals(user) && !venda.getDataVenda().isBefore(inicio) && !venda.getDataVenda().isAfter(fim)){
+                    if(count.containsKey(venda.getDataVenda()) && venda.getTipo().name().equals("ALMOCO")) {
+                        count.replace(venda.getDataVenda(), count.get(venda.getDataVenda()) + 1);
+                    }
+                    else if(!count.containsKey(venda.getDataVenda()) && venda.getTipo().name().equals("ALMOCO")){
+                        count.put(venda.getDataVenda(),1);
+                    }
+                }
+            }
+        }
+        else {
+            if (inicio.isAfter(LocalDate.now())) {
+                throw new DataInvalidaException(inicio);
+            }
+            if (fim.isAfter(LocalDate.now())) {
+                throw new DataInvalidaException(fim);
+            }
+            if (inicio.isAfter(fim)) {
+                throw new PeriodoInvalidoException(inicio,fim);
+            }
+        }
+        return count;
+    }
+
+    public Map<LocalDate,Integer> relatorioVendasJantarUsuario(LocalDate inicio, LocalDate fim,Usuario user) throws DataInvalidaException, PeriodoInvalidoException{
+        Map<LocalDate,Integer> count=new HashMap<>();
+        if(!inicio.isAfter(LocalDate.now()) && !fim.isAfter(LocalDate.now()) && !inicio.isAfter(fim)){
+            for (TicketRefeicao venda:this.repositorioTicketRefeicao.listar()) {
+                if(venda.getComprador().equals(user) && !venda.getDataVenda().isBefore(inicio) && !venda.getDataVenda().isAfter(fim)){
+                    if(count.containsKey(venda.getDataVenda()) && venda.getTipo().name().equals("JANTAR")) {
+                        count.replace(venda.getDataVenda(), count.get(venda.getDataVenda()) + 1);
+                    }
+                    else if(!count.containsKey(venda.getDataVenda()) && venda.getTipo().name().equals("JANTAR")){
+                        count.put(venda.getDataVenda(),1);
+                    }
+                }
+            }
+        }
+        else {
+            if (inicio.isAfter(LocalDate.now())) {
+                throw new DataInvalidaException(inicio);
+            }
+            if (fim.isAfter(LocalDate.now())) {
+                throw new DataInvalidaException(fim);
+            }
+            if (inicio.isAfter(fim)) {
+                throw new PeriodoInvalidoException(inicio,fim);
+            }
+        }
+        return count;
+    }
+    public Map<LocalDate,Integer> relatorioConsumoAlmocoUsuario(LocalDate inicio, LocalDate fim, Usuario user) throws DataInvalidaException, PeriodoInvalidoException{
+        Map<LocalDate,Integer> count=new HashMap<>();
+        if(!inicio.isAfter(LocalDate.now()) && !fim.isAfter(LocalDate.now()) && !inicio.isAfter(fim)){
+            List<TicketRefeicao> listaConsumos=this.repositorioTicketRefeicao.listar().stream().filter(t->t.getDataConsumo()!=null).toList();
+            for (TicketRefeicao consumo:listaConsumos) {
+                if(consumo.getComprador().equals(user) && !consumo.getDataConsumo().isBefore(inicio) && !consumo.getDataConsumo().isAfter(fim)){
+                    if(count.containsKey(consumo.getDataConsumo()) && consumo.getTipo().name().equals("ALMOCO")) {
+                        count.replace(consumo.getDataConsumo(), count.get(consumo.getDataConsumo()) + 1);
+                    }
+                    else if(!count.containsKey(consumo.getDataConsumo()) && consumo.getTipo().name().equals("ALMOCO")){
+                        count.put(consumo.getDataConsumo(),1);
+                    }
+                }
+            }
+        }
+        else {
+            if (inicio.isAfter(LocalDate.now())) {
+                throw new DataInvalidaException(inicio);
+            }
+            if (fim.isAfter(LocalDate.now())) {
+                throw new DataInvalidaException(fim);
+            }
+            if (inicio.isAfter(fim)) {
+                throw new PeriodoInvalidoException(inicio,fim);
+            }
+        }
+        return count;
+    }
+    public Map<LocalDate,Integer> relatorioConsumoJantarUsuario(LocalDate inicio, LocalDate fim, Usuario user) throws DataInvalidaException, PeriodoInvalidoException{
+        Map<LocalDate,Integer> count=new HashMap<>();
+        if(!inicio.isAfter(LocalDate.now()) && !fim.isAfter(LocalDate.now()) && !inicio.isAfter(fim)){
+            List<TicketRefeicao> listaConsumos=this.repositorioTicketRefeicao.listar().stream().filter(t->t.getDataConsumo()!=null).toList();
+            for (TicketRefeicao consumo:listaConsumos) {
+                if(consumo.getComprador().equals(user) && !consumo.getDataConsumo().isBefore(inicio) && !consumo.getDataConsumo().isAfter(fim)){
+                    if(count.containsKey(consumo.getDataConsumo()) && consumo.getTipo().name().equals("JANTAR")) {
+                        count.replace(consumo.getDataConsumo(), count.get(consumo.getDataConsumo()) + 1);
+                    }
+                    else if(!count.containsKey(consumo.getDataConsumo()) && consumo.getTipo().name().equals("JANTAR")){
+                        count.put(consumo.getDataConsumo(),1);
+                    }
+                }
+            }
+        }
+        else {
+            if (inicio.isAfter(LocalDate.now())) {
+                throw new DataInvalidaException(inicio);
+            }
+            if (fim.isAfter(LocalDate.now())) {
+                throw new DataInvalidaException(fim);
+            }
+            if (inicio.isAfter(fim)) {
+                throw new PeriodoInvalidoException(inicio,fim);
+            }
+        }
+        return count;
+    }
+
 
 
 }

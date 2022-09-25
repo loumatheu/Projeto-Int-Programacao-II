@@ -29,6 +29,12 @@
             </ImageView>
             <Button layoutX="238.0" layoutY="267.0" mnemonicParsing="false" onAction="#botaoConsumirApertar" prefHeight="25.0" prefWidth="125.0" text="Consumir ticket" />
             <Button layoutX="434.0" layoutY="266.0" mnemonicParsing="false" onAction="#botaoVerCardapioApertar" prefHeight="25.0" prefWidth="151.0" text="Ver cardápio da semana" />
+            <Button layoutX="27.0" layoutY="255.0" mnemonicParsing="false" onAction="#botaoHistoricoApertar" prefHeight="25.0" prefWidth="125.0" text="Histórico" />
+            <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="40.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@hystory.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
       <Label fx:id="labelQtdJantar" layoutX="42.0" layoutY="31.0" text="Jantar: " AnchorPane.bottomAnchor="170.0" AnchorPane.leftAnchor="36.0">
