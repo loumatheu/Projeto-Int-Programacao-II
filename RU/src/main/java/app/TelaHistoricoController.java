@@ -89,8 +89,8 @@ public class TelaHistoricoController {
         DateTimeFormatter form = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         try {
             LocalDate data = inicio;
-            Map<LocalDate, Integer> mapaAlmoco = Controlador.getInstance().relatorioVendasAlmocoUsuario(inicio, fim, Controlador.getInstance().getUsuario());
-            Map<LocalDate, Integer> mapaJantar = Controlador.getInstance().relatorioVendasJantarUsuario(inicio, fim, Controlador.getInstance().getUsuario());
+            Map<LocalDate, Integer> mapaAlmoco = Controlador.getInstance().historicoVendasAlmoco(inicio, fim, Controlador.getInstance().getUsuario());
+            Map<LocalDate, Integer> mapaJantar = Controlador.getInstance().historicoVendasJantar(inicio, fim, Controlador.getInstance().getUsuario());
             ObservableList<List<List<SimpleStringProperty>>> vendas = FXCollections.observableArrayList();
 
 
@@ -133,8 +133,8 @@ public class TelaHistoricoController {
 
         try {
             LocalDate data = inicio;
-            Map<LocalDate, Integer> mapaAlmoco = Controlador.getInstance().relatorioConsumoAlmocoUsuario(inicio, fim,Controlador.getInstance().getUsuario());
-            Map<LocalDate, Integer> mapaJantar = Controlador.getInstance().relatorioConsumoJantarUsuario(inicio, fim, Controlador.getInstance().getUsuario());
+            Map<LocalDate, Integer> mapaAlmoco = Controlador.getInstance().historicoConsumoAlmoco(inicio, fim,Controlador.getInstance().getUsuario());
+            Map<LocalDate, Integer> mapaJantar = Controlador.getInstance().historicoConsumoJantar(inicio, fim, Controlador.getInstance().getUsuario());
             ObservableList<List<List<SimpleStringProperty>>> vendas = FXCollections.observableArrayList();
 
 

@@ -10,6 +10,8 @@ import java.util.Objects;
 import exceptions.DataInvalidaException;
 import exceptions.ElementoJaExisteException;
 import exceptions.ParametroVazioException;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,12 +19,13 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import models.CardapioSemanal;
 import models.DiasDaSemana;
 import models.OpcaoRefeicao;
+import models.TipoRefeicao;
 import negocio.Controlador;
 
 public class TelaCDCardapioController {
@@ -30,7 +33,9 @@ public class TelaCDCardapioController {
 	private Stage stage;
     private Scene scene;
     private Parent root;
-    
+
+    @FXML
+    private ChoiceBox<TipoRefeicao> cbTipo;
     @FXML
     private TextField principal1SegundaTextField;
     
@@ -134,40 +139,55 @@ public class TelaCDCardapioController {
     
     @FXML
     protected void initialize(){
-    	dataInicioCardapio.setValue(LocalDate.now());
+       dataInicioCardapio.setValue(LocalDate.now());
        datafinalCardapio.setValue(LocalDate.now());
+       ObservableList<TipoRefeicao> tipos = FXCollections.observableArrayList();
+       tipos.add(TipoRefeicao.ALMOCO);
+       tipos.add(TipoRefeicao.JANTAR);
+       cbTipo.setItems(tipos);
+       cbTipo.setValue(TipoRefeicao.ALMOCO);
+       principal1SegundaTextField.setText("p1Seg");principal2SegundaTextField.setText("p2Seg");vegetarianoSegundaTextField.setText("vegSeg");fastSegundaTextField.setText("fastSeg");sucoSegundaTextField.setText("sucoSeg");sobremesaSegundaTextField.setText("sobSeg");
+       principal1TercaTextField.setText("p1Ter");principal2TercaTextField.setText("p2Ter");vegetarianoTercaTextField.setText("vegTer");fastTercaTextField.setText("fastTer");sucoTercaTextField.setText("sucoTer");sobremesaTercaTextField.setText("sobTer");
+       principal1QuartaTextField.setText("p1Qua");principal2QuartaTextField.setText("p2Qua");vegetarianoQuartaTextField.setText("vegQua");fastQuartaTextField.setText("fastQua");sucoQuartaTextField.setText("sucoQua");sobremesaQuartaTextField.setText("sobQua");
+       principal1QuintaTextField.setText("p1Qui");principal2QuintaTextField.setText("p2Qui");vegetarianoQuintaTextField.setText("vegQui");fastQuintaTextField.setText("fastQui");sucoQuintaTextField.setText("sucoQui");sobremesaQuintaTextField.setText("sobQui");
+       principal1SextaTextField.setText("p1Sex");principal2SextaTextField.setText("p2Sex");vegetarianoSextaTextField.setText("vegSex");fastSextaTextField.setText("fastSex");sucoSextaTextField.setText("sucoSex");sobremesaSextaTextField.setText("sobSex");
     }
-    
-        
+
+
     @FXML
     protected void botaoCadastroCardapio(){
     	
     
     		try {
     			datafinalCardapio.setValue(dataInicioCardapio.getValue().plusDays(4));
+
+
     			Map<DiasDaSemana,OpcaoRefeicao> mapa=new HashMap<>();
-    			mapa.put(DiasDaSemana.SEGUNDA,Controlador.getInstance().inserirOpcoesDeAlmoco(principal1SegundaTextField.getText(),
+
+    			mapa.put(DiasDaSemana.SEGUNDA,Controlador.getInstance().inserirOpcoes(principal1SegundaTextField.getText(),
 						principal2SegundaTextField.getText(),vegetarianoSegundaTextField.getText(),fastSegundaTextField.getText(),
-						sucoSegundaTextField.getText(),sobremesaSegundaTextField.getText(),DiasDaSemana.SEGUNDA) );
+						sucoSegundaTextField.getText(),sobremesaSegundaTextField.getText(),cbTipo.getValue(),DiasDaSemana.SEGUNDA) );
     			
-    			mapa.put(DiasDaSemana.TERCA,Controlador.getInstance().inserirOpcoesDeAlmoco(principal1TercaTextField.getText(),
+    			mapa.put(DiasDaSemana.TERCA,Controlador.getInstance().inserirOpcoes(principal1TercaTextField.getText(),
 						principal2TercaTextField.getText(),vegetarianoTercaTextField.getText(),fastTercaTextField.getText(),
-						sucoTercaTextField.getText(),sobremesaTercaTextField.getText(),DiasDaSemana.TERCA) );
+						sucoTercaTextField.getText(),sobremesaTercaTextField.getText(),cbTipo.getValue(),DiasDaSemana.TERCA) );
     			
-    			mapa.put(DiasDaSemana.QUARTA,Controlador.getInstance().inserirOpcoesDeAlmoco(principal1QuartaTextField.getText(),
+    			mapa.put(DiasDaSemana.QUARTA,Controlador.getInstance().inserirOpcoes(principal1QuartaTextField.getText(),
 						principal2QuartaTextField.getText(),vegetarianoQuartaTextField.getText(),fastQuartaTextField.getText(),
-						sucoQuartaTextField.getText(),sobremesaQuartaTextField.getText(),DiasDaSemana.QUARTA) );
+						sucoQuartaTextField.getText(),sobremesaQuartaTextField.getText(),cbTipo.getValue(),DiasDaSemana.QUARTA) );
     		
-    			mapa.put(DiasDaSemana.QUINTA,Controlador.getInstance().inserirOpcoesDeAlmoco(principal1QuintaTextField.getText(),
+    			mapa.put(DiasDaSemana.QUINTA,Controlador.getInstance().inserirOpcoes(principal1QuintaTextField.getText(),
 						principal2QuintaTextField.getText(),vegetarianoQuintaTextField.getText(),fastQuintaTextField.getText(),
-						sucoQuintaTextField.getText(),sobremesaQuintaTextField.getText(),DiasDaSemana.QUINTA) );
+						sucoQuintaTextField.getText(),sobremesaQuintaTextField.getText(),cbTipo.getValue(),DiasDaSemana.QUINTA) );
     			
-    			mapa.put(DiasDaSemana.SEXTA,Controlador.getInstance().inserirOpcoesDeAlmoco(principal1SextaTextField.getText(),
+    			mapa.put(DiasDaSemana.SEXTA,Controlador.getInstance().inserirOpcoes(principal1SextaTextField.getText(),
 						principal2SextaTextField.getText(),vegetarianoSextaTextField.getText(),fastSextaTextField.getText(),
-						sucoSextaTextField.getText(),sobremesaSextaTextField.getText(),DiasDaSemana.SEXTA) );
+						sucoSextaTextField.getText(),sobremesaSextaTextField.getText(),cbTipo.getValue(),DiasDaSemana.SEXTA) );
 
         		Controlador.getInstance().inserirCardapioSemanal(dataInicioCardapio.getValue(),mapa);
-        		
+        		System.out.println(Controlador.getInstance().getRepositorioCardapioSemanal().listar());
+                for(int i=0;i<Controlador.getInstance().getRepositorioCardapioSemanal().listar().size();i++)
+                    System.out.println(Controlador.getInstance().listarCardapioSemanal().get(i).getCardapio().get(DiasDaSemana.SEGUNDA));
         		Alert info = new Alert(Alert.AlertType.INFORMATION);
                 info.setTitle("Cardapio cadastrado");
                 info.setContentText("O cardapio foi cadastrado com sucesso");
@@ -202,11 +222,7 @@ public class TelaCDCardapioController {
     	
     	
     }	
-    	
-    	
-    
-    
-  
+
       @FXML
     protected void botaoVoltar(ActionEvent event) throws IOException {
           root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("TelaGerenciamentoCardapio.fxml")));

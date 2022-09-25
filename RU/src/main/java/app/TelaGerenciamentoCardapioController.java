@@ -56,6 +56,14 @@ public class TelaGerenciamentoCardapioController {
         stage.show();
         stage.setTitle("Cadastro do Cardapio");
     }
-
+    @FXML
+    protected void botaoBuscarCardapioApertar(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("TelaBuscaCardapio.fxml")));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        stage.setTitle("Buscar Cardápio");
+    }
 
 }

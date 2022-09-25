@@ -7,7 +7,6 @@ import java.util.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Stream;
 
 
 import exceptions.*;
@@ -331,11 +330,11 @@ public class Controlador {
 
 
 
-    public OpcaoRefeicao inserirOpcoesDeAlmoco(String opcao1,
-    		String opcao2,String vegetariano, String fastGrill, String suco, String sobremesa, DiasDaSemana dia) throws ParametroVazioException {
+    public OpcaoRefeicao inserirOpcoes(String opcao1,
+                                       String opcao2, String vegetariano, String fastGrill, String suco, String sobremesa, TipoRefeicao tipo, DiasDaSemana dia) throws ParametroVazioException {
     	OpcaoRefeicao refeicoes=null;
     	if(!(opcao1.isEmpty()) && !opcao2.isEmpty() && !(vegetariano.isEmpty()) && !suco.isEmpty() && !sobremesa.isEmpty() && !fastGrill.isEmpty() ) {
-    		 refeicoes=new OpcaoRefeicao(opcao1, opcao2, vegetariano, fastGrill, suco, sobremesa,TipoRefeicao.ALMOCO);
+    		 refeicoes=new OpcaoRefeicao(opcao1, opcao2, vegetariano, fastGrill, suco, sobremesa,tipo);
     	}else {
     		if(opcao1.isEmpty()) {
     			throw new ParametroVazioException("Prato principal 1 da "+dia.name().toLowerCase());
@@ -474,7 +473,7 @@ public class Controlador {
         }
         return count;
     }
-    public Map<LocalDate,Integer> relatorioVendasAlmocoUsuario(LocalDate inicio, LocalDate fim, Usuario user) throws DataInvalidaException, PeriodoInvalidoException{
+    public Map<LocalDate,Integer> historicoVendasAlmoco(LocalDate inicio, LocalDate fim, Usuario user) throws DataInvalidaException, PeriodoInvalidoException{
         Map<LocalDate,Integer> count=new HashMap<>();
         if(!inicio.isAfter(LocalDate.now()) && !fim.isAfter(LocalDate.now()) && !inicio.isAfter(fim)){
             for (TicketRefeicao venda:this.repositorioTicketRefeicao.listar()) {
@@ -502,7 +501,7 @@ public class Controlador {
         return count;
     }
 
-    public Map<LocalDate,Integer> relatorioVendasJantarUsuario(LocalDate inicio, LocalDate fim,Usuario user) throws DataInvalidaException, PeriodoInvalidoException{
+    public Map<LocalDate,Integer> historicoVendasJantar(LocalDate inicio, LocalDate fim,Usuario user) throws DataInvalidaException, PeriodoInvalidoException{
         Map<LocalDate,Integer> count=new HashMap<>();
         if(!inicio.isAfter(LocalDate.now()) && !fim.isAfter(LocalDate.now()) && !inicio.isAfter(fim)){
             for (TicketRefeicao venda:this.repositorioTicketRefeicao.listar()) {
@@ -529,7 +528,7 @@ public class Controlador {
         }
         return count;
     }
-    public Map<LocalDate,Integer> relatorioConsumoAlmocoUsuario(LocalDate inicio, LocalDate fim, Usuario user) throws DataInvalidaException, PeriodoInvalidoException{
+    public Map<LocalDate,Integer> historicoConsumoAlmoco(LocalDate inicio, LocalDate fim, Usuario user) throws DataInvalidaException, PeriodoInvalidoException{
         Map<LocalDate,Integer> count=new HashMap<>();
         if(!inicio.isAfter(LocalDate.now()) && !fim.isAfter(LocalDate.now()) && !inicio.isAfter(fim)){
             List<TicketRefeicao> listaConsumos=this.repositorioTicketRefeicao.listar().stream().filter(t->t.getDataConsumo()!=null).toList();
@@ -557,7 +556,7 @@ public class Controlador {
         }
         return count;
     }
-    public Map<LocalDate,Integer> relatorioConsumoJantarUsuario(LocalDate inicio, LocalDate fim, Usuario user) throws DataInvalidaException, PeriodoInvalidoException{
+    public Map<LocalDate,Integer> historicoConsumoJantar(LocalDate inicio, LocalDate fim, Usuario user) throws DataInvalidaException, PeriodoInvalidoException{
         Map<LocalDate,Integer> count=new HashMap<>();
         if(!inicio.isAfter(LocalDate.now()) && !fim.isAfter(LocalDate.now()) && !inicio.isAfter(fim)){
             List<TicketRefeicao> listaConsumos=this.repositorioTicketRefeicao.listar().stream().filter(t->t.getDataConsumo()!=null).toList();

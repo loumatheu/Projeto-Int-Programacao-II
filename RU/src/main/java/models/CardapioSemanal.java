@@ -59,8 +59,10 @@ public class CardapioSemanal {
 
 	@Override
 	public String toString() {
-		return "CardapioSemanal [dataInicial=" + dataInicial + ", dataFinal=" + dataFinal + ", cardapio=" + cardapio
-				+ "]";
+		return "\nCardapioSemanal [dataInicial=" + dataInicial + ", dataFinal=" + dataFinal + ", cardapio=\n" +
+				"\nSegunda: "+cardapio.get(DiasDaSemana.SEGUNDA)+
+				"\nTerça: "+cardapio.get(DiasDaSemana.TERCA)+"\nQuarta: "+cardapio.get(DiasDaSemana.QUARTA)+
+				"\nQuinta: "+cardapio.get(DiasDaSemana.QUINTA)+"\nSexta: "+ cardapio.get(DiasDaSemana.SEXTA) + "]\n";
 	}
 
 
