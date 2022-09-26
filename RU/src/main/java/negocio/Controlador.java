@@ -611,22 +611,22 @@ public class Controlador {
     	
     	
     	if(data.minusDays(1).getDayOfWeek().equals(DayOfWeek.MONDAY))
-    		data.minusDays(1);
+    		data = data.minusDays(1);
     	
    		if(data.minusDays(2).getDayOfWeek().equals(DayOfWeek.MONDAY))
-    		data.minusDays(2);
+            data = data.minusDays(2);
     		
    		if(data.minusDays(3).getDayOfWeek().equals(DayOfWeek.MONDAY))
-   			data.minusDays(3);
+            data = data.minusDays(3);
     			 				
     	if(data.minusDays(4).getDayOfWeek().equals(DayOfWeek.MONDAY))
-   			data.minusDays(4);
+            data = data.minusDays(4);
     	
     	if(data.plusDays(2).getDayOfWeek().equals(DayOfWeek.MONDAY))
-    		data.plusDays(2);
+            data = data.plusDays(2);
     	
     	if(data.plusDays(1).getDayOfWeek().equals(DayOfWeek.MONDAY))
-    		data.plusDays(1);
+            data = data.plusDays(1);
     	
     	
     	for(int i=0;i<listarCardapioSemanal().size();i++) {
