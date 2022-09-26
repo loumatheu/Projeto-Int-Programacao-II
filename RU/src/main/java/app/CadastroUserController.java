@@ -251,9 +251,40 @@ public class CadastroUserController {
                 }catch (ElementoNaoExisteException ignored){
                     Alert fail = new Alert(Alert.AlertType.WARNING);
                     fail.setTitle("ERRO");
-                    fail.setContentText("Estudante não pode ser removido!");
+                    fail.setContentText("Estudante não pôde ser removido!");
                     fail.show();
                 }
+            }
+        }
+    }
+
+    @FXML
+    protected void removeButtonF() {
+        for (Funcionario f: Controlador.getInstance().listarFuncionarios()) {
+            if (f.getCpf().equals(cpfSearchF.getText()) && !cpfSearchF.getText().equals(Controlador.getInstance().getUsuario().getCpf())) {
+                try{
+                    Controlador.getInstance().removerFuncionario(f);
+                    Alert success = new Alert(Alert.AlertType.INFORMATION);
+                    success.setTitle("Funcionário removido!");
+                    success.setContentText("Funcionário removido com sucesso!");
+                    success.show();
+                    displayNome.setText("");
+                    displayCpf.setText("");
+                    displayCod.setText("");
+                    displayNasc.setText("");
+                    displayEmail.setText("");
+                }catch (ElementoNaoExisteException ignored){
+                    Alert fail = new Alert(Alert.AlertType.WARNING);
+                    fail.setTitle("ERRO");
+                    fail.setContentText("Funcionário não pôde ser removido!");
+                    fail.show();
+                }
+            }
+            else if(cpfSearchF.getText().equals(Controlador.getInstance().getUsuario().getCpf())){
+                Alert fail = new Alert(Alert.AlertType.WARNING);
+                fail.setTitle("ERRO");
+                fail.setContentText("Um funcionário não pode ser removido por ele mesmo!");
+                fail.show();
             }
         }
     }
