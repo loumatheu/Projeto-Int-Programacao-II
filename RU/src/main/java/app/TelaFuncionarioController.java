@@ -56,7 +56,7 @@ public class TelaFuncionarioController {
         stage.setTitle("Login");
     }
 
-    /*@FXML
+    @FXML
     protected void botaoVerCardapioApertar(ActionEvent event) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("TelaCardapio.fxml")));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -64,26 +64,17 @@ public class TelaFuncionarioController {
         stage.setScene(scene);
         stage.show();
         stage.setTitle("Cardápio Semanal");
-    }*/
-
-    @FXML
-    protected void botaoCdEstudantesApertar(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("TelaCDEstudante.fxml")));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-        stage.setTitle("Cadastro de Estudantes");
     }
 
+
     @FXML
-    protected void botaoCdFuncionariosApertar(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("TelaCDFuncionario.fxml")));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    protected void userCadastro(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CadastroUsers.fxml")));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        stage.setTitle("Cadastro de Funcionários");
+        stage.setTitle("Cadastrar Usuários");
     }
     
    /* @FXML

@@ -10,6 +10,7 @@ import java.util.Map;
 
 
 import exceptions.*;
+import javafx.scene.chart.PieChart;
 import models.*;
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
@@ -174,7 +175,7 @@ public class Controlador {
         repositorioFuncionario.atualizar(obj);
     }
 
-    public void inserirFuncionario(Funcionario obj) throws ElementoJaExisteException{
+    public void inserirFuncionario(Funcionario obj) throws ElementoJaExisteException {
         repositorioFuncionario.inserir(obj);
     }
 
@@ -230,9 +231,29 @@ public class Controlador {
     public void atualizarOpcaoRefeicao(OpcaoRefeicao obj) throws ElementoNaoExisteException{
         repositorioOpcaoRefeicao.atualizar(obj);
     }
-    
-    
-    
+
+    public Usuario validLogin(String cpf, String senha) throws LoginInvalidoException{
+        Usuario pessoa = null;
+        for (Usuario user: this.listarEstudantes()) {
+            if(user.getCpf().equals(cpf)){
+                pessoa = user;
+            }
+        }
+        for (Usuario user: this.listarFuncionarios()) {
+            if(user.getCpf().equals(cpf)){
+                pessoa = user;
+            }
+        }
+        if (pessoa == null){
+            throw new LoginInvalidoException(1);
+        }
+        if (pessoa.getSenha().equals(senha)){
+            return pessoa;
+        } else {
+            throw new LoginInvalidoException(2);
+        }
+    }
+
     
     // Recebe uma instancia de usuario e 
     //retorna uma lista com os tickes de almço que ele possui.

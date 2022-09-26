@@ -1,15 +1,18 @@
 package app;
 
+import exceptions.LoginInvalidoException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import models.Estudante;
 import models.Usuario;
 import negocio.Controlador;
 
@@ -56,33 +59,33 @@ public class TelaLoginController {
     }
 
     @FXML
-    protected void botaoLoginApertar(ActionEvent event) throws IOException {
-        for(Usuario usuario:Controlador.getInstance().listarEstudantes()){
-            if(usuario.getCpf().equals(CPFTextField.getText()) &&
-                    usuario.getSenha().equals(senhaPasswordField.getText())){
-                Controlador.getInstance().setUsuario(usuario);
+    protected void botaoLoginApertar (ActionEvent event) throws IOException {
+
+        try{
+
+            Controlador.getInstance().setUsuario(Controlador.getInstance().validLogin(CPFTextField.getText(), senhaPasswordField.getText()));
+
+            if(Controlador.getInstance().validLogin(CPFTextField.getText(), senhaPasswordField.getText()) instanceof Estudante) {
                 root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("TelaAluno.fxml")));
-                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
-                stage.setTitle("Tela inicial");
-            }
-        }
-        for(Usuario usuario:Controlador.getInstance().listarFuncionarios()){
-            if(usuario.getCpf().equals(CPFTextField.getText()) &&
-                    usuario.getSenha().equals(senhaPasswordField.getText())){
-                Controlador.getInstance().setUsuario(usuario);
+            } else {
                 root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("TelaFuncionario.fxml")));
-                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
-                stage.setTitle("Tela inicial");
             }
+
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+            stage.setTitle("Tela inicial");
+
+        }catch (LoginInvalidoException e){
+
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setTitle("Login inválido!");
+            alerta.show();
+            alerta.setContentText(e.errorMessage());
+
         }
-        if(Controlador.getInstance().getUsuario() == null){
-            LabelAvisoErroLogin.setText("Usuário não encontrado. Tente novamente.");
-        }
+
     }
+
 }
