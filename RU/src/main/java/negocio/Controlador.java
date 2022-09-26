@@ -605,6 +605,18 @@ public class Controlador {
         }
         return count;
     }
+    
+    public int indexSemanaCardapio(LocalDate data, TipoRefeicao tipo) {
+    	for(int i=0;i<listarCardapioSemanal().size();i++) {
+    		if(listarCardapioSemanal().get(i).getDataInicial().equals(data) && listarCardapioSemanal().get(i).getCardapio().get(DiasDaSemana.SEGUNDA).getTipo().equals(tipo)) {
+    			return i;
+    		}
+    		
+    	}
+    	
+    	
+    	return -1;
+    }
 
 
 

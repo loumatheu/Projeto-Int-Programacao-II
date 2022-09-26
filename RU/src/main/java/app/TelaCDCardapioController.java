@@ -183,11 +183,17 @@ public class TelaCDCardapioController {
     			mapa.put(DiasDaSemana.SEXTA,Controlador.getInstance().inserirOpcoes(principal1SextaTextField.getText(),
 						principal2SextaTextField.getText(),vegetarianoSextaTextField.getText(),fastSextaTextField.getText(),
 						sucoSextaTextField.getText(),sobremesaSextaTextField.getText(),cbTipo.getValue(),DiasDaSemana.SEXTA) );
-
+    				
+    			
+    			
         		Controlador.getInstance().inserirCardapioSemanal(dataInicioCardapio.getValue(),mapa);
         		System.out.println(Controlador.getInstance().getRepositorioCardapioSemanal().listar());
-                for(int i=0;i<Controlador.getInstance().getRepositorioCardapioSemanal().listar().size();i++)
-                    System.out.println(Controlador.getInstance().listarCardapioSemanal().get(i).getCardapio().get(DiasDaSemana.SEGUNDA));
+        		System.out.println("passou");
+                for(int i=0;i<Controlador.getInstance().getRepositorioCardapioSemanal().listar().size();i++) { 
+                    System.out.println("valor de i:"+i);
+                	System.out.println(Controlador.getInstance().listarCardapioSemanal().get(i).getCardapio().get(DiasDaSemana.SEGUNDA).getOpcaoVegana());
+                    
+                }
         		Alert info = new Alert(Alert.AlertType.INFORMATION);
                 info.setTitle("Cardapio cadastrado");
                 info.setContentText("O cardapio foi cadastrado com sucesso");
