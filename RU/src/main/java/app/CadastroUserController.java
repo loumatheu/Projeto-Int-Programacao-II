@@ -208,7 +208,7 @@ public class CadastroUserController {
 
     @FXML
     protected void searchButton () {
-        for (Usuario f: Controlador.getInstance().listarEstudantes()) {
+        for (Estudante f: Controlador.getInstance().listarEstudantes()) {
             if (f.getCpf().equals(cpfSearchE.getText())) {
                 displayNome.setText(f.getNome());
                 displayCpf.setText(f.getCpf());
@@ -236,7 +236,7 @@ public class CadastroUserController {
     @FXML
     protected void removeButton() {
         for (Estudante e: Controlador.getInstance().listarEstudantes()) {
-            if (e.getCpf().equals(cpfSearchF.getText())) {
+            if (e.getCpf().equals(cpfSearchE.getText())) {
                 try{
                     Controlador.getInstance().removerEstudante(e);
                     Alert success = new Alert(Alert.AlertType.INFORMATION);
