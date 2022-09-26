@@ -10,16 +10,21 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.TelaAlunoController">
    <children>
-      <Pane layoutY="66.0" prefHeight="293.0" prefWidth="600.0" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="72.0">
+      <Pane layoutY="66.0" prefHeight="318.0" prefWidth="600.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="72.0">
          <children>
+            <ImageView fitHeight="318.0" fitWidth="600.0" pickOnBounds="true">
+               <image>
+                  <Image url="@fundo.png" />
+               </image>
+            </ImageView>
             <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="460.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@botão%20comprar%20ticket.png" />
+                  <Image url="@purchase%20icon.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="460.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Botão%20ver%20cardápio.png" />
+                  <Image url="@menu%20icon.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="201.0" fitWidth="151.0" layoutX="233.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
@@ -29,37 +34,37 @@
             </ImageView>
             <Button layoutX="238.0" layoutY="267.0" mnemonicParsing="false" onAction="#botaoConsumirApertar" prefHeight="25.0" prefWidth="125.0" text="Consumir ticket" />
             <Button layoutX="434.0" layoutY="266.0" mnemonicParsing="false" onAction="#botaoVerCardapioApertar" prefHeight="25.0" prefWidth="151.0" text="Ver cardápio da semana" />
-            <Button layoutX="27.0" layoutY="255.0" mnemonicParsing="false" onAction="#botaoHistoricoApertar" prefHeight="25.0" prefWidth="125.0" text="Histórico" />
-            <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="40.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
+            <Button layoutX="26.0" layoutY="266.0" mnemonicParsing="false" onAction="#botaoHistoricoApertar" prefHeight="25.0" prefWidth="125.0" text="Histórico" />
+            <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="38.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@hystory.png" />
+                  <Image url="@calendarioBranco.png" />
                </image>
             </ImageView>
          </children>
       </Pane>
-      <Label fx:id="labelQtdJantar" layoutX="42.0" layoutY="31.0" text="Jantar: " AnchorPane.bottomAnchor="170.0" AnchorPane.leftAnchor="36.0">
+      <Label fx:id="labelQtdJantar" layoutX="36.0" layoutY="201.0" text="Jantar: " textFill="WHITE" AnchorPane.bottomAnchor="179.0" AnchorPane.leftAnchor="36.0">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
       <Button mnemonicParsing="false" onAction="#botaoComprarApertar" prefHeight="25.0" prefWidth="151.0" text="Comprar ticket" AnchorPane.bottomAnchor="180.0" AnchorPane.rightAnchor="14.0" />
-      <Label fx:id="labelBemvindo" alignment="TOP_LEFT" layoutX="14.0" layoutY="83.0" prefHeight="49.0" prefWidth="265.0" text="Bem vind@, ">
+      <Label fx:id="labelBemvindo" alignment="TOP_LEFT" layoutX="14.0" layoutY="83.0" prefHeight="49.0" prefWidth="265.0" text="Bem vind@, " textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="36.0" layoutY="146.0" text="Seus tickets:">
+      <Label layoutX="36.0" layoutY="146.0" text="Seus tickets:" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Button layoutX="282.0" layoutY="374.0" mnemonicParsing="false" onAction="#botaoSair" text="Sair" />
+      <Button layoutX="532.0" layoutY="15.0" mnemonicParsing="false" onAction="#botaoSair" text="Logout" />
       <Label layoutX="248.0" layoutY="14.0" text="ESTUDANTE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="labelQtdAlmoco" layoutX="36.0" layoutY="192.0" text="Almoço: " AnchorPane.bottomAnchor="188.0" AnchorPane.leftAnchor="36.0">
+      <Label fx:id="labelQtdAlmoco" layoutX="36.0" layoutY="183.0" text="Almoço: " textFill="WHITE" AnchorPane.bottomAnchor="197.0" AnchorPane.leftAnchor="36.0">
          <font>
             <Font size="14.0" />
          </font>

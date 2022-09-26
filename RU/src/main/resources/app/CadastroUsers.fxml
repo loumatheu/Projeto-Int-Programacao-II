@@ -148,7 +148,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label fx:id="displayNome" alignment="CENTER" layoutX="299.0" layoutY="65.0" prefHeight="20.0" prefWidth="233.0" textFill="WHITE">
+                        <Label fx:id="displayNome" layoutX="299.0" layoutY="65.0" prefHeight="20.0" prefWidth="233.0" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -163,7 +163,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label fx:id="displayCpf" alignment="CENTER" layoutX="299.0" layoutY="94.0" prefHeight="20.0" prefWidth="233.0" text="-" textFill="WHITE">
+                        <Label fx:id="displayCpf" layoutX="299.0" layoutY="94.0" prefHeight="20.0" prefWidth="233.0" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -173,7 +173,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label fx:id="displayCod" alignment="CENTER" layoutX="299.0" layoutY="119.0" prefHeight="20.0" prefWidth="233.0" text="-" textFill="WHITE">
+                        <Label fx:id="displayCod" layoutX="299.0" layoutY="119.0" prefHeight="20.0" prefWidth="233.0" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -195,7 +195,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label fx:id="displayNasc" alignment="CENTER" layoutX="298.0" layoutY="143.0" prefHeight="20.0" prefWidth="233.0" text="-" textFill="WHITE">
+                        <Label fx:id="displayNasc" layoutX="298.0" layoutY="143.0" prefHeight="20.0" prefWidth="233.0" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -205,7 +205,104 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label fx:id="displayEmail" alignment="CENTER" layoutX="298.0" layoutY="165.0" prefHeight="20.0" prefWidth="233.0" text="-" textFill="WHITE">
+                        <Label fx:id="displayEmail" layoutX="298.0" layoutY="165.0" prefHeight="20.0" prefWidth="233.0" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Visualizar funcionário">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="cpfSearchF" alignment="CENTER" layoutX="14.0" layoutY="63.0" prefHeight="25.0" prefWidth="208.0" promptText="Insira o CPF do usuário" />
+                        <Label layoutX="83.0" layoutY="28.0" prefHeight="31.0" prefWidth="70.0" text="BUSCA" textFill="WHITE">
+                           <font>
+                              <Font name="Century Gothic" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="251.0" layoutY="65.0" text="Nome:" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="displayNomeFun" layoutX="299.0" layoutY="65.0" prefHeight="20.0" prefWidth="233.0" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="320.0" layoutY="28.0" prefHeight="31.0" prefWidth="133.0" text="VISUALIZAÇÃO" textFill="WHITE">
+                           <font>
+                              <Font name="Century Gothic" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="265.0" layoutY="94.0" text="CPF:" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="displayCpfFun" layoutX="299.0" layoutY="94.0" prefHeight="20.0" prefWidth="233.0" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="258.0" layoutY="119.0" text="Cód.:" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="displayCodFun" layoutX="299.0" layoutY="119.0" prefHeight="20.0" prefWidth="233.0" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="66.0" layoutY="98.0" mnemonicParsing="false" onAction="#searchButtonF" prefHeight="25.0" prefWidth="127.0" text="Buscar" />
+                        <Button layoutX="65.0" layoutY="133.0" mnemonicParsing="false" onAction="#removeButton" prefHeight="25.0" prefWidth="128.0" text="Remover" />
+                        <ImageView fitHeight="20.0" fitWidth="24.0" layoutX="43.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@iconBusca.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="43.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@deleteBranco.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="239.0" layoutY="143.0" text="Dt. Nas.:" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="displayNascFun" layoutX="298.0" layoutY="143.0" prefHeight="20.0" prefWidth="233.0" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="252.0" layoutY="165.0" text="Email:" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="displayEmailFun" layoutX="298.0" layoutY="165.0" prefHeight="20.0" prefWidth="233.0" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="65.0" layoutY="168.0" mnemonicParsing="false" onAction="#removeButton" prefHeight="25.0" prefWidth="128.0" text="Editar" />
+                        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="43.0" layoutY="171.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@editBranco.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="245.0" layoutY="185.0" text="Salário:" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="displaySalario" layoutX="298.0" layoutY="185.0" prefHeight="20.0" prefWidth="233.0" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -216,7 +313,7 @@
             </Tab>
         </tabs>
       </TabPane>
-      <Label layoutX="187.0" layoutY="14.0" text="CADASTRO DE USUÁRIO">
+      <Label layoutX="187.0" layoutY="14.0" text="Gerenciamento de Usuários">
          <font>
             <Font name="Century Gothic" size="20.0" />
          </font>

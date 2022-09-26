@@ -1,16 +1,14 @@
 package app;
 
 import exceptions.ElementoJaExisteException;
+import exceptions.ElementoNaoExisteException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Control;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import models.Estudante;
 import models.Funcionario;
@@ -47,19 +45,40 @@ public class CadastroUserController {
     private Label displayCod;
 
     @FXML
+    private Label displayCodFun;
+
+    @FXML
     private Label displayCpf;
+
+    @FXML
+    private Label displayCpfFun;
 
     @FXML
     private Label displayEmail;
 
     @FXML
+    private Label displayEmailFun;
+
+    @FXML
     private Label displayNasc;
+
+    @FXML
+    private Label displayNascFun;
 
     @FXML
     private Label displayNome;
 
     @FXML
+    private Label displayNomeFun;
+
+    @FXML
+    private Label displaySalario;
+
+    @FXML
     private TextField emailAluno;
+
+    @FXML
+    private TextField cpfSearchF;
 
     @FXML
     private TextField emailFun;
@@ -188,16 +207,55 @@ public class CadastroUserController {
     }
 
     @FXML
-    protected void searchButton(){
-        for (Usuario e: Controlador.getInstance().listarEstudantes()) {
-            if (e.getCpf().equals(cpfSearchE.getText())){
-
+    protected void searchButton () {
+        for (Usuario f: Controlador.getInstance().listarEstudantes()) {
+            if (f.getCpf().equals(cpfSearchE.getText())) {
+                displayNome.setText(f.getNome());
+                displayCpf.setText(f.getCpf());
+                displayCod.setText(f.getCodigo());
+                displayNasc.setText(f.getDataDeNascimento().toString());
+                displayEmail.setText(f.getEmail());
             }
         }
     }
-    @FXML
-    protected void removeButton(){
 
+    @FXML
+    protected void searchButtonF (){
+        for (Funcionario f: Controlador.getInstance().listarFuncionarios()) {
+            if (f.getCpf().equals(cpfSearchF.getText())) {
+                displayNomeFun.setText(f.getNome());
+                displayCpfFun.setText(f.getCpf());
+                displayCodFun.setText(f.getCodigo());
+                displayNascFun.setText(f.getDataDeNascimento().toString());
+                displayEmailFun.setText(f.getEmail());
+                displaySalario.setText(String.valueOf(f.getSalario()));
+            }
+        }
+    }
+
+    @FXML
+    protected void removeButton() {
+        for (Estudante e: Controlador.getInstance().listarEstudantes()) {
+            if (e.getCpf().equals(cpfSearchF.getText())) {
+                try{
+                    Controlador.getInstance().removerEstudante(e);
+                    Alert success = new Alert(Alert.AlertType.INFORMATION);
+                    success.setTitle("Estudante removido!");
+                    success.setContentText("Estudante removido com sucesso!");
+                    success.show();
+                    displayNome.setText("");
+                    displayCpf.setText("");
+                    displayCod.setText("");
+                    displayNasc.setText("");
+                    displayEmail.setText("");
+                }catch (ElementoNaoExisteException ignored){
+                    Alert fail = new Alert(Alert.AlertType.WARNING);
+                    fail.setTitle("ERRO");
+                    fail.setContentText("Estudante não pode ser removido!");
+                    fail.show();
+                }
+            }
+        }
     }
 
     @FXML
