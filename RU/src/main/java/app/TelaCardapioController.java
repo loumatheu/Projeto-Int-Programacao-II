@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
@@ -125,13 +126,14 @@ public class TelaCardapioController {
     
     @FXML
     protected void initialize() {
+    	
     	ObservableList<TipoRefeicao> tipos = FXCollections.observableArrayList();
         tipos.add(TipoRefeicao.ALMOCO);
         tipos.add(TipoRefeicao.JANTAR);
         cbTipo.setItems(tipos);
         cbTipo.setValue(TipoRefeicao.ALMOCO);
-        int i=Controlador.getInstance().indexSemanaCardapio(LocalDate.now().plusDays(1),TipoRefeicao.ALMOCO);
-        System.out.println("index de i no almoco :"+i);
+        int i=Controlador.getInstance().indexSemanaCardapio(LocalDate.now(),TipoRefeicao.ALMOCO);
+        if(i!=-1) {
     	principal1SegundaLabel.setText(Controlador.getInstance().listarCardapioSemanal().get(i).getCardapio().get(DiasDaSemana.SEGUNDA).getOpcao1());
     	principal2SegundaLabel.setText(Controlador.getInstance().listarCardapioSemanal().get(i).getCardapio().get(DiasDaSemana.SEGUNDA).getOpcao2());
     	fastSegundaLabel.setText(Controlador.getInstance().listarCardapioSemanal().get(i).getCardapio().get(DiasDaSemana.SEGUNDA).getFastGrill());
@@ -166,9 +168,16 @@ public class TelaCardapioController {
     	vegetarianoSextaLabel.setText(Controlador.getInstance().listarCardapioSemanal().get(i).getCardapio().get(DiasDaSemana.SEXTA).getOpcaoVegana());
     	sucoSextaLabel.setText(Controlador.getInstance().listarCardapioSemanal().get(i).getCardapio().get(DiasDaSemana.SEXTA).getSuco());
     	sobremesaSextaLabel.setText(Controlador.getInstance().listarCardapioSemanal().get(i).getCardapio().get(DiasDaSemana.SEXTA).getSobremesa());
-        
+        }
+        else {
+        	Alert info = new Alert(Alert.AlertType.INFORMATION);
+            info.setTitle("Cardápio indisponivel");
+            info.setContentText("Nenhum Cardápio disponivel para essa semana");
+            info.show();
+        }
     }
-
+    
+    
     
     
     
