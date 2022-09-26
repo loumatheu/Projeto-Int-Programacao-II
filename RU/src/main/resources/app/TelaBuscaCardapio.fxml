@@ -141,12 +141,12 @@
          </image>
       </ImageView>
       <Button layoutX="202.0" layoutY="460.0" mnemonicParsing="false" onAction="#botaoVoltar" text="Voltar" />
-      <Button layoutX="330.0" layoutY="460.0" mnemonicParsing="false" text="Editar" />
+      <Button layoutX="330.0" layoutY="460.0" mnemonicParsing="false" onAction="#botaoEditarCardapio" text="Editar" />
       <Label layoutX="191.0" layoutY="55.0" prefHeight="18.0" prefWidth="96.0" text="Data inicial" />
       <DatePicker fx:id="dataInicioCardapio" layoutX="191.0" layoutY="80.0" />
       <ChoiceBox fx:id="cbTipo" layoutX="14.0" layoutY="80.0" prefWidth="150.0" />
       <Label layoutX="21.0" layoutY="55.0" prefHeight="18.0" prefWidth="96.0" text="Tipo de Refeição" />
-      <Button layoutX="388.0" layoutY="80.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="Buscar" />
-      <Button layoutX="402.0" layoutY="460.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="Remover" />
+      <Button layoutX="388.0" layoutY="80.0" mnemonicParsing="false" onAction="#botaoBuscarCardapio" prefHeight="25.0" prefWidth="89.0" text="Buscar" />
+      <Button layoutX="402.0" layoutY="460.0" mnemonicParsing="false" onAction="#botaoRemoverCardapio" prefHeight="25.0" prefWidth="89.0" text="Remover" />
    </children>
 </AnchorPane>

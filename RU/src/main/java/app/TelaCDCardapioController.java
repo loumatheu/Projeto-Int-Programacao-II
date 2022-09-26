@@ -188,12 +188,7 @@ public class TelaCDCardapioController {
     			
         		Controlador.getInstance().inserirCardapioSemanal(dataInicioCardapio.getValue(),mapa);
         		System.out.println(Controlador.getInstance().getRepositorioCardapioSemanal().listar());
-        		System.out.println("passou");
-                for(int i=0;i<Controlador.getInstance().getRepositorioCardapioSemanal().listar().size();i++) { 
-                    System.out.println("valor de i:"+i);
-                	System.out.println(Controlador.getInstance().listarCardapioSemanal().get(i).getCardapio().get(DiasDaSemana.SEGUNDA).getOpcaoVegana());
-                    
-                }
+        		
         		Alert info = new Alert(Alert.AlertType.INFORMATION);
                 info.setTitle("Cardapio cadastrado");
                 info.setContentText("O cardapio foi cadastrado com sucesso");
@@ -210,6 +205,7 @@ public class TelaCDCardapioController {
                 info.setTitle("Campo vazio!");
                 info.setContentText(e.getMessage());
                 info.show();
+                
 			} catch (DataInvalidaException e) {
                 if(dataInicioCardapio.getValue().isBefore(LocalDate.now())){
                     Alert info = new Alert(Alert.AlertType.WARNING);

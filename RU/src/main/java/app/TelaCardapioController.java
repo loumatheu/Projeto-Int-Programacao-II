@@ -131,8 +131,14 @@ public class TelaCardapioController {
         tipos.add(TipoRefeicao.ALMOCO);
         tipos.add(TipoRefeicao.JANTAR);
         cbTipo.setItems(tipos);
-        cbTipo.setValue(TipoRefeicao.ALMOCO);
-        int i=Controlador.getInstance().indexSemanaCardapio(LocalDate.now(),TipoRefeicao.ALMOCO);
+       
+       cbTipo.setOnAction(this::iniciarCardapio); 
+           
+    }
+    @FXML
+    private  void iniciarCardapio(ActionEvent event){
+    
+    	int i=Controlador.getInstance().indexSemanaCardapio(LocalDate.now(),cbTipo.getValue());
         if(i!=-1) {
     	principal1SegundaLabel.setText(Controlador.getInstance().listarCardapioSemanal().get(i).getCardapio().get(DiasDaSemana.SEGUNDA).getOpcao1());
     	principal2SegundaLabel.setText(Controlador.getInstance().listarCardapioSemanal().get(i).getCardapio().get(DiasDaSemana.SEGUNDA).getOpcao2());
@@ -170,13 +176,55 @@ public class TelaCardapioController {
     	sobremesaSextaLabel.setText(Controlador.getInstance().listarCardapioSemanal().get(i).getCardapio().get(DiasDaSemana.SEXTA).getSobremesa());
         }
         else {
+        	
+        	principal1SegundaLabel.setText("");
+        	principal1TercaLabel.setText("");
+        	principal1QuartaLabel.setText("");
+        	principal1QuintaLabel.setText("");
+        	principal1SextaLabel.setText("");
+        	
+        	principal2SegundaLabel.setText("");
+        	principal2TercaLabel.setText("");
+        	principal2QuartaLabel.setText("");
+        	principal2QuintaLabel.setText("");
+        	principal2SextaLabel.setText("");
+        	
+        	fastSegundaLabel.setText("");
+        	fastTercaLabel.setText("");
+        	fastQuartaLabel.setText("");
+        	fastQuintaLabel.setText("");
+        	fastSextaLabel.setText("");
+        	
+        	vegetarianoSegundaLabel.setText("");
+        	vegetarianoTercaLabel.setText("");
+        	vegetarianoQuartaLabel.setText("");
+        	vegetarianoQuintaLabel.setText("");
+        	vegetarianoSextaLabel.setText("");
+        	
+        	sucoSegundaLabel.setText("");
+        	sucoTercaLabel.setText("");
+        	sucoQuartaLabel.setText("");
+        	sucoQuintaLabel.setText("");
+        	sucoSextaLabel.setText("");
+        	
+        	sobremesaSegundaLabel.setText("");
+        	sobremesaTercaLabel.setText("");
+        	sobremesaQuartaLabel.setText("");
+        	sobremesaQuintaLabel.setText("");
+        	sobremesaSextaLabel.setText("");
+        	
+        	
+        	
         	Alert info = new Alert(Alert.AlertType.INFORMATION);
             info.setTitle("Cardápio indisponivel");
-            info.setContentText("Nenhum Cardápio disponivel para essa semana");
+            if(cbTipo.getValue().equals(TipoRefeicao.ALMOCO))
+            info.setContentText("O Cardápio de almoço não está disponivel para essa semana");
+            else
+            	info.setContentText("O Cardápio de jantar não está disponivel para essa semana");
             info.show();
         }
-    }
     
+    }
     
     
     
