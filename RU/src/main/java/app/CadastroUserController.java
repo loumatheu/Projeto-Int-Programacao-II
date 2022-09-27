@@ -374,24 +374,24 @@ public class CadastroUserController {
             for (Funcionario f: Controlador.getInstance().listarFuncionarios()) {
                 if (f.getCpf().equals(cpfTextField.getText())) {
     		        try {
-    			Controlador.getInstance().atualizarFuncionario(new Funcionario(codigoTextField.getText(),nomeTextField.getText()
-    					,cpfTextField.getText(),dataNascimentoDatePicker.getValue(), emailTextField.getText()
-    					,senhaTextField.getText(),Double.parseDouble(salarioTextField.getText()),dataAdmmissaoDatePicker.getValue()));
+    			        Controlador.getInstance().atualizarFuncionario(new Funcionario(codigoTextField.getText(),nomeTextField.getText()
+                                ,cpfTextField.getText(),dataNascimentoDatePicker.getValue(), emailTextField.getText()
+                                ,senhaTextField.getText(),Double.parseDouble(salarioTextField.getText()),dataAdmmissaoDatePicker.getValue()));
 
-    			Alert info = new Alert(Alert.AlertType.INFORMATION);
-                info.setTitle("Funcionario Atualizado!");
-                info.setContentText("Atualização feita com sucesso");
-                info.show();
+    			        Alert info = new Alert(Alert.AlertType.INFORMATION);
+                        info.setTitle("Funcionario Atualizado!");
+                        info.setContentText("Atualização feita com sucesso");
+                        info.show();
     		        }catch (NumberFormatException e) {
-
-				e.printStackTrace();
+				        e.printStackTrace();
 			        } catch (ElementoNaoExisteException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+                        Alert fail = new Alert(Alert.AlertType.WARNING);
+                        fail.setTitle("ERRO");
+                        fail.setContentText("Funcionário não encontrado!");
+                        fail.show();
 			        }
                 }
             }
-
     	}
     }
 }
