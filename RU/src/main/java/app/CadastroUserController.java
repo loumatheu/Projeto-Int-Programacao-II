@@ -2,6 +2,7 @@ package app;
 
 import exceptions.ElementoJaExisteException;
 import exceptions.ElementoNaoExisteException;
+import exceptions.ParametroVazioException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -207,8 +208,8 @@ public class CadastroUserController {
     }
 
     @FXML
-    protected void searchButton () {
-        for (Estudante f: Controlador.getInstance().listarEstudantes()) {
+    protected void searchButton () throws ElementoNaoExisteException {
+    	for (Estudante f: Controlador.getInstance().listarEstudantes()) {
             if (f.getCpf().equals(cpfSearchE.getText())) {
                 displayNome.setText(f.getNome());
                 displayCpf.setText(f.getCpf());
@@ -288,10 +289,76 @@ public class CadastroUserController {
             }
         }
     }
+    @FXML
+    private TextField nomeTextField;
+    @FXML
+    private TextField cpfTextField;
+    @FXML
+    private TextField codigoTextField;
+    @FXML
+    private TextField emailTextField;
+    @FXML
+    private TextField salarioTextField;
+    @FXML
+    private DatePicker dataNascimentoDatePicker;
+    @FXML 
+    private Button finalizarbutton;
+    @FXML 
+    private Label dataAdmissaoLabel;
+    @FXML 
+    private DatePicker dataAdmmissaoDatePicker;
+    @FXML 
+    private TextField senhaTextField;
+    @FXML 
+    private Label senhaLabel;
 
     @FXML
     protected void editButton() {
-
+    	nomeTextField.setOpacity(1);
+    	cpfTextField.setOpacity(1);
+    	codigoTextField.setOpacity(1);
+    	emailTextField.setOpacity(1);
+    	senhaTextField.setOpacity(1);
+    	senhaLabel.setOpacity(1);
+    	dataAdmissaoLabel.setOpacity(1);
+    	dataAdmmissaoDatePicker.setOpacity(1);
+    	dataNascimentoDatePicker.setOpacity(1);
+    	salarioTextField.setOpacity(1);
+    	finalizarbutton.setOpacity(1);
+    	
+    	nomeTextField.setText(displayNomeFun.getText());
+    	cpfTextField.setText(displayCpfFun.getText());
+    	codigoTextField.setText(displayCodFun.getText());
+    	emailTextField.setText(displayEmailFun.getText());
+    	
+    	
+    
+    	salarioTextField.setText(displaySalario.getText());
     }
-
+    @FXML
+    protected void botaoFinalizar() {
+    	if(!nomeTextField.getText().isEmpty() && !cpfTextField.getText().isEmpty() 
+    			&& !codigoTextField.getText().isEmpty() && !emailTextField.getText().isEmpty()
+    			&& !salarioTextField.getText().isEmpty() && !senhaTextField.getText().isEmpty()
+    			&& dataNascimentoDatePicker.getValue().isAfter(LocalDate.now().minusYears(16))
+    			&& dataAdmmissaoDatePicker.getValue()!=null) {
+    		try {
+    			Controlador.getInstance().atualizarFuncionario(new Funcionario(codigoTextField.getText(),nomeTextField.getText()
+    					,cpfTextField.getText(),dataNascimentoDatePicker.getValue(), emailTextField.getText()
+    					,senhaTextField.getText(),Double.parseDouble(salario.getText()),dataAdmmissaoDatePicker.getValue()));
+    	
+    			Alert info = new Alert(Alert.AlertType.INFORMATION);
+                info.setTitle("Funcionario Atualizado!");
+                info.setContentText("Atualização fei com sucesso");
+                info.show();
+    		}catch (NumberFormatException e) {
+				
+				e.printStackTrace();
+			} catch (ElementoNaoExisteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    		
+    	}
+    }
 }

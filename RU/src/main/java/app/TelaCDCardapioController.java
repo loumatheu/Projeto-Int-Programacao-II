@@ -187,7 +187,7 @@ public class TelaCDCardapioController {
     			
     			
         		Controlador.getInstance().inserirCardapioSemanal(dataInicioCardapio.getValue(),mapa);
-        		System.out.println(Controlador.getInstance().getRepositorioCardapioSemanal().listar());
+        		
         		
         		Alert info = new Alert(Alert.AlertType.INFORMATION);
                 info.setTitle("Cardapio cadastrado");
