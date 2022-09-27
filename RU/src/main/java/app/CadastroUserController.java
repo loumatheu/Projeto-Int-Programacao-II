@@ -108,6 +108,30 @@ public class CadastroUserController {
     @FXML
     private TextField senhaFun;
 
+    // para editar funcionario
+    @FXML
+    private TextField nomeTextField;
+    @FXML
+    private TextField cpfTextField;
+    @FXML
+    private TextField codigoTextField;
+    @FXML
+    private TextField emailTextField;
+    @FXML
+    private TextField salarioTextField;
+    @FXML
+    private DatePicker dataNascimentoDatePicker;
+    @FXML
+    private Button finalizarbutton;
+    @FXML
+    private Label dataAdmissaoLabel;
+    @FXML
+    private DatePicker dataAdmmissaoDatePicker;
+    @FXML
+    private TextField senhaTextField;
+    @FXML
+    private Label senhaLabel;
+
 
     @FXML
     protected void cadastrarEstudante (){
@@ -222,6 +246,17 @@ public class CadastroUserController {
 
     @FXML
     protected void searchButtonF (){
+        nomeTextField.setOpacity(0);
+        cpfTextField.setOpacity(0);
+        codigoTextField.setOpacity(0);
+        emailTextField.setOpacity(0);
+        senhaTextField.setOpacity(0);
+        senhaLabel.setOpacity(0);
+        dataAdmissaoLabel.setOpacity(0);
+        dataAdmmissaoDatePicker.setOpacity(0);
+        dataNascimentoDatePicker.setOpacity(0);
+        salarioTextField.setOpacity(0);
+        finalizarbutton.setOpacity(0);
         for (Funcionario f: Controlador.getInstance().listarFuncionarios()) {
             if (f.getCpf().equals(cpfSearchF.getText())) {
                 displayNomeFun.setText(f.getNome());
@@ -274,6 +309,17 @@ public class CadastroUserController {
                     displayCod.setText("");
                     displayNasc.setText("");
                     displayEmail.setText("");
+                    nomeTextField.setOpacity(0);
+                    cpfTextField.setOpacity(0);
+                    codigoTextField.setOpacity(0);
+                    emailTextField.setOpacity(0);
+                    senhaTextField.setOpacity(0);
+                    senhaLabel.setOpacity(0);
+                    dataAdmissaoLabel.setOpacity(0);
+                    dataAdmmissaoDatePicker.setOpacity(0);
+                    dataNascimentoDatePicker.setOpacity(0);
+                    salarioTextField.setOpacity(0);
+                    finalizarbutton.setOpacity(0);
                 }catch (ElementoNaoExisteException ignored){
                     Alert fail = new Alert(Alert.AlertType.WARNING);
                     fail.setTitle("ERRO");
@@ -289,28 +335,7 @@ public class CadastroUserController {
             }
         }
     }
-    @FXML
-    private TextField nomeTextField;
-    @FXML
-    private TextField cpfTextField;
-    @FXML
-    private TextField codigoTextField;
-    @FXML
-    private TextField emailTextField;
-    @FXML
-    private TextField salarioTextField;
-    @FXML
-    private DatePicker dataNascimentoDatePicker;
-    @FXML 
-    private Button finalizarbutton;
-    @FXML 
-    private Label dataAdmissaoLabel;
-    @FXML 
-    private DatePicker dataAdmmissaoDatePicker;
-    @FXML 
-    private TextField senhaTextField;
-    @FXML 
-    private Label senhaLabel;
+
 
     @FXML
     protected void editButton() {
@@ -325,40 +350,48 @@ public class CadastroUserController {
     	dataNascimentoDatePicker.setOpacity(1);
     	salarioTextField.setOpacity(1);
     	finalizarbutton.setOpacity(1);
-    	
-    	nomeTextField.setText(displayNomeFun.getText());
-    	cpfTextField.setText(displayCpfFun.getText());
-    	codigoTextField.setText(displayCodFun.getText());
-    	emailTextField.setText(displayEmailFun.getText());
-    	
-    	
-    
-    	salarioTextField.setText(displaySalario.getText());
+
+        for (Funcionario f: Controlador.getInstance().listarFuncionarios()) {
+            if (f.getCpf().equals(cpfSearchF.getText())) {
+                nomeTextField.setText(f.getNome());
+                cpfTextField.setText(f.getCpf());
+                codigoTextField.setText(f.getCodigo());
+                dataNascimentoDatePicker.setValue(f.getDataDeNascimento());
+                dataAdmmissaoDatePicker.setValue(f.getDataAdmin());
+                emailTextField.setText(f.getEmail());
+                salarioTextField.setText(String.valueOf(f.getSalario()));
+            }
+        }
+
     }
     @FXML
     protected void botaoFinalizar() {
-    	if(!nomeTextField.getText().isEmpty() && !cpfTextField.getText().isEmpty() 
+    	if(!nomeTextField.getText().isEmpty() && !cpfTextField.getText().isEmpty()
     			&& !codigoTextField.getText().isEmpty() && !emailTextField.getText().isEmpty()
     			&& !salarioTextField.getText().isEmpty() && !senhaTextField.getText().isEmpty()
     			&& dataNascimentoDatePicker.getValue().isAfter(LocalDate.now().minusYears(16))
-    			&& dataAdmmissaoDatePicker.getValue()!=null) {
-    		try {
+    			&& !dataAdmmissaoDatePicker.getValue().isAfter(LocalDate.now())) {
+            for (Funcionario f: Controlador.getInstance().listarFuncionarios()) {
+                if (f.getCpf().equals(cpfTextField.getText())) {
+    		        try {
     			Controlador.getInstance().atualizarFuncionario(new Funcionario(codigoTextField.getText(),nomeTextField.getText()
     					,cpfTextField.getText(),dataNascimentoDatePicker.getValue(), emailTextField.getText()
-    					,senhaTextField.getText(),Double.parseDouble(salario.getText()),dataAdmmissaoDatePicker.getValue()));
-    	
+    					,senhaTextField.getText(),Double.parseDouble(salarioTextField.getText()),dataAdmmissaoDatePicker.getValue()));
+
     			Alert info = new Alert(Alert.AlertType.INFORMATION);
                 info.setTitle("Funcionario Atualizado!");
-                info.setContentText("Atualização fei com sucesso");
+                info.setContentText("Atualização feita com sucesso");
                 info.show();
-    		}catch (NumberFormatException e) {
-				
+    		        }catch (NumberFormatException e) {
+
 				e.printStackTrace();
-			} catch (ElementoNaoExisteException e) {
+			        } catch (ElementoNaoExisteException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
-    		
+			        }
+                }
+            }
+
     	}
     }
 }

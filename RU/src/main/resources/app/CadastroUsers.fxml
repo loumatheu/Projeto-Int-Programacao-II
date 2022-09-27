@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -12,7 +17,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.CadastroUserController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.CadastroUserController">
    <children>
       <Pane layoutY="54.0" prefHeight="338.0" prefWidth="600.0">
          <children>
@@ -312,9 +317,9 @@
                         <TextField fx:id="codigoTextField" layoutX="293.0" layoutY="112.0" opacity="0.0" scaleY="0.8" />
                         <TextField fx:id="emailTextField" layoutX="293.0" layoutY="162.0" opacity="0.0" scaleY="0.8" />
                         <TextField fx:id="salarioTextField" layoutX="293.0" layoutY="187.0" opacity="0.0" scaleY="0.8" />
-                        <DatePicker fx:id="dataNascimentoDatePicker" layoutX="293.0" layoutY="137.0" opacity="0.0" prefHeight="25.0" prefWidth="176.0" scaleY="0.8" />
-                        <Button fx:id="finalizarbutton" layoutX="355.0" layoutY="260.0" mnemonicParsing="false" onAction="#botaoFinalizar" opacity="0.0" text="Finalizar" />
-                        <DatePicker fx:id="dataAdmmissaoDatePicker" layoutX="293.0" layoutY="212.0" opacity="0.0" prefHeight="25.0" prefWidth="176.0" scaleY="0.8" />
+                        <DatePicker fx:id="dataNascimentoDatePicker" layoutX="293.0" layoutY="137.0" opacity="0.0" prefHeight="25.0" prefWidth="149.0" scaleY="0.8" />
+                        <Button fx:id="finalizarbutton" layoutX="338.0" layoutY="262.0" mnemonicParsing="false" onAction="#botaoFinalizar" opacity="0.0" text="Finalizar" />
+                        <DatePicker fx:id="dataAdmmissaoDatePicker" layoutX="293.0" layoutY="212.0" opacity="0.0" prefHeight="25.0" prefWidth="149.0" scaleY="0.8" />
                         <TextField fx:id="senhaTextField" layoutX="293.0" layoutY="237.0" opacity="0.0" scaleY="0.8" />
                         <Label fx:id="dataAdmissaoLabel" layoutX="203.0" layoutY="215.0" opacity="0.0" prefHeight="20.0" prefWidth="89.0" text="Dat.Admissao:" textFill="WHITE">
                            <font>
