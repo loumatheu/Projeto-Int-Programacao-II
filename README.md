@@ -22,13 +22,13 @@ O programa deve ser capaz de permitir o gerenciamento de funcionários, clientes
 
  * **REQ4** - O sistema deve permitir o gerenciamento (Create, Recover, Update e Delete - CRUD) de funcionário, e Create, Recover e Delete de estudantes. Essas ações podem ser realizadas por funcionários.
 
- * **REQ5** - O sistema deve permitir o gerenciamento (Create, Recover, Update e Delete - CRUD) de fichas de almoço/jantar, e essas ações podem ser realizadas por um administrador.
+ * **REQ5** - O sistema deve permitir o gerenciamento (Create, Recover, Update e Delete - CRUD) de cardápios semanais, e essas ações podem ser realizadas por um administrador.
  
  * **REQ6** - Ao consumir um ticket de refeição, o sistema apresenta um código para o usuário. 
  
  * **REQ7** - O sistema deve mostrar qual o prato da semana e quantas fichas o discente ainda tem disponível para o almoço e jantar.
   
- * **REQ8** - O sistema deve permitir gerar relatório de vendas e consumo: por refeição e por data. Sendo assim, haverá a possibilidade de quantas refeições foram vendidas/consumidas em uma certa data.
+ * **REQ8** - O sistema deve permitir gerar relatório de vendas e consumo: por refeição e por data. Sendo assim, haverá a possibilidade de quantas refeições foram vendidas/consumidas em um certo período.
 
 ## Modelo Navegacional
 ![Modelo navegacional](https://user-images.githubusercontent.com/82189594/190940843-a5520a85-a377-428e-b04b-b17a0d144116.jpg)
