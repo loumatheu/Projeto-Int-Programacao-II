@@ -1,7 +1,5 @@
 package models;
 
-import java.io.Serializable;
-
-public enum TipoRefeicao implements Serializable {
+public enum TipoRefeicao {
     ALMOCO, JANTAR;
 }

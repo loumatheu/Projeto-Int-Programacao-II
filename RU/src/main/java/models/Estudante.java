@@ -1,9 +1,8 @@
 package models;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Estudante extends Usuario implements Serializable {
+public class Estudante extends Usuario {
 
     private String matricula;
 

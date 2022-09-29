@@ -1,9 +1,8 @@
 package models;
 
-import java.io.Serializable;
 import java.util.Objects;
 
-public class OpcaoRefeicao implements Serializable {
+public class OpcaoRefeicao {
     private String opcao1;
     private String opcao2;
     private String opcaoVegana;

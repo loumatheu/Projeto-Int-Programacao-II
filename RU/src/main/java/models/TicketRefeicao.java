@@ -2,12 +2,11 @@ package models;
 
 import javafx.util.converter.LocalDateTimeStringConverter;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 
-public class TicketRefeicao implements Serializable {
+public class TicketRefeicao {
 	private LocalDate dataVenda;
 	private LocalDate dataConsumo;
 	private String codigo;

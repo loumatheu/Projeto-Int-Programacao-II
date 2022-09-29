@@ -1,6 +1,5 @@
 package models;
 
-import java.io.Serializable;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.Map;
@@ -8,7 +7,7 @@ import java.util.Objects;
 
 import exceptions.DataInvalidaException;
 
-public class CardapioSemanal implements Serializable {
+public class CardapioSemanal {
 	
 	private LocalDate dataInicial;
 	private LocalDate dataFinal;

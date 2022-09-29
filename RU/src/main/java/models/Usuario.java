@@ -1,10 +1,9 @@
 package models;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public abstract class Usuario implements Serializable {
+public abstract class Usuario {
     private String codigo;
     private String nome;
     private String cpf;
