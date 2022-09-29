@@ -26,12 +26,12 @@ public class Aplicativo extends Application {
     public static void main(String[] args) {
         try {
             Controlador.getInstance().inserirEstudante(new Estudante("1233123","José Silva","12345678900",
-                    LocalDate.now(),"email@hotmail.com","senha","1273299786"));
+                    LocalDate.of(2002, 3, 21),"email@hotmail.com","senha","1273299786"));
         } catch (ElementoJaExisteException e) {
             System.out.println("Teste");
         }
         Funcionario f = new Funcionario("1233123","Ana Maria","12345678911",
-                LocalDate.now(),"email@hotmail.com","senha",1500.99,LocalDate.now());
+                LocalDate.now(),"email@hotmail.com","senha",1500.99,LocalDate.of(1990, 12, 12));
         try {
             Controlador.getInstance().inserirFuncionario(f);
         } catch (ElementoJaExisteException e) {
