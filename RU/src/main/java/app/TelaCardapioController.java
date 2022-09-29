@@ -239,12 +239,12 @@ public class TelaCardapioController {
             stage.show();
             stage.setTitle("Tela Inicial");
         } else if (Controlador.getInstance().getUsuario() instanceof Funcionario) {
-            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("TelaGerenciamentoCardapio.fxml")));
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("TelaFuncionario.fxml")));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-            stage.setTitle("Gerenciamento de Cardápios");
+            stage.setTitle("Tela Inicial");
 
         }
     }

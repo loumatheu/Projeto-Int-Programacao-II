@@ -7,6 +7,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 import models.Funcionario;
 import negocio.Controlador;
@@ -28,6 +30,15 @@ public class TelaFuncionarioController {
 
     @FXML
     private Label labelQtdJantar;
+
+    @FXML
+    MenuItem cadastrarCardapio;
+
+    @FXML
+    MenuItem buscarCardapio;
+
+    @FXML
+    MenuButton menuBtn;
 
     @FXML
     protected void initialize() {
@@ -108,13 +119,22 @@ public class TelaFuncionarioController {
     }
 
     @FXML
-    protected void botaoCardapiosApertar(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("TelaGerenciamentoCardapio.fxml")));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    protected void cadastrarCardapioApertar(ActionEvent event)throws IOException{
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("TelaCDCardapio.fxml")));
+        stage = (Stage)menuBtn.getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        stage.setTitle("Gerenciamento de Cardápios");
+        stage.setTitle("Cadastro do Cardapio");
+    }
+    @FXML
+    protected void buscarCardapioApertar(ActionEvent event)throws IOException{
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("TelaBuscaCardapio.fxml")));
+        stage = (Stage)menuBtn.getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        stage.setTitle("Buscar Cardápio");
     }
 
     @FXML
