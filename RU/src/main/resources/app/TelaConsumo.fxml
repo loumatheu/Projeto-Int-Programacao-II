@@ -19,7 +19,7 @@
                 </ImageView>
                 <ImageView fitHeight="154.0" fitWidth="163.0" layoutX="369.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@macarrão.png" />
+                        <Image url="@cuscuz.png" />
                     </image>
                 </ImageView>
                 <Label layoutX="405.0" layoutY="209.0" text="Jantar" textFill="WHITE">

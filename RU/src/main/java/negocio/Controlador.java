@@ -128,7 +128,6 @@ public class Controlador {
     public void atualizarFuncionario(String codigo,String nome,String cpf,  LocalDate dataNasc,String email, String senha,double salario, LocalDate dataAdmin) throws ElementoNaoExisteException,DataInvalidaException, ParametroVazioException{
         if(!nome.isEmpty() && !cpf.isEmpty() && !codigo.isEmpty()
                 && !email.isEmpty() && !senha.isEmpty()&& !dataNasc.isAfter(LocalDate.now().minusYears(16))&& !dataAdmin.isAfter(LocalDate.now())) {
-            System.out.println(salario);
             Funcionario f = new Funcionario(codigo,nome,cpf,dataNasc,email,senha,salario,dataAdmin);
             repositorioFuncionario.atualizar(f);
         }

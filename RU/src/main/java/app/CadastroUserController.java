@@ -234,6 +234,8 @@ public class CadastroUserController {
 
     @FXML
     protected void searchButton () throws ElementoNaoExisteException {
+        int encontrado = 0;
+
     	for (Estudante f: Controlador.getInstance().listarEstudantes()) {
 
             if (f.getCpf().equals(cpfSearchE.getText())) {
@@ -242,23 +244,28 @@ public class CadastroUserController {
                 displayCod.setText(f.getCodigo());
                 displayNasc.setText(f.getDataDeNascimento().toString());
                 displayEmail.setText(f.getEmail());
-            } else {
-                displayNome.setText("");
-                displayCpf.setText("");
-                displayCod.setText("");
-                displayNasc.setText("");
-                displayEmail.setText("");
-
-                Alert fail = new Alert(Alert.AlertType.WARNING);
-                fail.setTitle("ERRO");
-                fail.setContentText("Estudante não encontrado!");
-                fail.show();
+                encontrado = 1;
             }
+        }
+
+        if(encontrado != 1){
+            displayNome.setText("");
+            displayCpf.setText("");
+            displayCod.setText("");
+            displayNasc.setText("");
+            displayEmail.setText("");
+
+            Alert fail = new Alert(Alert.AlertType.WARNING);
+            fail.setTitle("ERRO");
+            fail.setContentText("Estudante não encontrado!");
+            fail.show();
         }
     }
 
     @FXML
     protected void searchButtonF (){
+        int encontrado = 0;
+
         nomeTextField.setOpacity(0);
         cpfTextField.setOpacity(0);
         codigoTextField.setOpacity(0);
@@ -270,6 +277,7 @@ public class CadastroUserController {
         dataNascimentoDatePicker.setOpacity(0);
         salarioTextField.setOpacity(0);
         finalizarbutton.setOpacity(0);
+
         for (Funcionario f: Controlador.getInstance().listarFuncionarios()) {
             if (f.getCpf().equals(cpfSearchF.getText())) {
                 displayNomeFun.setText(f.getNome());
@@ -278,19 +286,21 @@ public class CadastroUserController {
                 displayNascFun.setText(f.getDataDeNascimento().toString());
                 displayEmailFun.setText(f.getEmail());
                 displaySalario.setText(String.valueOf(f.getSalario()));
-            } else{
-                displayNomeFun.setText("");
-                displayCpfFun.setText("");
-                displayCodFun.setText("");
-                displayNascFun.setText("");
-                displayEmailFun.setText("");
-                displaySalario.setText("");
-
-                Alert fail = new Alert(Alert.AlertType.WARNING);
-                fail.setTitle("ERRO");
-                fail.setContentText("Funcionário não encontrado!");
-                fail.show();
+                encontrado = 1;
             }
+        }
+
+        if(encontrado != 1){
+            displayNome.setText("");
+            displayCpf.setText("");
+            displayCod.setText("");
+            displayNasc.setText("");
+            displayEmail.setText("");
+
+            Alert fail = new Alert(Alert.AlertType.WARNING);
+            fail.setTitle("ERRO");
+            fail.setContentText("Funcionário não encontrado!");
+            fail.show();
         }
     }
 
@@ -392,7 +402,7 @@ public class CadastroUserController {
     }
     @FXML
     protected void botaoFinalizar() {
-        Double salario=(Double.parseDouble(salarioTextField.getText()));
+        Double salario = (Double.parseDouble(salarioTextField.getText()));
         if(salario>0){
 
             for (Funcionario f: Controlador.getInstance().listarFuncionarios()) {
@@ -412,12 +422,7 @@ public class CadastroUserController {
                         fail.setTitle("ERRO");
                         fail.setContentText("Funcionário não encontrado!");
                         fail.show();
-			        } catch (DataInvalidaException e) {
-                        Alert fail = new Alert(Alert.AlertType.WARNING);
-                        fail.setTitle("ERRO");
-                        fail.setContentText(e.getMessage());
-                        fail.show();
-                    } catch (ParametroVazioException e) {
+			        } catch (DataInvalidaException | ParametroVazioException e) {
                         Alert fail = new Alert(Alert.AlertType.WARNING);
                         fail.setTitle("ERRO");
                         fail.setContentText(e.getMessage());
