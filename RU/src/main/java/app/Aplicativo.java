@@ -27,6 +27,7 @@ public class Aplicativo extends Application {
         try {
             Controlador.getInstance().inserirEstudante(new Estudante("1233123","José Silva","12345678900",
                     LocalDate.of(2002,3,21),"email@hotmail.com","senha","1273299786"));
+
         } catch (ElementoJaExisteException e) {
             System.out.println("Teste");
         }

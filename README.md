@@ -10,7 +10,7 @@ RU
 
 
 ## Descrição geral do projeto 
-O programa deve ser capaz de permitir o gerenciamento de funcionários, clientes, produtos e vendas do RU, permitindo que sejam registrados e excluídos funcionários por administradores (checados por login e senha), enquanto produtos, clientes e vendas podem ser gerenciados por qualquer funcionário.
+O sistema deve ser capaz de permitir o gerenciamento de funcionários, estudantes e cardápios semanais por funcionários do RU. Como também permite a compra e o consumo de tickets de refeição por funcionários e estudantes.
 
 
 ## Requisitos do projeto
@@ -31,7 +31,9 @@ O programa deve ser capaz de permitir o gerenciamento de funcionários, clientes
  * **REQ8** - O sistema deve permitir gerar relatório de vendas e consumo: por refeição e por data. Sendo assim, haverá a possibilidade de quantas refeições foram vendidas/consumidas em um certo período.
 
 ## Modelo Navegacional
-![Modelo navegacional](https://user-images.githubusercontent.com/82189594/190940843-a5520a85-a377-428e-b04b-b17a0d144116.jpg)
+![Modelo navegacional](https://user-images.githubusercontent.com/82189594/192917230-b1d8a6f1-5af4-42f4-af05-67a696fd709a.jpg)
+
+
 
 ## Diagrama de Classes UML
 ![Diagrama Projeto RU](https://user-images.githubusercontent.com/82189594/190940841-f8a1e5d8-a4d1-4b1b-9478-c981e4f3dc87.jpg)

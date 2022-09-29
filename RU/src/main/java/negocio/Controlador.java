@@ -133,8 +133,20 @@ public class Controlador {
             repositorioFuncionario.atualizar(f);
         }
         else{
-            if(nome.isEmpty() || cpf.isEmpty() || codigo.isEmpty() || email.isEmpty() || senha.isEmpty()){
-                throw new ParametroVazioException("");
+            if(nome.isEmpty()) {
+                throw new ParametroVazioException("O nome");
+            }
+            if(cpf.isEmpty() ){
+                throw new ParametroVazioException("O CPF");
+            }
+            if(codigo.isEmpty()){
+                throw new ParametroVazioException("O Código");
+            }
+            if(email.isEmpty() ){
+                throw new ParametroVazioException("O Email");
+            }
+            if(senha.isEmpty()){
+                throw new ParametroVazioException("A senha");
             }
             if(dataNasc.isAfter(LocalDate.now().minusYears(16))){
                 throw new DataInvalidaException(dataNasc);

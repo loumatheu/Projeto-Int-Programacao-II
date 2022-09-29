@@ -139,7 +139,7 @@ public class CadastroUserController {
         if(!(senhaAluno.getText().equals("")) && !(nomeAluno.getText().equals("")) &&  // se não há algum
                 !(emailAluno.getText().equals("")) && !(cpfAluno.getText().equals("")) &&  // campo em branco
                 !(matriculaAluno.getText().equals("")) && !(codAluno.getText().equals("")) &&
-                !(nascAluno.getValue().equals(LocalDate.now()))){
+                (nascAluno.getValue().isBefore(LocalDate.now().minusYears(16)))){
             try {
                 Controlador.getInstance().inserirEstudante(new Estudante(codAluno.getText(),
                         nomeAluno.getText(), cpfAluno.getText(), nascAluno.getValue(),
@@ -177,7 +177,7 @@ public class CadastroUserController {
         if(!(codFun.getText().equals("")) && !(nomeFun.getText().equals("")) &&  // se não há algum
                 !(emailFun.getText().equals("")) && !(cpfFun.getText().equals("")) &&  // campo em branco
                 !(salario.getText().equals("")) &&
-                !(nascFun.getValue().equals(LocalDate.now().minusYears(16)))){
+                (nascFun.getValue().isBefore(LocalDate.now().minusYears(16)))){
             try {
                 Controlador.getInstance().inserirFuncionario(new Funcionario(codFun.getText(),
                         nomeFun.getText(), cpfFun.getText(), nascFun.getValue(),
@@ -235,6 +235,7 @@ public class CadastroUserController {
     @FXML
     protected void searchButton () throws ElementoNaoExisteException {
     	for (Estudante f: Controlador.getInstance().listarEstudantes()) {
+
             if (f.getCpf().equals(cpfSearchE.getText())) {
                 displayNome.setText(f.getNome());
                 displayCpf.setText(f.getCpf());
@@ -271,10 +272,11 @@ public class CadastroUserController {
     }
 
     @FXML
-    protected void removeButton() {
+    protected void removeButton() throws ElementoNaoExisteException{
+
         for (Estudante e: Controlador.getInstance().listarEstudantes()) {
             if (e.getCpf().equals(cpfSearchE.getText())) {
-                try{
+
                     Controlador.getInstance().removerEstudante(e);
                     Alert success = new Alert(Alert.AlertType.INFORMATION);
                     success.setTitle("Estudante removido!");
@@ -285,14 +287,14 @@ public class CadastroUserController {
                     displayCod.setText("");
                     displayNasc.setText("");
                     displayEmail.setText("");
-                }catch (ElementoNaoExisteException ignored){
-                    Alert fail = new Alert(Alert.AlertType.WARNING);
-                    fail.setTitle("ERRO");
-                    fail.setContentText("Estudante não pôde ser removido!");
-                    fail.show();
-                }
+            }else{
+                Alert fail = new Alert(Alert.AlertType.WARNING);
+                fail.setTitle("ERRO");
+                fail.setContentText("Estudante não pôde ser removido!");
+                fail.show();
             }
         }
+
     }
 
     @FXML
@@ -367,21 +369,22 @@ public class CadastroUserController {
     }
     @FXML
     protected void botaoFinalizar() {
-        //if(Double.parseDouble(salarioTextField.getText())<0){
+        Double salario=(Double.parseDouble(salarioTextField.getText()));
+        if(salario>0){
+
             for (Funcionario f: Controlador.getInstance().listarFuncionarios()) {
                 if (f.getCpf().equals(cpfTextField.getText())) {
     		        try {
     			        Controlador.getInstance().atualizarFuncionario(codigoTextField.getText(),nomeTextField.getText()
                                 ,cpfTextField.getText(),dataNascimentoDatePicker.getValue(), emailTextField.getText()
                                 ,senhaTextField.getText(),Double.parseDouble(salarioTextField.getText()),dataAdmmissaoDatePicker.getValue());
-
-    			        Alert info = new Alert(Alert.AlertType.INFORMATION);
-                        info.setTitle("Funcionario Atualizado!");
-                        info.setContentText("Atualização feita com sucesso");
-                        info.show();
-    		        }catch (NumberFormatException e) {
-				        e.printStackTrace();
-			        } catch (ElementoNaoExisteException e) {
+                        Alert fail = new Alert(Alert.AlertType.INFORMATION);
+                        fail.setTitle("Atualização Realizada");
+                        fail.setContentText("As informações do funcionário foram atualizadas.");
+                        fail.show();
+                    } catch (NumberFormatException e) {
+                        e.printStackTrace();
+                    } catch (ElementoNaoExisteException e) {
                         Alert fail = new Alert(Alert.AlertType.WARNING);
                         fail.setTitle("ERRO");
                         fail.setContentText("Funcionário não encontrado!");
@@ -394,17 +397,17 @@ public class CadastroUserController {
                     } catch (ParametroVazioException e) {
                         Alert fail = new Alert(Alert.AlertType.WARNING);
                         fail.setTitle("ERRO");
-                        fail.setContentText("Existe algum campo vazio!");
+                        fail.setContentText(e.getMessage());
                         fail.show();
                     }
                 }
             }
-    	//}
-        //else{
-          //  Alert fail = new Alert(Alert.AlertType.WARNING);
-          //  fail.setTitle("ERRO");
-           // fail.setContentText("Salário Inválido!");
-           // fail.show();
-        //}
+
+        } else {
+            Alert warning = new Alert(Alert.AlertType.WARNING);
+            warning.setTitle("ERRO");
+            warning.setContentText("Salário Inválido!");
+            warning.show();
+        }
     }
 }
