@@ -17,9 +17,9 @@
                         <Image url="@fundo.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="154.0" fitWidth="163.0" layoutX="369.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="371.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@macarrão.png" />
+                        <Image url="@cuscuz.png" />
                     </image>
                 </ImageView>
                 <Label layoutX="405.0" layoutY="209.0" text="Jantar" textFill="WHITE">
@@ -35,11 +35,6 @@
                     </image>
                 </ImageView>
                 <Label layoutX="113.0" layoutY="209.0" text="Almoço" textFill="WHITE">
-                    <font>
-                        <Font size="24.0" />
-                    </font>
-                </Label>
-                <Label layoutX="195.0" layoutY="11.0" text="Opções disponíveis:" textFill="WHITE">
                     <font>
                         <Font size="24.0" />
                     </font>
@@ -68,5 +63,10 @@
                 <Font size="19.0" />
             </font>
         </Label>
+          <Label layoutX="182.0" layoutY="20.0" text="OPÇÕES DISPONÍVEIS:">
+              <font>
+                  <Font size="24.0" />
+              </font>
+          </Label>
     </children>
 </AnchorPane>

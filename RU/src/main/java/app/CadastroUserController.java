@@ -240,6 +240,17 @@ public class CadastroUserController {
                 displayCod.setText(f.getCodigo());
                 displayNasc.setText(f.getDataDeNascimento().toString());
                 displayEmail.setText(f.getEmail());
+            } else {
+                displayNome.setText("");
+                displayCpf.setText("");
+                displayCod.setText("");
+                displayNasc.setText("");
+                displayEmail.setText("");
+
+                Alert fail = new Alert(Alert.AlertType.WARNING);
+                fail.setTitle("ERRO");
+                fail.setContentText("Estudante não encontrado!");
+                fail.show();
             }
         }
     }
@@ -265,6 +276,18 @@ public class CadastroUserController {
                 displayNascFun.setText(f.getDataDeNascimento().toString());
                 displayEmailFun.setText(f.getEmail());
                 displaySalario.setText(String.valueOf(f.getSalario()));
+            } else{
+                displayNomeFun.setText("");
+                displayCpfFun.setText("");
+                displayCodFun.setText("");
+                displayNascFun.setText("");
+                displayEmailFun.setText("");
+                displaySalario.setText("");
+
+                Alert fail = new Alert(Alert.AlertType.WARNING);
+                fail.setTitle("ERRO");
+                fail.setContentText("Funcionário não encontrado!");
+                fail.show();
             }
         }
     }
