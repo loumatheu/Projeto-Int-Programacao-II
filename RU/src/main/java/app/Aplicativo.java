@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import models.Estudante;
 import models.Funcionario;
 import negocio.Controlador;
+import dados.RepositorioFileUtil;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -24,6 +25,8 @@ public class Aplicativo extends Application {
     }
 
     public static void main(String[] args) {
+        Controlador controlador = new Controlador();
+        controlador = (Controlador) RepositorioFileUtil.lerDoArquivo("controlador.dat");
         try {
             Controlador.getInstance().inserirEstudante(new Estudante("1233123","José Silva","12345678900",
                     LocalDate.now(),"email@hotmail.com","senha","1273299786"));
@@ -43,5 +46,11 @@ public class Aplicativo extends Application {
             System.out.println("Teste");
         }*/
         launch();
+    }
+
+    @Override
+    public void stop() {
+        RepositorioFileUtil.salvarArquivo(Controlador.getInstance(), "controlador.dat");
+        System.out.println("Fechando app");
     }
 }

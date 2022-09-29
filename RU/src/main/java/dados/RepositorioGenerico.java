@@ -3,11 +3,12 @@ package dados;
 import exceptions.ElementoJaExisteException;
 import exceptions.ElementoNaoExisteException;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class RepositorioGenerico<T> implements IRepositorioGenerico<T> {
+public class RepositorioGenerico<T> implements IRepositorioGenerico<T>, Serializable {
     
     protected List<T> elementos;
  

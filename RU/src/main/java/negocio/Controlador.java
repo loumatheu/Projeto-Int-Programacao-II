@@ -1,5 +1,6 @@
 package negocio;
 
+import java.io.Serializable;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.*;
@@ -15,7 +16,7 @@ import models.*;
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
 
-public class Controlador {
+public class Controlador implements Serializable {
 
     private IRepositorioGenerico<Estudante> repositorioEstudante;
     private IRepositorioGenerico<Funcionario> repositorioFuncionario;
@@ -28,7 +29,7 @@ public class Controlador {
 
     private Usuario usuario;
 
-    private Controlador (){
+    public Controlador(){
         this.repositorioEstudante = new RepositorioGenerico<>();
         this.repositorioFuncionario = new RepositorioGenerico<>();
         this.repositorioTicketRefeicao = new RepositorioGenerico<>();

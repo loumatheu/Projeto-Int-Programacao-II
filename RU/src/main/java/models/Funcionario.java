@@ -1,8 +1,9 @@
 package models;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Funcionario extends Usuario {
+public class Funcionario extends Usuario implements Serializable {
 
     private double salario;
     private LocalDate dataAdmin;
