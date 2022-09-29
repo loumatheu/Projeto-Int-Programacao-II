@@ -146,11 +146,6 @@ public class TelaCDCardapioController {
        tipos.add(TipoRefeicao.JANTAR);
        cbTipo.setItems(tipos);
        cbTipo.setValue(TipoRefeicao.ALMOCO);
-       principal1SegundaTextField.setText("p1Seg");principal2SegundaTextField.setText("p2Seg");vegetarianoSegundaTextField.setText("vegSeg");fastSegundaTextField.setText("fastSeg");sucoSegundaTextField.setText("sucoSeg");sobremesaSegundaTextField.setText("sobSeg");
-       principal1TercaTextField.setText("p1Ter");principal2TercaTextField.setText("p2Ter");vegetarianoTercaTextField.setText("vegTer");fastTercaTextField.setText("fastTer");sucoTercaTextField.setText("sucoTer");sobremesaTercaTextField.setText("sobTer");
-       principal1QuartaTextField.setText("p1Qua");principal2QuartaTextField.setText("p2Qua");vegetarianoQuartaTextField.setText("vegQua");fastQuartaTextField.setText("fastQua");sucoQuartaTextField.setText("sucoQua");sobremesaQuartaTextField.setText("sobQua");
-       principal1QuintaTextField.setText("p1Qui");principal2QuintaTextField.setText("p2Qui");vegetarianoQuintaTextField.setText("vegQui");fastQuintaTextField.setText("fastQui");sucoQuintaTextField.setText("sucoQui");sobremesaQuintaTextField.setText("sobQui");
-       principal1SextaTextField.setText("p1Sex");principal2SextaTextField.setText("p2Sex");vegetarianoSextaTextField.setText("vegSex");fastSextaTextField.setText("fastSex");sucoSextaTextField.setText("sucoSex");sobremesaSextaTextField.setText("sobSex");
     }
 
 
