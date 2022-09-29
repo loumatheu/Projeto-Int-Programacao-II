@@ -34,6 +34,6 @@ O sistema deve ser capaz de permitir o gerenciamento de funcionários, estudante
 ![Modelo navegacional](https://user-images.githubusercontent.com/82189594/192917230-b1d8a6f1-5af4-42f4-af05-67a696fd709a.jpg)
 
 
-
 ## Diagrama de Classes UML
-![Diagrama Projeto RU](https://user-images.githubusercontent.com/82189594/190940841-f8a1e5d8-a4d1-4b1b-9478-c981e4f3dc87.jpg)
+![UMLAtualizado](https://user-images.githubusercontent.com/110630396/193049008-b1274003-6d79-41c4-870c-02340c346a35.jpg)
+
