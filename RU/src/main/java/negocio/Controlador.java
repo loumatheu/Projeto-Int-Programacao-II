@@ -125,8 +125,24 @@ public class Controlador {
         repositorioFuncionario.remover(obj);
     }
 
-    public void atualizarFuncionario(Funcionario obj) throws ElementoNaoExisteException{
-        repositorioFuncionario.atualizar(obj);
+    public void atualizarFuncionario(String codigo,String nome,String cpf,  LocalDate dataNasc,String email, String senha,double salario, LocalDate dataAdmin) throws ElementoNaoExisteException,DataInvalidaException, ParametroVazioException{
+        if(!nome.isEmpty() && !cpf.isEmpty() && !codigo.isEmpty()
+                && !email.isEmpty() && !senha.isEmpty()&& !dataNasc.isAfter(LocalDate.now().minusYears(16))&& !dataAdmin.isAfter(LocalDate.now())) {
+            System.out.println(salario);
+            Funcionario f = new Funcionario(codigo,nome,cpf,dataNasc,email,senha,salario,dataAdmin);
+            repositorioFuncionario.atualizar(f);
+        }
+        else{
+            if(nome.isEmpty() || cpf.isEmpty() || codigo.isEmpty() || email.isEmpty() || senha.isEmpty()){
+                throw new ParametroVazioException("");
+            }
+            if(dataNasc.isAfter(LocalDate.now().minusYears(16))){
+                throw new DataInvalidaException(dataNasc);
+            }
+            if(dataAdmin.isAfter(LocalDate.now())){
+                new DataInvalidaException(dataAdmin);
+            }
+        }
     }
 
     public void inserirFuncionario(Funcionario obj) throws ElementoJaExisteException {

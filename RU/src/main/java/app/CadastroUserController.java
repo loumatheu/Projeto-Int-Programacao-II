@@ -1,5 +1,6 @@
 package app;
 
+import exceptions.DataInvalidaException;
 import exceptions.ElementoJaExisteException;
 import exceptions.ElementoNaoExisteException;
 import exceptions.ParametroVazioException;
@@ -366,17 +367,13 @@ public class CadastroUserController {
     }
     @FXML
     protected void botaoFinalizar() {
-    	if(!nomeTextField.getText().isEmpty() && !cpfTextField.getText().isEmpty()
-    			&& !codigoTextField.getText().isEmpty() && !emailTextField.getText().isEmpty()
-    			&& !salarioTextField.getText().isEmpty() && !senhaTextField.getText().isEmpty()
-    			&& dataNascimentoDatePicker.getValue().isAfter(LocalDate.now().minusYears(16))
-    			&& !dataAdmmissaoDatePicker.getValue().isAfter(LocalDate.now())) {
+        //if(Double.parseDouble(salarioTextField.getText())<0){
             for (Funcionario f: Controlador.getInstance().listarFuncionarios()) {
                 if (f.getCpf().equals(cpfTextField.getText())) {
     		        try {
-    			        Controlador.getInstance().atualizarFuncionario(new Funcionario(codigoTextField.getText(),nomeTextField.getText()
+    			        Controlador.getInstance().atualizarFuncionario(codigoTextField.getText(),nomeTextField.getText()
                                 ,cpfTextField.getText(),dataNascimentoDatePicker.getValue(), emailTextField.getText()
-                                ,senhaTextField.getText(),Double.parseDouble(salarioTextField.getText()),dataAdmmissaoDatePicker.getValue()));
+                                ,senhaTextField.getText(),Double.parseDouble(salarioTextField.getText()),dataAdmmissaoDatePicker.getValue());
 
     			        Alert info = new Alert(Alert.AlertType.INFORMATION);
                         info.setTitle("Funcionario Atualizado!");
@@ -389,9 +386,25 @@ public class CadastroUserController {
                         fail.setTitle("ERRO");
                         fail.setContentText("Funcionário não encontrado!");
                         fail.show();
-			        }
+			        } catch (DataInvalidaException e) {
+                        Alert fail = new Alert(Alert.AlertType.WARNING);
+                        fail.setTitle("ERRO");
+                        fail.setContentText(e.getMessage());
+                        fail.show();
+                    } catch (ParametroVazioException e) {
+                        Alert fail = new Alert(Alert.AlertType.WARNING);
+                        fail.setTitle("ERRO");
+                        fail.setContentText("Existe algum campo vazio!");
+                        fail.show();
+                    }
                 }
             }
-    	}
+    	//}
+        //else{
+          //  Alert fail = new Alert(Alert.AlertType.WARNING);
+          //  fail.setTitle("ERRO");
+           // fail.setContentText("Salário Inválido!");
+           // fail.show();
+        //}
     }
 }
